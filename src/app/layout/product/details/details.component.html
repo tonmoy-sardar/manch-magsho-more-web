@@ -1,0 +1,72 @@
+<app-header></app-header>
+<div class="body-banner">
+  <div class="col-md-12">
+    <div class="row">
+      <div class="col-md-12 "> <img class="img-fluid logo-small" src="assets/img/logo.png" alt="">
+        <div class="product-details">
+          <div class="image-details">
+            <div class="container">
+              <h2>{{proDetails.name}}</h2> <img class="img-fluid" [src]="proDetails.image_small !=''? imageBaseUrl+ proDetails.image_small : 'assets/imgs/no-image.png'">
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="bg-light text-primary details-text">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-6 offset-md-3 ">
+              <table class="table table-bordered text-center">
+                <tbody>
+                  <tr>
+                    <td>Rate: ₹ {{proDetails.price}} / {{proDetails.quantity_count}}
+                      {{proDetails.unit}}</td>
+                    <td>
+                      <div class="row" *ngIf="proDetails.product_stock > 1">
+                        <div class="col-md-6" *ngIf="proDetails.isCart">
+                          <div class="input-group"> <span class="input-group-btn"> <button type="button" class="btn btn-info btn-number"
+                                data-type="minus" data-field="quant[1]" (click)="decrement(proDetails)">
+                                <span class=""><i class="fa fa-minus" aria-hidden="true"></i></span> </button> </span>
+                            <input type="text" name="quant[1]" class="form-control input-number text-center"
+                              [(ngModel)]="proDetails.quantity" min="1" max="10"> <span class="input-group-btn">
+                              <button type="button" class="btn btn-info btn-number" data-type="plus" data-field="quant[1]"
+                                (click)="increment(proDetails)">
+                                <span class=""><i class="fa fa-plus" aria-hidden="true"></i></span> </button> </span>
+                          </div>
+                        </div>
+                        <div class="col-md-6" *ngIf="!proDetails.isCart"> <button type="button" class="btn btn-secondary"
+                            data-toggle="tooltip" title="Add to cart" (click)="addtoCart(proDetails)"> Add to cart
+                            <i class="fa fa-cart-plus" aria-hidden="true"></i></button>
+                        </div>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr *ngIf="proDetails.product_stock > 1">
+                    <td>Price: ₹ {{proDetails.totalOurPrice}}</td>
+                    <td>Savings: {{this.proDetails.totalSavings}}</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-4 offset-md-4 submit-btn">
+              <div class="row">
+                <div class="col-md-4"> <a href="javascript:void(0);" class="price"> Food Value </a>
+                </div>
+
+                <div class="col-md-4"> <a href="javascript:void(0);" (click)="gotoRecipe(proDetails.id)" class="language">Recipie
+                  </a></div>
+                <div class="col-md-4"> <a href="javascript:void(0);" (click)="gotoTrivia(proDetails.id)" class="trivia">Trivia
+                  </a></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div *ngIf="proDetails.product_stock > 5"><a class="write-review-btn" style="color:green;background: #8CF82380;"
+        href="javascript:void(0);">Available</a></div>
+    <div *ngIf="proDetails.product_stock > 0 && proDetails.product_stock < 6"><a class="write-review-btn" style="color:#8E750B;background: #E3C02D4D;"
+        href="javascript:void(0);">Limited</a></div>
+    <div *ngIf="proDetails.product_stock < 1"><a class="write-review-btn" href="javascript:void(0);">Sold Out</a>
+    </div>

@@ -1,0 +1,102 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light static-top">
+  <div class="container">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
+      aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse border-box" id="navbarResponsive">
+      <ul class="navbar-nav mr-auto social">
+        <li *ngIf="loggedIn" class="nav-item">
+          <a class="nav-link" href="javascript:void(0);">{{userName}}</a>
+        </li>
+        <li *ngIf="loggedIn" class="nav-item">
+          <a class="nav-link" (click)="logout()" href="javascript:void(0);">Logout</a>
+        </li>
+        <li *ngIf="!loggedIn" class="nav-item dropdown">
+          <a class="nav-link" id="navbarDropdown1" [routerLink]="['/login']" href="javascript:void(0);"
+            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Login</a>
+        </li>
+        <li *ngIf="!loggedIn" class="nav-item">
+          <a class="nav-link" [routerLink]="['/signup']" href="javascript:void(0);">Register</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="javascript:void(0);"> <img class="img-fluid" src="assets/img/instagram.png" alt="">
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="javascript:void(0);"> <img class="img-fluid" src="assets/img/facebook.png" alt="">
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="javascript:void(0);"> <img class="img-fluid" src="assets/img/tweter.png" alt="">
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="javascript:void(0);"> <img class="img-fluid" src="assets/img/whattsapp.png" alt="">
+          </a>
+        </li>
+      </ul>
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item active">
+          <a class="nav-link" [routerLink]="['/category']" href="javascript:void(0);">Product</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" [routerLink]="['/aboutus']" href="javascript:void(0);">About Us</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="javascript:void(0);">Why Us</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="javascript:void(0);">Services</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" [routerLink]="['/blog']" href="javascript:void(0);">Blog</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" [routerLink]="['/recipe']" href="javascript:void(0);">Recipes </a>
+        </li>
+        
+            <a class="header-top-button" [routerLink]="['/cart']">
+              <i aria-hidden="true" class="fa fa-shopping-cart"></i>
+              <span class="total-cart">{{totalCart}}</span></a>
+  
+
+        
+
+
+      </ul>
+    </div>
+  </div>
+</nav>
+<div class="col-md-12  bg-derk">
+  <div class="row">
+    <ul class="market-scrool">
+      <marquee>
+        <li class="red"><a href="javascript:void(0);">Onion Rs 24/ Kg <i class="fa fa-sort-desc" aria-hidden="true"></i>
+          </a></li>
+        <li class="green"><a href="javascript:void(0);">Potato Rs 19/ Kg <i class="fa fa-sort-asc"
+              aria-hidden="true"></i></a></li>
+        <li class="yellow"><a href="javascript:void(0);">Potato Rs 19/ Kg <i class="fa fa-sort"
+              aria-hidden="true"></i></a></li>
+        <li class="red"><a href="javascript:void(0);">Onion Rs 24/ Kg <i class="fa fa-sort-desc" aria-hidden="true"></i>
+          </a></li>
+        <li class="green"><a href="javascript:void(0);">Potato Rs 19/ Kg <i class="fa fa-sort-asc"
+              aria-hidden="true"></i></a></li>
+        <li class="yellow"><a href="javascript:void(0);">Potato Rs 19/ Kg <i class="fa fa-sort"
+              aria-hidden="true"></i></a></li>
+        <li class="red"><a href="javascript:void(0);">Onion Rs 24/ Kg <i class="fa fa-sort-desc" aria-hidden="true"></i>
+          </a></li>
+        <li class="green"><a href="javascript:void(0);">Potato Rs 19/ Kg <i class="fa fa-sort-asc"
+              aria-hidden="true"></i></a></li>
+        <li class="yellow"><a href="javascript:void(0);">Potato Rs 19/ Kg <i class="fa fa-sort"
+              aria-hidden="true"></i></a></li>
+        <li class="red"><a href="javascript:void(0);">Onion Rs 24/ Kg <i class="fa fa-sort-desc" aria-hidden="true"></i>
+          </a></li>
+        <li class="green"><a href="javascript:void(0);">Potato Rs 19/ Kg <i class="fa fa-sort-asc"
+              aria-hidden="true"></i></a></li>
+        <li class="yellow"><a href="javascript:void(0);">Potato Rs 19/ Kg <i class="fa fa-sort"
+              aria-hidden="true"></i></a></li>
+      </marquee>
+    </ul>
+  </div>
+</div>

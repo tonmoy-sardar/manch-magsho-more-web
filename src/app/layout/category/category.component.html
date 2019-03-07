@@ -1,0 +1,47 @@
+<app-header></app-header>
+<div class="body-banner bg-light">
+    <div class="col-md-12">
+        <div class="row">
+            <div class="col-md-12 ">
+                <img class="img-fluid logo-small" src="assets/img/logo.png" alt="">
+                <div class="row">
+                    <div class="col-md-12 pading-top-sec">
+                        <div class="row">
+                            <div class="col-md-4">
+                                    <app-sidebar-userdetails></app-sidebar-userdetails> 
+                            </div>
+                            <div class="col-md-8">
+                                <div class="shopping-user">
+                                    <div class="guestshop" *ngFor="let category of categoryList">
+                                        <div class="guestimg">
+                                            <img (click)="goToProList(category.id,category.name)"
+                                                [src]="category.image_small != ''? imageBaseUrl+ category.image_small : 'assets/imgs/no-image.png'">
+                                        </div> {{category.name}}
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Sidebar button Download and contact us -->
+    <app-sidebar-button></app-sidebar-button>
+    <div class="inner-search">
+        <div class="col-md-6 offset-md-3">
+            <div class="form-group">
+                <div class="input-group mb-2 rounded-pill search-input">
+                    <div class="input-group-prepend  width100 ">
+                        <div class="input-group-text bg-info text-dark">Search </div>
+                    </div>
+                    <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Search Product"
+                        required>
+                </div>
+                <!-- <a class="resend-btn subscribe text-dark" href="javascript:void(0);">Subscribe</a> -->
+            </div>
+        </div>
+    </div>
+    <app-sidebar-menu></app-sidebar-menu>
+</div>

@@ -1,0 +1,145 @@
+<app-header></app-header>
+<div class="body-banner bg-light">
+  <div class="col-md-12">
+    <div class="row">
+      <div class="col-md-12 ">
+        <img class="img-fluid logo-small" src="assets/img/logo.png" alt="">
+        <div class="row">
+          <div class="col-md-12 pading-top-sec">
+            <div class="row">
+              <div class="col-md-3">
+
+                <app-sidebar-userdetails></app-sidebar-userdetails> 
+              </div>
+              <div class="col-md-8">
+                <div class="order-history">
+                  <h3>Order History</h3>
+                  <div class="favourit-btn"><a href="javascript:void(0);">Favourites</a></div>
+                  <div class="clearfix"></div>
+                  <div class="order-section order-section2" *ngFor="let order of orderList; let i = index">
+                    <div class="row">
+                      <div class="col-md-4">
+                        <p>Order number {{order.order_no}}</p>
+                        <div class="order-img">
+                          <!-- <img src="assets/img/Intersection14.png" alt=""> -->
+                        </div>
+                        <!-- <div class="order-img"><img src="assets/img/Intersection-5.png" alt=""></div>
+                        <div class="order-img"><img src="assets/img/Intersection19.png" alt=""></div> -->
+                      </div>
+                      <div class="col-md-3">
+                        <h2><span>Date {{order.date_created |
+                            date:'MMM d, y'}}</span></h2>
+                      </div>
+                      <div class="col-md-2">
+                        <h4>Grand Total<br><span>Payment Status</span></h4>
+                        <div class="ptext">Payment Mode</div>
+                      </div>
+                      <div class="col-md-3">
+                        <h4>
+                            {{order.total_price}}
+                          <br>
+                          <span *ngIf="order.is_paid==0">Pending</span>
+                          <span *ngIf="order.is_paid==1">Paid</span>
+                          <span *ngIf="order.is_paid==2">Cancel</span>
+                        </h4>
+                        <div class="ptext">
+                            <span *ngIf="order.payment_type ==1">Paytm</span>
+                            <span *ngIf="order.payment_type ==2">COD</span>
+                        </div>
+                        <div class="favbtn"><a href="javascript:void(0);">Favourite</a></div>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- <div class="order-section">
+                    <div class="row">
+                      <div class="col-md-4">
+                        <p>Order number 345674</p>
+                        <div class="order-img"><img src="assets/img/Intersection14.png" alt=""></div>
+                        <div class="order-img"><img src="assets/img/Intersection-5.png" alt=""></div>
+                        <div class="order-img"><img src="assets/img/Intersection19.png" alt=""></div>
+                      </div>
+                      <div class="col-md-3">
+                        <h2>Deb<br><span>Date 22-12-2018</span></h2>
+                      </div>
+                      <div class="col-md-2">
+                        <h4>Value<br><span>Savings</span></h4>
+                        <div class="ptext">Items</div>
+                      </div>
+                      <div class="col-md-3">
+                        <h4>2490<br><span>280</span></h4>
+                        <div class="ptext">3</div>
+                        <div class="favbtn2"><a href="javascript:void(0);">Favourit</a></div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="order-section">
+                    <div class="row">
+                      <div class="col-md-4">
+                        <p>Order number 345674</p>
+                        <div class="order-img"><img src="assets/img/Intersection14.png" alt=""></div>
+                        <div class="order-img"><img src="assets/img/Intersection-5.png" alt=""></div>
+                        <div class="order-img"><img src="assets/img/Intersection19.png" alt=""></div>
+                      </div>
+                      <div class="col-md-3">
+                        <h2>Deb<br><span>Date 22-12-2018</span></h2>
+                      </div>
+                      <div class="col-md-2">
+                        <h4>Value<br><span>Savings</span></h4>
+                        <div class="ptext">Items</div>
+                      </div>
+                      <div class="col-md-3">
+                        <h4>2490<br><span>280</span></h4>
+                        <div class="ptext">3</div>
+
+                        <div class="favbtn2"><a href="javascript:void(0);">Favourit</a></div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="order-section">
+                    <div class="row">
+                      <div class="col-md-4">
+                        <p>Order number 345674</p>
+                        <div class="order-img"><img src="assets/img/Intersection14.png" alt=""></div>
+                        <div class="order-img"><img src="assets/img/Intersection-5.png" alt=""></div>
+                        <div class="order-img"><img src="assets/img/Intersection19.png" alt=""></div>
+                      </div>
+                      <div class="col-md-3">
+                        <h2>Deb<br><span>Date 22-12-2018</span></h2>
+                      </div>
+                      <div class="col-md-2">
+                        <h4>Value<br><span>Savings</span></h4>
+                        <div class="ptext">Items</div>
+                      </div>
+                      <div class="col-md-3">
+                        <h4>2490<br><span>280</span></h4>
+                        <div class="ptext">3</div>
+                        <div class="favbtn2"><a href="javascript:void(0);">Favourit</a></div>
+                      </div>
+                    </div>
+                  </div> -->
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+<!-- Sidebar button Download and contact us -->
+  <app-sidebar-button></app-sidebar-button>
+
+  <div class="inner-search">
+    <div class="col-md-6 offset-md-3">
+      <div class="form-group">
+        <div class="input-group mb-2 rounded-pill search-input">
+          <div class="input-group-prepend  width100 ">
+            <div class="input-group-text bg-info text-dark">Search </div>
+          </div>
+          <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Search Product" required>
+        </div>
+        <!-- <a class="resend-btn subscribe text-dark" href="javascript:void(0);">Subscribe</a> -->
+      </div>
+    </div>
+  </div>
+  <app-sidebar-menu></app-sidebar-menu>
+</div>

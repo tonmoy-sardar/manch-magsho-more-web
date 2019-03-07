@@ -1,0 +1,51 @@
+<app-header></app-header>
+<div class="body-banner">
+  <div class="col-md-12">
+    <div class="row">
+      <div class="col-md-12 "><img class="img-fluid logo-small" src="images/logo.png" alt="">
+        <div class="product-details">
+          <div class="image-details">
+            <div class="container">
+              <h2>{{recipeDetails.blog_title}}</h2> <span>By {{recipeDetails.user_name.name}}</span> 
+              <!-- <img class="img-fluid" src="images/lntersection.png"
+                alt=""> -->
+                <img class="img-fluid" [src]="recipeDetails.blog_small_image != ''? imageBaseUrl+ recipeDetails.blog_small_image : 'assets/imgs/no-image.png'"
+        alt="" />
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="bg-light text-primary details-text">
+        <div class="container">
+          <!-- <p>Thinking what to make for your next meal? Take out the beautiful brinjal from the fridge and turn it into
+            this delicious recipe.</p> -->
+          <h2>INGREDIENTS</h2>
+          <!-- <ul>
+            <li>1 eggplant roasted, skinned and chopped</li>
+            <li>1 tbs bori’s</li>
+            <li>1 tbs chopped onion</li>
+            <li>1 tsp green chilies chopped</li>
+            <li>1 tsp coriander leaves chopped</li>
+            <li>1 tbs mustard oil</li>
+            <li>salt and sugar to taste</li>
+          </ul>
+          <h2>DIRECTIONS</h2>
+          <p>1. In a large bowl, mix together charred and mashed brinjal, salt, onions, chillies, coriander, sugar and
+            mix well.</p>
+          <p>2. In a heated pan, add in oil and bori. Roast this until golden brown and take it out on a plate.</p>
+          <p>3. Crush the roasted bori and add it to the brinjal mix.</p>
+          <p> 4. Garnish and serve.</p> -->
+         
+          <div [innerHtml]="recipeDetails.blog_content">
+          </div>
+          <div class="col-md-4 offset-md-4 text-btn">
+            <div class="row">
+              <div class="col-md-6"> <a href="#" class="price"> Rate </a></div>
+              <div class="col-md-6"> <a href="#" class="language">Share </a></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

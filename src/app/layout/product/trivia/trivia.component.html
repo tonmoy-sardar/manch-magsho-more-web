@@ -1,0 +1,29 @@
+<app-header></app-header>
+<div class="body-banner">
+  <div class="col-md-12">
+    <div class="row">
+      <div class="col-md-12 "><img class="img-fluid logo-small" src="images/logo.png" alt="">
+        <div class="product-details">
+          <div class="image-details">
+            <div class="container">
+              <h2>{{productName}}</h2>
+             
+                <img class="img-fluid" [src]="productImage != ''? imageBaseUrl+ productImage : 'assets/imgs/no-image.png'">
+
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="bg-light text-primary details-text">
+        <div class="container">
+          <h2>Trivia</h2>
+          <mat-list role="list" *ngFor="let trivia of triviaDetails; let i = index">
+            <mat-list-item role="listitem"> {{trivia.product_trivia_title}}</mat-list-item>
+           <p>{{trivia.product_trivia_description}}</p>
+          </mat-list>
+          
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

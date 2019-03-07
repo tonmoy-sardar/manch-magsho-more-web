@@ -1,0 +1,51 @@
+<app-header></app-header>
+<div class="body-banner bg-light">
+  <div class="col-md-12">
+    <div class="row">
+      <div class="col-md-12 ">
+        <img class="img-fluid logo-small" src="assets/img/logo.png" alt="">
+        <div class="row">
+          <div class="col-md-10 pading-top-sec">
+            <div class="row">
+              <div class="col-md-4">
+                  <app-sidebar-userdetails></app-sidebar-userdetails> 
+              </div>
+              <div class="col-md-8">
+                <div class="shopping-user">
+                  <div (click)="gotoPage('todayspecial');" class="shop-box">
+                    <h3>Today’s Special</h3>
+                  </div>
+                  <div (click)="gotoPage('alacarte');" class="shop-box">
+                    <h3>Ala Carte</h3>
+                  </div>
+                  <div (click)="gotoPage('order');" class="shop-box">
+                    <h3>Repeat Order</h3>
+                  </div>
+                  <div (click)="gotoPage('combooffer');" class="shop-box">
+                    <h3>Combo Offers</h3>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <a class="download-app" href="javascript:void(0);">Download App</a>
+  <a class="contact-btn" href="javascript:void(0);">Contact Us</a>
+  <div class="inner-search">
+    <div class="col-md-6 offset-md-3">
+      <div class="form-group">
+        <div class="input-group mb-2 rounded-pill search-input">
+          <div class="input-group-prepend  width100 ">
+            <div class="input-group-text bg-info text-dark">Search </div>
+          </div>
+          <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Search Product" required>
+        </div>
+        <a class="resend-btn subscribe text-dark" href="javascript:void(0);">Subscribe</a>
+      </div>
+    </div>
+  </div>
+  <app-sidebar-menu></app-sidebar-menu>
+</div>

@@ -1,0 +1,10 @@
+<a class="submit-review-right top-45" [routerLink]="['/dashboard']" >Dashboard </a>
+<a *ngIf="loggedIn" class="submit-review-right top-52" [routerLink]="['/order']" >Order History </a>
+<a *ngIf="!loggedIn" class="submit-review-right top-52"  href="javascript:void(0);" (click)="gotoPage('login')">Order History </a>
+<a *ngIf="loggedIn" class="submit-review-right top-59" href="javascript:void(0);">Personal Details </a>
+<a *ngIf="!loggedIn" class="submit-review-right top-59"  href="javascript:void(0);" (click)="gotoPage('login')">Personal Details </a>
+<a *ngIf="loggedIn" class="submit-review-right top-66" [routerLink]="['/wishlist']">Wish List </a>
+<a *ngIf="!loggedIn" class="submit-review-right top-66" href="javascript:void(0);" (click)="gotoPage('login')">Wish List </a>
+<a *ngIf="loggedIn" class="submit-review-right top-73" href="javascript:void(0);">Spending Patern </a>
+<a *ngIf="!loggedIn" class="submit-review-right top-73" href="javascript:void(0);" (click)="gotoPage('login')">Spending Patern </a>
+<a class="submit-review-right top-80" [routerLink]="['/recipe']" >Recipes </a>
