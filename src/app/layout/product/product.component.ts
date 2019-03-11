@@ -17,17 +17,32 @@ export class ProductComponent implements OnInit {
   productResultNext: any;
   userId:number;
   catName:string;
+  productListCount:any;
+  itemPerPage: number;
+  itemNo: number;
+  lower_count: number;
+  upper_count: number;
+  paginationMaxSize:number;
+  catId:any;
+  searchText:any;
+  isPagination:number;
   constructor(
     private router: Router,
     private route: ActivatedRoute,
     private productService: ProductService,
   ) { }
   ngOnInit() {
+    this.itemNo = 0;
     this.defaultPagination = 1;
+    this.paginationMaxSize = Globals.paginationMaxSize;
+    this.itemPerPage = Globals.itemPerPage;
+
     this.imageBaseUrl = environment.imageBaseUrl;
     this.userId = +localStorage.getItem('userId');
-    this.productList(this.route.snapshot.params['id']);
- // this.catName = this.route.snapshot.params['name'];
+    this.catId = this.route.snapshot.params['id'];
+    this.productList(this.catId);
+    this.searchText ="";
+    this.isPagination =0;
   }
   productList(id) {
     let params: URLSearchParams = new URLSearchParams();
@@ -40,12 +55,30 @@ export class ProductComponent implements OnInit {
         ;
         this.productResultNext = res['result']['next'];
         this.allProductList = res['result']['productlist'];
+
+        //code for pagination
+        this.isPagination=1;
+        this.productListCount =  res['result']['total_count'];
+        this.itemNo = (this.defaultPagination - 1) * this.itemPerPage;
+        this.lower_count = this.itemNo + 1;
+        if (this.productListCount > this.itemPerPage * this.defaultPagination) {
+          this.upper_count = this.itemPerPage * this.defaultPagination
+        }
+        else {
+          this.upper_count = this.productListCount;
+        }
+        console.log(this.productListCount);
+
+        //this.productLinks = res['result']['links'];
       },
       error => {
       console.log(error);
       }
     )
   }
+  pagination() {
+    this.productList(this.route.snapshot.params['id']);
+  };
   addWishList(id) {
     let data = {
       "product_id": id,
@@ -60,6 +93,23 @@ export class ProductComponent implements OnInit {
       }
     )
   }
+
+  proSearch(searchtxt) {
+    this.searchText = searchtxt;
+    this.allProductList = [];
+    this.productService.productSearch(this.catId, this.searchText).subscribe(
+      res => {
+        console.log(res);
+        this.allProductList = res['result'];
+        this.isPagination=0;
+      },
+      error => {
+        this.allProductList=[];
+      }
+    )
+  }
+
+
   gotoProductDetails(id) {
     this.router.navigate(['/product/details',id]);
   }

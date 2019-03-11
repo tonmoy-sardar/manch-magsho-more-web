@@ -53,4 +53,45 @@ export class ProductService {
   getriviaDetails(id): Observable<any> {
     return this.http.get(environment.apiEndpoint + 'producttrivialistbyproductid/'+id)
   }
+  addFavourite(id): Observable<any> {
+    return this.http.get(environment.apiEndpoint + 'favouriteOrder/'+id)
+  }
+  getSpendingPattern(id): Observable<any> {
+    return this.http.get(environment.apiEndpoint + 'productspendcatwisebyuserid/'+id+'/')
+  }
+  addRating(data): Observable<any> {
+    return this.http.post(environment.apiEndpoint + 'addRating/',data)
+  }
+  addReview(data): Observable<any> {
+    return this.http.post(environment.apiEndpoint + 'addcomment/',data)
+  }
+  getSearchList(searchText,user_id): Observable<any> {
+    if(user_id>0)
+    {
+      return this.http.get(environment.apiEndpoint + 'productslistsearch/' + user_id + '/?search_key='+searchText)
+    }
+    else
+    {
+      return this.http.get(environment.apiEndpoint + 'productslistsearch/?search_key='+searchText)
+    }
+   
+  }
+  productSearch(id,keywords): Observable<any> {
+    if(id>0)
+    {
+      return this.http.get(environment.apiEndpoint + 'productslistsearchbycatid/' + id + '/?search_key='+keywords)
+    }
+    else
+    {
+      return this.http.get(environment.apiEndpoint + 'productslistsearchbycatid/?search_key='+keywords)
+    }
+   
+  }
+  getBlogList(): Observable<any> {
+    return this.http.get(environment.apiEndpoint + 'bloglist/blog-cat/')
+  }
+
+  getAllProList(): Observable<any> {
+    return this.http.get(environment.apiEndpoint + 'productslist')
+  }
 }

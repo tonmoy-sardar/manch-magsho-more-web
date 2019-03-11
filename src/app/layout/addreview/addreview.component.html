@@ -1,0 +1,33 @@
+<app-header></app-header>
+<div class="body-banner">
+  <div class="col-md-12">
+    <div class="row">
+      <div class="col-md-12 "> <img class="img-fluid logo-small" src="assets/img/logo.png" alt="">
+        <div class="product-details">
+            <div class="image-details">
+              <div class="container">
+                <h2>{{recipeDetails.blog_title}}</h2> <span>By {{recipeDetails.user_name.name}}</span> 
+                <!-- <img class="img-fluid" src="assets/img/lntersection.png"
+                  alt=""> -->
+                  <img  class="img-fluid"
+                  [src]="recipeDetails.blog_small_image != ''? imageBaseUrl+ recipeDetails.blog_small_image : 'assets/imgs/no-image.png'">
+              </div>
+            </div>
+          </div>
+      </div>
+      <div class="bg-light text-primary details-text">
+          <form [formGroup]="reviewForm"  novalidate >
+        <div class="container">
+          <div class="rating-sec"> 
+            <textarea formControlName="review" name="review" [ngClass]="displayFieldCss(reviewForm,'review')"> </textarea> 
+            <div class="invalid-feedback text-left" *ngIf="isFieldValid(reviewForm,'review')">
+                Please enter password
+              </div>
+          </div>
+        </div>
+        <a class="write-review-btn" href="javascript:void(0);">Write a review</a> <a class="submit-review-btn" href="javascript:void(0);"  (click)="addReview()">Submit</a>
+      </form>
+      </div>
+    </div>
+  </div>
+</div>

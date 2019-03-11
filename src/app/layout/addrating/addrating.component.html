@@ -1,0 +1,46 @@
+<app-header></app-header>
+<div class="body-banner">
+  <div class="col-md-12">
+    <div class="row">
+      <div class="col-md-12 "> <img class="img-fluid logo-small" src="assets/img/logo.png" alt="">
+        <div class="product-details">
+          <div class="image-details">
+            <div class="container">
+              <h2>{{recipeDetails.blog_title}}</h2> <span>By {{recipeDetails.user_name.name}}</span> 
+              <!-- <img class="img-fluid" src="assets/img/lntersection.png"
+                alt=""> -->
+                <img  class="img-fluid"
+                [src]="recipeDetails.blog_small_image != ''? imageBaseUrl+ recipeDetails.blog_small_image : 'assets/imgs/no-image.png'">
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="bg-light text-primary details-text">
+        <div class="container">
+          <div class="rating-sec"><a class="rate-racipy">Rate the recipe</a>
+            <div class="rate">
+                <a  *ngFor="let item of starList; let i=index " (click)="setStar(i)">  
+                    <i class="fa" [ngClass]="{'fa-star-o':item,'fa-star':!item}"></i>   
+                   </a>  
+               <!-- <input type="radio" id="star5" name="rate" value="5" /> 
+               <label for="star5" title="text">5 stars</label> 
+                
+                <input type="radio" id="star4" name="rate" value="4" /> <label for="star4" title="text">4
+                stars</label> <input type="radio" id="star3" name="rate" value="3" /> <label for="star3" title="text">3
+                stars</label> <input type="radio" id="star2" name="rate" value="2" /> <label for="star2" title="text">2
+                stars</label> <input type="radio" id="star1" name="rate" value="1" /> <label for="star1" title="text">1
+                star</label>  -->
+              
+              </div>
+          </div>
+          <div class="col-md-4 offset-md-4 submit-btn">
+            <div class="row">
+              <div class="col-md-6"> <a href="javascript:void(0);" (click)="addRating()" class="price"> Rate </a> </div>
+              <div class="col-md-6"> <a href="javascript:void(0);" class="language">Share </a> </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div><a class="write-review-btn" href="javascript:void(0);" (click)="gotoReview()">Write a review</a>
+</div>

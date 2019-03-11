@@ -18,6 +18,12 @@ export class OrderComponent implements OnInit {
   customer_cart_data: any;
   orderListNext:any;
   defaultPagination:number;
+  orderCount:any;
+  itemPerPage: number;
+  itemNo: number;
+  lower_count: number;
+  upper_count: number;
+  paginationMaxSize:number;
   constructor(
     private router: Router,
     private route: ActivatedRoute,
@@ -26,6 +32,11 @@ export class OrderComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    this.itemNo = 0;
+    this.defaultPagination = 1;
+    this.paginationMaxSize = Globals.paginationMaxSize;
+    this.itemPerPage = Globals.itemPerPage;
+
     this.imageBaseUrl = environment.imageBaseUrl;
     this.userId = +localStorage.getItem('userId');
     this.customer_cart_data = [];
@@ -41,11 +52,26 @@ export class OrderComponent implements OnInit {
         console.log(res);
         this.orderListNext = res['result']['next'];
        this.orderList = res['result']['orderlist'];
+
+        //code for pagination
+        this.orderCount =  res['result']['total_count'];
+        this.itemNo = (this.defaultPagination - 1) * this.itemPerPage;
+        this.lower_count = this.itemNo + 1;
+        if (this.orderCount > this.itemPerPage * this.defaultPagination) {
+          this.upper_count = this.itemPerPage * this.defaultPagination
+        }
+        else {
+          this.upper_count = this.orderCount;
+        }
+        console.log(this.orderCount);
       },
       error => {
       }
     )
   }
+  pagination() {
+    this.getOrderList(this.userId);
+  };
 
   repeatOrder(order)
   {
@@ -86,7 +112,8 @@ export class OrderComponent implements OnInit {
         this.cartService.cartNumberStatus(true);
         if(i==this.productList.length-1)
         {
-         // this.navCtrl.push('CartPage');
+          this.router.navigate(['/cart']);
+
         }
        }
 
@@ -99,6 +126,17 @@ export class OrderComponent implements OnInit {
 
   setCartData() {
     sessionStorage.setItem("cart", JSON.stringify(this.customer_cart_data));
+  }
+
+  addFav(id) {
+   
+    this.productService.addFavourite(id).subscribe(
+      res => {
+        this.getOrderList(this.userId);
+      },
+      error => {
+      }
+    )
   }
 
 }

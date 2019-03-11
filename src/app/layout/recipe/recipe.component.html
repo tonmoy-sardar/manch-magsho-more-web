@@ -17,7 +17,7 @@
                       <a class="sold" href="javascript:void(0)" *ngIf="recipeList.recipe_type !='veg'">{{recipeList.recipe_type}}</a>
                     </div>
                     <div class="col-md-7 img-btm">
-                      <div class="rate">
+                      <!-- <div class="rate">
                         <input type="radio" id="star5" name="rate" value="5" />
                         <label for="star5" title="text">5 stars</label>
                         <input type="radio" id="star4" name="rate" value="4" />
@@ -28,7 +28,22 @@
                         <label for="star2" title="text">2 stars</label>
                         <input type="radio" id="star1" name="rate" value="1" />
                         <label for="star1" title="text">1 star</label>
-                      </div>
+                      </div> -->
+                      
+                      <div class="rate" *ngIf="recipeList.average_rating==null" style="padding-left: 10px;">
+                          <span class="rating" *ngFor="let rat of rating; let i = index" [ngClass]="[i <= 0 - 1 ? 'active' : '']"
+                            style="margin-right: 2px;">
+                            <i class="fa fa-star" aria-hidden="true"></i>
+                          </span>
+                        </div>
+                        <div class="rate" *ngIf="recipeList.average_rating!=null" style="padding-left: 10px;">
+                          
+                          <span class="rating" *ngFor="let rat of rating; let i = index"
+                            [ngClass]="[i <= recipeList.average_rating.averagerating - 1 ? 'active' : '']"
+                            style="margin-right: 2px;">
+                            <i class="fa fa-star" aria-hidden="true"></i>
+                          </span>
+                        </div>
                       <img class="img-fluid"
                       [src]="recipeList.blog_small_image != ''? imageBaseUrl+ recipeList.blog_small_image : 'assets/imgs/no-image.png'">
                     
@@ -39,6 +54,10 @@
                 </div>
 
               </div>
+            </div>
+            <div class="card-body pull-right" *ngIf="recipeListCount > itemPerPage">
+                <ngb-pagination [collectionSize]="recipeListCount" [maxSize]="paginationMaxSize" [(page)]="defaultPagination"
+                    (pageChange)="pagination()" size="sm"></ngb-pagination>
             </div>
           </div>
         </div>
