@@ -119,6 +119,7 @@ ul {
     background: #0000004d;
 }
 
+
 /*
 .lady-image-full {   background: url(../images/girl.png) no-repeat center bottom;
     min-height: 629px;
@@ -369,6 +370,7 @@ figure img {
     height: 50%;
 }
 
+
 /* The colour of the indicators */
 
 .blog .carousel-indicators li {
@@ -588,12 +590,16 @@ figure img {
     text-align: center;
     width: 45%;
     float: left;
-    margin: 5px;
+    margin: 3px;
 }
 
 .img-btm img {
     margin: 0 auto;
     display: block;
+    border-radius: 100%;
+    width: 130px;
+    height: 130px;
+    border: 5px solid #0000000f;
 }
 
 .img-btm a span {
@@ -608,6 +614,7 @@ figure img {
 .img-btm .language {
     background: #92D9E1;
 }
+
 
 /*rating-star*/
 
@@ -735,6 +742,10 @@ figure img {
 .image-details img {
     margin: 0 auto;
     display: block;
+    border-radius: 100%;
+    width: 130px;
+    height: 130px;
+    border: 5px solid #0000000f;
 }
 
 .bg-light {
@@ -1017,6 +1028,7 @@ ul.list-style {
     color: #FF0000;
 }
 
+
 /* Shopping User */
 
 .shopping-user {
@@ -1280,17 +1292,18 @@ ul.list-style {
 }
 
 .pro-box {
-    position:relative;
-}
-.heart-wishlist {
-        position: absolute;
-        top: 0px;
-        left: 85%;
-}
- .favrate {
-    color: #ffa500;
+    position: relative;
 }
 
+.heart-wishlist {
+    position: absolute;
+    top: 0px;
+    left: 85%;
+}
+
+.favrate {
+    color: #ffa500;
+}
 
 .count-btn {
     margin-top: 27px;
@@ -1311,6 +1324,7 @@ ul.list-style {
 .count-btn button i {
     color: #fff;
 }
+
 
 /* profile-edit */
 
