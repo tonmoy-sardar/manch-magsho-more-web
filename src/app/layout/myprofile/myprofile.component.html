@@ -1,0 +1,152 @@
+<app-header></app-header>
+<div class="body-banner">
+  <div class="col-md-12">
+    <div class="row">
+      <div class="col-md-12 "> <img class="img-fluid logo-small" src="assets/img/logo.png" alt="">
+        <div class="pt-5">
+          <div class="emp-profile">
+            <form method="post">
+              <div class="row">
+                <div class="col-md-4">
+                    <app-user-sidebar></app-user-sidebar>
+                  
+                </div>
+                <div class="col-md-6">
+                  <div class="profile-head">
+                    <h5> My Profile </h5>
+                  </div>
+                  <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                    <!-- <div class="row">
+                      <div class="col-md-6"> <label>User Id</label> </div>
+                      <div class="col-md-6">
+                        <p>Kshiti123</p>
+                      </div>
+                    </div> -->
+                    <div class="row">
+                      <div class="col-md-6"> <label>Name</label> </div>
+                      <div class="col-md-6">
+                        <p>{{profileDetails.name}}</p>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-md-6"> <label>Email</label> </div>
+                      <div class="col-md-6">
+                        <p> {{profileDetails.email}}</p>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-md-6"> <label>Contact Number</label> </div>
+                      <div class="col-md-6">
+                        <p> {{profileDetails.contact}}</p>
+                      </div>
+                    </div>
+                    <!-- <div class="row">
+                      <div class="col-md-6"> <label>Profession</label> </div>
+                      <div class="col-md-6">
+                        <p>Web Developer and Designer</p>
+                      </div>
+                    </div> -->
+                  </div>
+                  <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                    <div class="profile-head">
+                      <h5 (click)="showMyAddress()">Show Address <i class="fa fa-sort-desc" aria-hidden="true"></i></h5>
+                    </div>
+                    <div class="row" *ngIf="buttonClicked">
+                      <div class="col-md-12">
+                        <mat-card *ngFor="let myAddress of allAddressList; let i = index">
+                          <mat-list-item role="listitem">
+                              {{myAddress.type}} : {{myAddress.address}} ,{{myAddress.landmark}}, {{myAddress.pincode}}
+                          
+                              <i (click)="deleteAddress(myAddress.id)" class="fa fa-trash" aria-hidden="true"></i>
+                            </mat-list-item>
+                        </mat-card>
+                      </div>
+                      <!-- <div class="col-md-6">
+                          <p>{{profileDetails.name}}</p>
+                        </div> -->
+                    </div>
+
+                  </div>
+                  <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                    <div class="profile-head">
+                      <h5 (click)="showAddAddress()">Add Address <i class="fa fa-sort-desc" aria-hidden="true"></i></h5>
+                    </div>
+                    <div class="row" *ngIf="showAddAddressForm">
+                      <div class="col-md-12">
+                        <div class="card-body">
+                          <form [formGroup]="addressForm" novalidate>
+                            <div class="form-group">
+                              <div class="input-group mb-2 rounded-pill">
+                                <div class="input-group-prepend  width100 ">
+                                  <div class="input-group-text bg-info text-dark"> Type</div>
+                                </div>
+                                <input type="text" class="form-control" name="type" placeholder="Type" formControlName="type"
+                                  [ngClass]="displayFieldCss(addressForm,'type')" required>
+                                <div class="invalid-feedback text-left" *ngIf="isFieldValid(addressForm,'type')">
+                                  Please enter Address type
+                                </div>
+                              </div>
+                            </div>
+                            <div class="form-group">
+                              <div class="input-group mb-2 rounded-pill">
+                                <div class="input-group-prepend width100">
+                                  <div class="input-group-text bg-info text-dark">Address</div>
+                                </div>
+                                <input type="text" class="form-control" name="address" placeholder="Address"
+                                  formControlName="address" [ngClass]="displayFieldCss(addressForm,'address')" required>
+                                <div class="invalid-feedback text-left" *ngIf="isFieldValid(addressForm,'address')">
+                                  Please enter Address
+                                </div>
+                              </div>
+                            </div>
+                            <div class="form-group">
+                              <div class="input-group mb-2 rounded-pill">
+                                <div class="input-group-prepend width100">
+                                  <div class="input-group-text bg-info text-dark">Landmark</div>
+                                </div>
+                                <input type="text" class="form-control" name="landmark" placeholder="Landmark"
+                                  formControlName="landmark" [ngClass]="displayFieldCss(addressForm,'landmark')"
+                                  required>
+                                <div class="invalid-feedback text-left" *ngIf="isFieldValid(addressForm,'landmark')">
+                                  Please enter Landmark
+                                </div>
+                              </div>
+                            </div>
+                            <div class="form-group">
+                              <div class="input-group mb-2 rounded-pill">
+                                <div class="input-group-prepend width100">
+                                  <div class="input-group-text bg-info text-dark">Pincode</div>
+                                </div>
+                                <input type="text" class="form-control" name="pincode" placeholder="Pin code"
+                                  formControlName="pincode" [ngClass]="displayFieldCss(addressForm,'pincode')"
+                                  required>
+                                <div class="invalid-feedback text-left" *ngIf="isFieldValid(addressForm,'pincode')">
+                                  Please enter Pin code
+                                </div>
+                              </div>
+                            </div>
+                            <a href="javascript:void(0);" (click)="submitAddress()" class="btn btn-primary  bg-info text-dark border-radius">Submit
+                              <i class="fa fa-angle-right" aria-hidden="true"></i>
+                            </a>
+                          </form>
+                        </div>
+                      </div>
+                      <!-- <div class="col-md-6">
+                            <p>{{profileDetails.name}}</p>
+                          </div> -->
+                    </div>
+
+                  </div>
+                </div>
+                <div class="col-md-2"> <input type="submit" (click)="gotoEditPage()" class="profile-edit-btn" name="btnAddMore" value="Edit Profile" />
+                </div>
+
+
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

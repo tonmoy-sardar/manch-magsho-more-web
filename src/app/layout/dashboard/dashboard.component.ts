@@ -8,16 +8,20 @@ import { Router } from '@angular/router';
   styleUrls: ['./dashboard.component.scss']
 })
 export class DashboardComponent implements OnInit {
-
+  searchText:any;
   constructor(
     public router:Router
   ) { }
 
   ngOnInit() {
+    this.searchText ='';
   }
 
   gotoPage(page) {
     this.router.navigate([page]);
+  }
+  proSearch(name) {
+    this.router.navigate(['/search',name]);
   }
 
 }

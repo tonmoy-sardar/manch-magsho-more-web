@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { UserService } from '../../services/user.service';
 import { CartService } from '../../services/cart.service';
+import { ProductService } from '../../services/product.service';
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
@@ -11,11 +12,13 @@ export class HeaderComponent implements OnInit {
   loggedIn: boolean;
   userName:string;
   totalCart: any;
-  
+  productList:any =[];
+  visibleKey: boolean;
   constructor(
     private router: Router,
     private userService: UserService,
-    public cartService:CartService
+    public cartService:CartService,
+    public productService:ProductService
   ) {
     this.loadUserInfo();
     cartService.getCartNumberStatus.subscribe(status => this.cartNumberStatus(status));
@@ -29,6 +32,7 @@ export class HeaderComponent implements OnInit {
     else {
       this.totalCart = 0;
     }
+    this.getProList();
     
   }
   
@@ -54,6 +58,20 @@ export class HeaderComponent implements OnInit {
       }
     }
   }
+  getProList() {
+
+    this.productService.getAllProList().subscribe(
+      res => {
+        console.log("All Product List==>",res);
+        this.productList = res['result'];
+        this.visibleKey = true;
+      },
+      error => {
+        // console.log(error)
+      }
+    )
+  }
+
 
   logout() {
     localStorage.clear();

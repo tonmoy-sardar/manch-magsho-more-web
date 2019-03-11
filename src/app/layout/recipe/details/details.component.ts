@@ -16,6 +16,7 @@ export class DetailsComponent implements OnInit {
   imageBaseUrl: any;
   recipeBannerImage: any;
   userId:any;
+  recipeId:any;
 
   constructor(
     private router: Router,
@@ -26,7 +27,8 @@ export class DetailsComponent implements OnInit {
   ngOnInit() {
     this.imageBaseUrl = environment.imageBaseUrl;
     this.rating = [1, 2, 3, 4, 5];
-    this.getRecipeDetails(this.route.snapshot.params['id']);
+    this.recipeId = this.route.snapshot.params['id'];
+    this.getRecipeDetails(this.recipeId);
   }
 
   getRecipeDetails(id) {
@@ -39,6 +41,9 @@ export class DetailsComponent implements OnInit {
       error => {
       }
     )
+  }
+  gotoPage(id) {
+    this.router.navigate(['/addrating',id]);
   }
 
 

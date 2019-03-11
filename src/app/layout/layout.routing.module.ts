@@ -35,6 +35,11 @@ const routes: Routes = [
       { path: 'cart', loadChildren: './cart/cart.module#CartModule' },
       { path: 'deliveryaddress', loadChildren: './deliveryaddress/deliveryaddress.module#DeliveryaddressModule' },
       { path: 'deliveryslot', loadChildren: './deliveryslot/deliveryslot.module#DeliveryslotModule' },
+      { path: 'myprofile', loadChildren: './myprofile/myprofile.module#MyprofileModule' },
+      { path: 'spendingpattern', loadChildren: './spendingpattern/spendingpattern.module#SpendingpatternModule' },
+      { path: 'addrating/:id', loadChildren: './addrating/addrating.module#AddratingModule' },
+      { path: 'addreview/:id', loadChildren: './addreview/addreview.module#AddreviewModule' },
+      { path: 'search/:name', loadChildren: './search/search.module#SearchModule' },
     ]
   }
 ];

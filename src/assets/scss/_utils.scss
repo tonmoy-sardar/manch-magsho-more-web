@@ -1234,13 +1234,17 @@ ul.list-style {
 .favbtn {
     margin: 40px 0px 0px 0px;
     padding: 6px 34px;
-    background: #0564E8;
+    background: #ccc;
     border-radius: 34px 0px 0px 0px;
     font-size: 19px;
     font-weight: 500;
     position: absolute;
     text-align: center;
     min-width: 85%;
+}
+
+.myfav {
+    background: #0564E8;
 }
 
 .favbtn a {
@@ -1442,4 +1446,11 @@ ul.list-style {
 .side-panel {
     background: #efefef;
     padding-top: 55px;
+}
+
+.fa-trash {
+    color:#FF0000;
+}
+span.rating.active {
+    color: #ff9800;
 }

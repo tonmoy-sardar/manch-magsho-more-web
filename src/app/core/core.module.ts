@@ -5,6 +5,7 @@ import { RouterModule } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { environment } from '../../environments/environment';
 import { AgmCoreModule } from '@agm/core';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 // guard
 import { AuthGuard } from './guard/auth.guard';
@@ -27,11 +28,12 @@ import { FooterComponent } from './components/footer/footer.component';
 import { SidebarButtonComponent } from './components/sidebar-button/sidebar-button.component';
 import { SidebarMenuComponent } from './components/sidebar-menu/sidebar-menu.component';
 import { SidebarUserdetailsComponent } from './components/sidebar-userdetails/sidebar-userdetails.component';
-
+import { UserSidebarComponent } from './components/user-sidebar/user-sidebar.component';
 //services 
 import { UserService } from './services/user.service';
 import { ProductService } from './services/product.service';
 import { CartService } from './services/cart.service';
+
 
 
 
@@ -45,6 +47,7 @@ import { CartService } from './services/cart.service';
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyDCwmrD9NEiBAtmQS8_UfaIO4wFg99N8MU'
     }),
+    NgbModule.forRoot(),
 
 
     //----------------Material----------------//
@@ -65,7 +68,8 @@ import { CartService } from './services/cart.service';
     FooterComponent,
     SidebarButtonComponent,
     SidebarMenuComponent,
-    SidebarUserdetailsComponent
+    SidebarUserdetailsComponent,
+    UserSidebarComponent
   ],
 
   exports: [
@@ -87,7 +91,9 @@ import { CartService } from './services/cart.service';
     FooterComponent,
     SidebarButtonComponent,
     SidebarMenuComponent,
-    SidebarUserdetailsComponent
+    SidebarUserdetailsComponent,
+    UserSidebarComponent,
+    NgbModule,
 
   ],
   entryComponents: [

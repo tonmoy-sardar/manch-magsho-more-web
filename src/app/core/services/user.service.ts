@@ -49,6 +49,11 @@ export class UserService {
   myAddressDetails(id): Observable<any> {
     return this.http.get(environment.apiEndpoint + 'listcustomeraddressbyid/' +id)
   }
-
+  getProfile(id): Observable<any> {
+    return this.http.get(environment.apiEndpoint + 'userprofile/' + id + '/')
+  }
+  updateUserProfile(id, data): Observable<any> {
+    return this.http.post(environment.apiEndpoint + 'userprofileupdate/' + id, data)
+  }
 
 }
