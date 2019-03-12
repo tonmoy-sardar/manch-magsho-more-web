@@ -1,50 +1,49 @@
 <app-header></app-header>
 <div class="body-banner">
-  <div class="col-md-12">
-    <div class="row">
-      <div class="col-md-5 btn-sce"> <img class="img-fluid full-lady" src="assets/img/girl.png" alt=""> </div>
-      <div class="col-md-7 "> <img class="img-fluid logo-small" src="assets/img/logo.png" alt="">
-        <div class="product-section">
-          <div class="recipe-sec">
-            <div class="row">
-              <div class="col-md-3" *ngFor="let blog of blogList"> 
-                <div class="item-box-blog">
-                  <div class="item-box-blog-image">
-                    <!-- <div class="item-box-blog-date bg-blue-ui white"> 
+    <div class="col-md-12">
+        <div class="row">
+            <div class="col-md-5 btn-sce"> <img class="img-fluid full-lady" src="assets/img/girl.png" alt=""> </div>
+            <div class="col-md-7 "> <img class="img-fluid logo-small" src="assets/img/logo.png" alt="">
+                <div class="product-section product-top">
+                    <div class="recipe-sec">
+                        <div class="row">
+                            <div class="col-md-3" *ngFor="let blog of blogList">
+                                <div class="item-box-blog">
+                                    <div class="item-box-blog-image">
+                                        <!-- <div class="item-box-blog-date bg-blue-ui white"> 
                       <span class="mon">Ajoy Dixit</span> 
                     </div> -->
-                    <figure> <img src="assets/img/recipes.jpg" alt="Denim Jeans"> </figure>
-                  </div>
-                  <div class="item-box-blog-body">
-                    <div class="item-box-blog-heading"> <a href="javascript:void(0);" tabindex="0">
+                                        <figure> <img src="assets/img/recipes.jpg" alt="Denim Jeans"> </figure>
+                                    </div>
+                                    <div class="item-box-blog-body">
+                                        <div class="item-box-blog-heading"> <a href="javascript:void(0);" tabindex="0">
                        {{blog.blog_title}} </a> </div>
-                  </div>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                        <div class="card-body pull-right" *ngIf="blogListCount > itemPerPage">
+                            <ngb-pagination [collectionSize]="blogListCount" [maxSize]="paginationMaxSize" [(page)]="defaultPagination" (pageChange)="pagination()" size="sm"></ngb-pagination>
+                        </div>
+                    </div>
+
                 </div>
-                
-              </div>
-              
             </div>
-            
-            <div class="card-body pull-right" *ngIf="blogListCount > itemPerPage">
-                <ngb-pagination [collectionSize]="blogListCount" [maxSize]="paginationMaxSize" [(page)]="defaultPagination"
-                    (pageChange)="pagination()" size="sm"></ngb-pagination>
+        </div>
+    </div>
+    <app-sidebar-button></app-sidebar-button>
+    <div class="inner-search">
+        <div class="col-md-6 offset-md-3">
+            <div class="form-group">
+                <div class="input-group mb-2 rounded-pill search-input">
+                    <div class="input-group-prepend width100 ">
+                        <div class="input-group-text bg-info text-dark">Search </div>
+                    </div><input type="text" class="form-control" id="nombre" name="nombre" placeholder="Search Product" required>
+                </div>
             </div>
-          </div>
-         
         </div>
-      </div>
     </div>
-  </div>
-  <app-sidebar-button></app-sidebar-button>
-  <div class="inner-search">
-    <div class="col-md-6 offset-md-3">
-      <div class="form-group">
-        <div class="input-group mb-2 rounded-pill search-input">
-          <div class="input-group-prepend width100 ">
-            <div class="input-group-text bg-info text-dark">Search </div>
-          </div><input type="text" class="form-control" id="nombre" name="nombre" placeholder="Search Product" required>
-        </div>
-      </div>
-    </div>
-  </div>
 </div>
