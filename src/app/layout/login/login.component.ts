@@ -44,7 +44,11 @@ export class LoginComponent implements OnInit {
           });
         },
         error => {
-          this.toastr.error(error.error.message, '', {
+          console.log(error.error);
+          // this.toastr.error(error.error.message, '', {
+          //   timeOut: 3000,
+          // });
+          this.toastr.error('Sorry! Please enter valid login creadentials', '', {
             timeOut: 3000,
           });
         }
