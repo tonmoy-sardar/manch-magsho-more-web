@@ -40,6 +40,7 @@ const routes: Routes = [
       { path: 'addrating/:id', loadChildren: './addrating/addrating.module#AddratingModule' },
       { path: 'addreview/:id', loadChildren: './addreview/addreview.module#AddreviewModule' },
       { path: 'search/:name', loadChildren: './search/search.module#SearchModule' },
+      { path: 'orderdetails/:id', loadChildren: './orderdetails/orderdetails.module#OrderdetailsModule' },
     ]
   }
 ];

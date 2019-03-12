@@ -469,7 +469,10 @@ figure img {
     box-shadow: 0px 5px 15px inset #4d5f77;
 }
 
-.product-section {
+// .product-section {
+//     margin-top: 26%;
+// }
+.product-top {
     margin-top: 26%;
 }
 
@@ -568,6 +571,11 @@ figure img {
     font-size: 15px;
 }
 
+.card-box span i {
+    color: #FFC107;
+    font-size: 20px;
+}
+
 .card-box .veg {
     background: #8CF82380;
     padding: 7px 28px;
@@ -580,7 +588,7 @@ figure img {
 
 .img-btm a {
     display: inline-grid;
-    padding: 10px;
+    padding: 5px;
     font-size: 11px;
     height: 46px;
     border-radius: 15px;
@@ -624,6 +632,7 @@ figure img {
     padding: 0 10px;
     position: absolute;
     width: 175px;
+    display: inline-flex;
 }
 
 .rate:not(:checked)>input {
@@ -797,6 +806,14 @@ figure img {
     position: relative;
     float: none;
     width: 360px;
+    display: block;
+    text-align: center;
+}
+
+.rating-sec .rate a {
+    color: #FFC107;
+    font-size: 48px;
+    margin: 4px;
 }
 
 .rating-sec .rate label {
@@ -1066,6 +1083,7 @@ ul.list-style {
     float: left;
     text-align: center;
     font-size: 12px;
+    cursor: pointer;
 }
 
 .guestimg {
@@ -1368,11 +1386,20 @@ ul.list-style {
 }
 
 .profile-head h5 {
-    color: #333;
+    color: #4e4c4c;
+    font-size: 14px;
+    line-height: 15px;
 }
 
 .profile-head h6 {
     color: #0062cc;
+}
+
+.profile-head {
+    background: #92d9e2;
+    padding: 8px 12px;
+    margin-bottom: 12px;
+    border-radius: 13px;
 }
 
 .profile-edit-btn {
@@ -1449,8 +1476,182 @@ ul.list-style {
 }
 
 .fa-trash {
-    color:#FF0000;
+    color: #FF0000;
 }
+
 span.rating.active {
     color: #ff9800;
 }
+
+.social .user-name {
+    background-color: #17a2b8;
+    color: #fff !important;
+    border-radius: 28px;
+    font-size: 15px;
+    font-weight: bold;
+    padding: 10px;
+}
+
+a.header-top-button {
+    background-color: #17a2b8;
+    color: #fff !important;
+    border-radius: 100%;
+    font-size: 16px;
+    font-weight: bold;
+    padding: 7px;
+    margin: 0 6px;
+    height: 35px;
+    width: 35px;
+}
+
+#customers {
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+#customers td,
+#customers th {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+#customers tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+#customers tr:hover {
+    background-color: #ddd;
+}
+
+#customers th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #92d9e2;
+    color: #000;
+}
+
+.date-sec h3 {
+    font-size: 14px;
+}
+
+.product-table td img {
+    margin: 0 auto;
+    text-align: center;
+    width: 140px;
+    display: block;
+    height: 140px;
+    border-radius: 100%;
+}
+
+// responsive-css
+//  Large Devices, Wide Screens 
+@media only screen and (max-width: 1200px) {}
+
+@media only screen and (max-width: 1199px) {}
+
+// / Medium Devices, Desktops /
+@media only screen and (max-width: 992px) {}
+
+@media only screen and (max-width: 991px) {}
+
+// / Small Devices, Tablets /
+@media only screen and (max-width: 768px) {
+    .download-app {
+        padding: 9px 21px;
+        font-size: 13px;
+    }
+    .contact-btn {
+        padding: 9px 21px;
+        font-size: 13px;
+    }
+}
+
+@media only screen and (max-width: 767px) {}
+
+// / Extra Small Devices, Phones / 
+@media only screen and (max-width: 480px) {
+    .lady-image {
+        min-height: 483px;
+    }
+    .pading-top-sec {
+        margin-top: 42%;
+    }
+    .guestimg {
+        width: 70px;
+        height: 70px;
+    }
+    .guestimg img {
+        width: 40px;
+        height: 40px;
+    }
+    .submit-review-right {
+        width: 103px;
+        font-size: 11px;
+        padding: 6px 7px;
+    }
+    .top-45 {
+        top: 68px;
+    }
+    .top-52 {
+        top: 101px;
+    }
+    .top-59 {
+        top: 134px;
+    }
+    .top-66 {
+        top: 167px;
+    }
+    .top-73 {
+        top: 200px;
+    }
+    .top-80 {
+        top: 233px;
+    }
+    .download-app {
+        top: 88%;
+        width: 50%;
+        text-align: center;
+        border-radius: 0;
+    }
+    .contact-btn {
+        width: 50%;
+        left: 50%;
+        top: 88%;
+        border-radius: 0;
+        text-align: center;
+    }
+    .order-history h2 {
+        text-align: center;
+    }
+    .order-history .ptext {
+        text-align: center;
+    }
+    .order-history h4 {
+        text-align: center;
+    }
+    .favbtn {
+        position: relative;
+    }
+    .card-box .veg {
+        bottom: -87px;
+        font-size: 12px;
+        padding: 7px 13px;
+    }
+    .card-box .sold {
+        bottom: -87px;
+        font-size: 12px;
+        padding: 7px 13px;
+    }
+    .card-box .limited {
+        bottom: -87px;
+        font-size: 12px;
+        padding: 7px 13px;
+    }
+}
+
+@media only screen and (max-width: 479px) {}
+
+// / Custom, iPhone Retina / 
+@media only screen and (max-width: 320px) {}
