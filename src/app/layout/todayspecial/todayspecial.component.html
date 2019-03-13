@@ -19,12 +19,21 @@
           <h2>Deals of the day</h2>
           <ul class="product-section">
             <li class="d-flex align-items-center" *ngFor="let product of allProductList">
-              <div class="product-img">
-                  <img [src]="product.image_small != ''? imageBaseUrl+ product.image_small : 'assets/imgs/no-image.png'">
-                           
+              <div class="heart-wishlist">
+                <i class="fa fa-heart not-favrate" *ngIf="product.whishlist == null && this.userId>0" aria-hidden="true"
+                  (click)="addWishList(product.id)"></i>
+                <i class="fa fa-heart not-favrate" *ngIf="product.whishlist == null && !this.userId" aria-hidden="true"
+                  (click)="gotoPage()"></i>
+                <i class="fa fa-heart not-favrate favrate" *ngIf="product.whishlist != null" aria-hidden="true"></i>
               </div>
-              <h3>{{product.name}} <br>{{product.price}} /
-                {{product.quantity_count}}   {{product.unit}}</h3>
+
+              <div (click)="gotoProductDetails(product.id)" class="product-img">
+                <img [src]="product.image_small != ''? imageBaseUrl+ product.image_small : 'assets/imgs/no-image.png'">
+              </div>
+              <h3 (click)="gotoProductDetails(product.id)">{{product.name}} <br> <i class="fa fa-inr" aria-hidden="true"></i>{{product.price}}
+                /
+                {{product.quantity_count}} {{product.unit}}</h3>
+
             </li>
             <!-- <li class="d-flex align-items-center">
               <div class="product-img">

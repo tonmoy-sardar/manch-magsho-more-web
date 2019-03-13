@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute,Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { environment } from '../../../environments/environment';
 import * as Globals from '../../core/globals';
 import { ProductService } from '../../core/services/product.service';
@@ -32,6 +32,28 @@ export class ComboofferComponent implements OnInit {
       error => {
       }
     )
+  }
+
+  gotoProductDetails(id) {
+    this.router.navigate(['/product/details', id]);
+  }
+
+  addWishList(id) {
+    let data = {
+      "product_id": id,
+      "whist_status": "1",
+      "user_id": this.userId
+    }
+    this.productService.addWishlist(data).subscribe(
+      res => {
+        this.productList(this.userId);
+      },
+      error => {
+      }
+    )
+  }
+  gotoPage() {
+    this.router.navigate(['/login']);
   }
 
 }

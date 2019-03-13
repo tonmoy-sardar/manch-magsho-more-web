@@ -11,6 +11,7 @@ import { ProductService } from '../../core/services/product.service';
 export class CategoryComponent implements OnInit {
   categoryList : any=[];
   imageBaseUrl;
+  visible: boolean;
   constructor(
     private router: Router,
     private route: ActivatedRoute,
@@ -19,6 +20,7 @@ export class CategoryComponent implements OnInit {
 
   ngOnInit() {
     this.imageBaseUrl = environment.imageBaseUrl;
+    this.visible = false;
     this.getCategoryList();
   }
   getCategoryList() {
@@ -26,9 +28,11 @@ export class CategoryComponent implements OnInit {
       res => {
         console.log(res);
         this.categoryList = res['result'];
+        this.visible = true;
       },
       error => {
         // console.log(error)
+        this.visible = true;
       }
     )
   }

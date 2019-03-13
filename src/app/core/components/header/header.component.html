@@ -5,8 +5,8 @@
     </button>
         <div class="collapse navbar-collapse border-box" id="navbarResponsive">
             <ul class="navbar-nav mr-auto social">
-                <li *ngIf="loggedIn" class="nav-item">
-                    <a class="nav-link user-name" href="javascript:void(0);">{{userName}}</a>
+                <li *ngIf="loggedIn" class="nav-item" >
+                    <a class="nav-link user-name"  [routerLink]="['/myprofile']" href="javascript:void(0);">{{userName}}</a>
                 </li>
                 <li *ngIf="loggedIn" class="nav-item">
                     <a class="nav-link" (click)="logout()" href="javascript:void(0);">Logout</a>

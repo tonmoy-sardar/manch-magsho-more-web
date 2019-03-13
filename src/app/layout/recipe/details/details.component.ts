@@ -17,6 +17,7 @@ export class DetailsComponent implements OnInit {
   recipeBannerImage: any;
   userId:any;
   recipeId:any;
+  loggedIn:boolean;
 
   constructor(
     private router: Router,
@@ -25,6 +26,14 @@ export class DetailsComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    if (localStorage.getItem('userId')) {
+      this.userId = +localStorage.getItem('userId');
+      this.loggedIn = true;
+    }
+    else {
+      this.userId = '';
+      this.loggedIn = false;
+    }
     this.imageBaseUrl = environment.imageBaseUrl;
     this.rating = [1, 2, 3, 4, 5];
     this.recipeId = this.route.snapshot.params['id'];
@@ -44,6 +53,9 @@ export class DetailsComponent implements OnInit {
   }
   gotoPage(id) {
     this.router.navigate(['/addrating',id]);
+  }
+  gotoLogin() {
+    this.router.navigate(['/login']);
   }
 
 

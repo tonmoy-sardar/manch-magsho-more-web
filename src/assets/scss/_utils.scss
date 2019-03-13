@@ -148,6 +148,7 @@ ul {
     width: 400px;
     padding: 31px 10px;
     margin-bottom: 20px;
+    position: relative;
 }
 
 .product-section .product-img {
@@ -158,12 +159,14 @@ ul {
     width: 150px;
     height: 150px;
     border-radius: 100%;
+    cursor: pointer;
 }
 
 .product-section li h3 {
     color: #DC2028;
     font-weight: bold;
     font-size: 36px;
+    cursor: pointer;
 }
 
 .daily-deal {
@@ -189,6 +192,7 @@ ul {
     font-size: 25px;
     font-weight: bold;
     border-radius: 0 50px 50px 0;
+    z-index: 999;
 }
 
 .contact-btn {
@@ -572,7 +576,7 @@ figure img {
 }
 
 .card-box span i {
-    color: #FFC107;
+    //color: #FFC107;
     font-size: 20px;
 }
 
@@ -1227,6 +1231,7 @@ ul.list-style {
     margin: 0px 0px 28px 0px;
     padding: 10px 0px;
     position: relative;
+    overflow: hidden;
     min-height: 178px;
     -webkit-box-shadow: 0px 2px 4px 0px rgba(197, 193, 193, 0.59);
     -moz-box-shadow: 0px 2px 4px 0px rgba(197, 193, 193, 0.59);
@@ -1248,17 +1253,32 @@ ul.list-style {
 .order-img img {
     width: 100%;
 }
+.favbtn-repeat-order {
+    margin: 40px 0px 0px 0px;
+    padding: 6px 34px;
+    background: #5eac6a;
+    border-radius: 0 34px 0px 0px;
+    font-size: 19px;
+    font-weight: 500;
+    position: absolute;
+    text-align: center;
+    min-width: 25%;
+    left: 0;
+    color: #fff;
+    cursor: pointer;
+}
+
 
 .favbtn {
     margin: 40px 0px 0px 0px;
     padding: 6px 34px;
-    background: #ccc;
     border-radius: 34px 0px 0px 0px;
     font-size: 19px;
     font-weight: 500;
     position: absolute;
     text-align: center;
-    min-width: 85%;
+    min-width: 25%;
+    right: 0;
 }
 
 .myfav {
@@ -1321,6 +1341,9 @@ ul.list-style {
     position: absolute;
     top: 0px;
     left: 85%;
+}
+.not-favrate {
+    cursor: pointer;
 }
 
 .favrate {
@@ -1544,7 +1567,18 @@ a.header-top-button {
     height: 140px;
     border-radius: 100%;
 }
-
+span.total-cart {
+    position: absolute;
+    font-size: 11px;
+    background: red;
+    height: 15px;
+    width: 15px;
+    border-radius: 100%;
+    text-align: center;
+}
+.back-submitbtn {
+    margin:2%;
+}
 // responsive-css
 //  Large Devices, Wide Screens 
 @media only screen and (max-width: 1200px) {}
@@ -1650,6 +1684,7 @@ a.header-top-button {
         padding: 7px 13px;
     }
 }
+
 
 @media only screen and (max-width: 479px) {}
 

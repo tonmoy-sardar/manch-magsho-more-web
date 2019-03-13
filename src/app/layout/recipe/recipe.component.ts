@@ -11,7 +11,7 @@ import { ProductService } from '../../core/services/product.service';
 export class RecipeComponent implements OnInit {
   rating;
   avg_rating;
-  proRecipeList: any = [];
+  proRecipeList: any;
   proDetails: any = {};
   imageBaseUrl: any;
   userId: any;
@@ -28,6 +28,7 @@ export class RecipeComponent implements OnInit {
   lower_count: number;
   upper_count: number;
   paginationMaxSize:number;
+  visible: boolean;
   constructor(
     private router: Router,
     private route: ActivatedRoute,
@@ -35,6 +36,7 @@ export class RecipeComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    this.visible = false;
     this.rating = [1, 2, 3, 4, 5];
     this.itemNo = 0;
     this.defaultPagination = 1;
@@ -69,9 +71,11 @@ export class RecipeComponent implements OnInit {
         else {
           this.upper_count = this.recipeListCount;
         }
+        this.visible = true;
         console.log(this.recipeListCount);
       },
       error => {
+        this.visible = true;
       }
     )
   }
@@ -85,9 +89,10 @@ export class RecipeComponent implements OnInit {
         this.productName = res['product_name'];
         this.productImage = res['product_image'];
         this.proRecipeList = res['result'];
-        this.visibleKey = true;
+        this.visible = true;
       },
       error => {
+        this.visible = true;
       }
     )
   }

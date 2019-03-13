@@ -26,12 +26,14 @@ export class ProductComponent implements OnInit {
   catId:any;
   searchText:any;
   isPagination:number;
+  visible: boolean;
   constructor(
     private router: Router,
     private route: ActivatedRoute,
     private productService: ProductService,
   ) { }
   ngOnInit() {
+    this.visible = false;
     this.itemNo = 0;
     this.defaultPagination = 1;
     this.paginationMaxSize = Globals.paginationMaxSize;
@@ -67,12 +69,14 @@ export class ProductComponent implements OnInit {
         else {
           this.upper_count = this.productListCount;
         }
+        this.visible = true;
         console.log(this.productListCount);
 
         //this.productLinks = res['result']['links'];
       },
       error => {
       console.log(error);
+      this.visible = true;
       }
     )
   }

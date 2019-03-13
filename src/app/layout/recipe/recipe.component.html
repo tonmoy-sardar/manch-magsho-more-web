@@ -6,8 +6,8 @@
         <img class="img-fluid logo-small" src="images/logo.png" alt="">
         <div class="product-section-list">
           <div class="recipe-list">
-            <h2>Today’s Special</h2>
-            <div class="row">
+            <h2>Recipe</h2>
+            <div class="row" *ngIf="visible">
               <div class="col-md-3" *ngFor="let recipeList of proRecipeList; let i = index">
                 <div class="card-box" (click)="gotoDetails(recipeList.id)">
                   <div class="row">
@@ -54,6 +54,7 @@
                 </div>
 
               </div>
+              <div class="col-md-3" class="error-msg" *ngIf="proRecipeList.length==0"><span>No recors found</span></div>
             </div>
             <div class="card-body pull-right" *ngIf="recipeListCount > itemPerPage">
                 <ngb-pagination [collectionSize]="recipeListCount" [maxSize]="paginationMaxSize" [(page)]="defaultPagination"

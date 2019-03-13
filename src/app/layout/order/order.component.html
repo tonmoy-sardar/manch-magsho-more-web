@@ -9,13 +9,15 @@
             <div class="row">
               <div class="col-md-3">
 
-                <app-sidebar-userdetails></app-sidebar-userdetails> 
+                <app-sidebar-userdetails></app-sidebar-userdetails>
               </div>
               <div class="col-md-8">
                 <div class="order-history">
                   <h3>Order History</h3>
-                  <div class="favourit-btn"><a href="javascript:void(0);">Favourites</a></div>
+                  <!-- <div class="favourit-btn"><a href="javascript:void(0);">Favourites</a></div> -->
                   <div class="clearfix"></div>
+                  
+                  <div *ngIf="visible">
                   <div class="order-section order-section2" *ngFor="let order of orderList; let i = index">
                     <div class="row">
                       <div class="col-md-4">
@@ -36,95 +38,42 @@
                       </div>
                       <div class="col-md-3">
                         <h4>
-                            {{order.total_price}}
+                          {{order.total_price}}
                           <br>
                           <span *ngIf="order.is_paid==0">Pending</span>
                           <span *ngIf="order.is_paid==1">Paid</span>
                           <span *ngIf="order.is_paid==2">Cancel</span>
                         </h4>
                         <div class="ptext">
-                            <span *ngIf="order.payment_type ==1">Paytm</span>
-                            <span *ngIf="order.payment_type ==2">COD</span>
+                          <span *ngIf="order.payment_type ==1">Paytm</span>
+                          <span *ngIf="order.payment_type ==2">COD</span>
                         </div>
-                        
-                        <a href="javascript:void(0);" (click)="repeatOrder(order)">Repeat Order</a>
-                        
-                        <div (click)="addFav(order.id)" *ngIf="order.is_favourite ==0" class="favbtn"><a href="javascript:void(0);">Favourite</a></div>
-                        <div  *ngIf="order.is_favourite ==1" class="favbtn myfav"><a href="javascript:void(0);">Favourite</a></div>
-                      </div>
-                    </div>
-                  </div>
-                  <!-- <div class="order-section">
-                    <div class="row">
-                      <div class="col-md-4">
-                        <p>Order number 345674</p>
-                        <div class="order-img"><img src="assets/img/Intersection14.png" alt=""></div>
-                        <div class="order-img"><img src="assets/img/Intersection-5.png" alt=""></div>
-                        <div class="order-img"><img src="assets/img/Intersection19.png" alt=""></div>
-                      </div>
-                      <div class="col-md-3">
-                        <h2>Deb<br><span>Date 22-12-2018</span></h2>
-                      </div>
-                      <div class="col-md-2">
-                        <h4>Value<br><span>Savings</span></h4>
-                        <div class="ptext">Items</div>
-                      </div>
-                      <div class="col-md-3">
-                        <h4>2490<br><span>280</span></h4>
-                        <div class="ptext">3</div>
-                        <div class="favbtn2"><a href="javascript:void(0);">Favourit</a></div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="order-section">
-                    <div class="row">
-                      <div class="col-md-4">
-                        <p>Order number 345674</p>
-                        <div class="order-img"><img src="assets/img/Intersection14.png" alt=""></div>
-                        <div class="order-img"><img src="assets/img/Intersection-5.png" alt=""></div>
-                        <div class="order-img"><img src="assets/img/Intersection19.png" alt=""></div>
-                      </div>
-                      <div class="col-md-3">
-                        <h2>Deb<br><span>Date 22-12-2018</span></h2>
-                      </div>
-                      <div class="col-md-2">
-                        <h4>Value<br><span>Savings</span></h4>
-                        <div class="ptext">Items</div>
-                      </div>
-                      <div class="col-md-3">
-                        <h4>2490<br><span>280</span></h4>
-                        <div class="ptext">3</div>
 
-                        <div class="favbtn2"><a href="javascript:void(0);">Favourit</a></div>
+
+
+
+
+                      </div>
+                      <div class="col-md-12">
+
+                        <div href="javascript:void(0);" (click)="repeatOrder(order)" class="favbtn-repeat-order">
+                          <a><i class="fa fa-repeat" aria-hidden="true"></i>
+                            Repeat Order</a>
+
+                        </div>
+
+                        <div (click)="addFav(order.id)" *ngIf="order.is_favourite ==0" class="favbtn"><a href="javascript:void(0);">Favourite</a></div>
+                        <div *ngIf="order.is_favourite ==1" class="favbtn myfav"><a href="javascript:void(0);">Favourite</a></div>
+
+
                       </div>
                     </div>
                   </div>
-                  <div class="order-section">
-                    <div class="row">
-                      <div class="col-md-4">
-                        <p>Order number 345674</p>
-                        <div class="order-img"><img src="assets/img/Intersection14.png" alt=""></div>
-                        <div class="order-img"><img src="assets/img/Intersection-5.png" alt=""></div>
-                        <div class="order-img"><img src="assets/img/Intersection19.png" alt=""></div>
-                      </div>
-                      <div class="col-md-3">
-                        <h2>Deb<br><span>Date 22-12-2018</span></h2>
-                      </div>
-                      <div class="col-md-2">
-                        <h4>Value<br><span>Savings</span></h4>
-                        <div class="ptext">Items</div>
-                      </div>
-                      <div class="col-md-3">
-                        <h4>2490<br><span>280</span></h4>
-                        <div class="ptext">3</div>
-                        <div class="favbtn2"><a href="javascript:void(0);">Favourit</a></div>
-                      </div>
-                    </div>
-                  </div> -->
-                
+                </div>
+                  <div class="error-msg" *ngIf="orderList.length==0"><span>No recors found</span></div>
                   <div class="card-body pull-right" *ngIf="orderCount > itemPerPage">
-                      <ngb-pagination [collectionSize]="orderCount" [maxSize]="paginationMaxSize" [(page)]="defaultPagination"
-                          (pageChange)="pagination()" size="sm"></ngb-pagination>
+                    <ngb-pagination [collectionSize]="orderCount" [maxSize]="paginationMaxSize" [(page)]="defaultPagination"
+                      (pageChange)="pagination()" size="sm"></ngb-pagination>
                   </div>
                 </div>
               </div>
@@ -134,7 +83,7 @@
       </div>
     </div>
   </div>
-<!-- Sidebar button Download and contact us -->
+  <!-- Sidebar button Download and contact us -->
   <app-sidebar-button></app-sidebar-button>
 
   <div class="inner-search">

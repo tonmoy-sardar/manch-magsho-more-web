@@ -126,10 +126,10 @@ export class DetailsComponent implements OnInit {
         this.customer_cart_data.push(data);
         this.setCartData();
         this.cartService.cartNumberStatus(true);
-        //this.navCtrl.push('CartPage');
+        this.router.navigate(['/cart']);
       }
       else {
-       // this.navCtrl.push('CartPage');
+        this.router.navigate(['/cart']);
       }
   }
 

@@ -30,14 +30,14 @@
                         <div class="input-group-prepend  width100 ">
                            <div class="input-group-text bg-info text-dark">User ID</div>
                         </div>
-                        <input type="text" class="form-control"  name="email_contact" placeholder="Email/Phone no"
+                        <input type="text" class="form-control"  name="email_contact" placeholder="Email/Mobile Number"
                         formControlName="email_contact"
                         [ngClass]="displayFieldCss(loginForm,'email_contact')" required>
                         <div class="invalid-feedback text-left" *ngIf="loginForm.controls['email_contact'].hasError('pattern') && !loginForm.controls['email_contact'].hasError('required')">
                               Please enter a valid email address
                             </div>
                             <div class="invalid-feedback text-left" *ngIf="loginForm.controls['email_contact'].hasError('required')">
-                              Email is required
+                              Email or Mobile Number is required
                             </div>
                      </div>
                   </div>

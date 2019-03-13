@@ -11,7 +11,7 @@
                                     <app-sidebar-userdetails></app-sidebar-userdetails> 
                             </div>
                             <div class="col-md-8">
-                                <div class="shopping-user">
+                                <div class="shopping-user" *ngIf="visible">
                                     <div class="guestshop" *ngFor="let category of categoryList">
                                         <div class="guestimg">
                                             <img (click)="goToProList(category.id,category.name)"

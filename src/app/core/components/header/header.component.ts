@@ -22,6 +22,7 @@ export class HeaderComponent implements OnInit {
   ) {
     this.loadUserInfo();
     cartService.getCartNumberStatus.subscribe(status => this.cartNumberStatus(status));
+    userService.getProfileUpdateStatus.subscribe(status => this.profileUpdateStatus(status));
    }
 
   ngOnInit() {
@@ -40,12 +41,9 @@ export class HeaderComponent implements OnInit {
     if (localStorage.getItem('isLoggedin')) {
       this.loggedIn = true;
       this.userName = localStorage.getItem('userName');
-      console.log(this.userName);
-      console.log("Logged In ==>",this.loggedIn);
     }
     else {
       this.loggedIn = false;
-      console.log("Logged In ==>",this.loggedIn);
     }
   }
   cartNumberStatus(status: boolean) {
@@ -62,7 +60,6 @@ export class HeaderComponent implements OnInit {
 
     this.productService.getAllProList().subscribe(
       res => {
-        console.log("All Product List==>",res);
         this.productList = res['result'];
         this.visibleKey = true;
       },
@@ -78,5 +75,12 @@ export class HeaderComponent implements OnInit {
     this.loggedIn = false;
     this.router.navigate(['/']);
   }
+
+  private profileUpdateStatus(status: boolean) {
+    if (status) {
+      this.loadUserInfo();
+    }
+  }
+
 
 }

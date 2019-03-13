@@ -13,7 +13,6 @@ export class OrderComponent implements OnInit {
   userId:number;
   orderList:any=[];
   imageBaseUrl:any;
-  visibleKey: boolean;
   productList;
   customer_cart_data: any;
   orderListNext:any;
@@ -24,6 +23,7 @@ export class OrderComponent implements OnInit {
   lower_count: number;
   upper_count: number;
   paginationMaxSize:number;
+  visible: boolean;
   constructor(
     private router: Router,
     private route: ActivatedRoute,
@@ -32,6 +32,7 @@ export class OrderComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    this.visible = false;
     this.itemNo = 0;
     this.defaultPagination = 1;
     this.paginationMaxSize = Globals.paginationMaxSize;
@@ -63,9 +64,11 @@ export class OrderComponent implements OnInit {
         else {
           this.upper_count = this.orderCount;
         }
+        this.visible = true;
         console.log(this.orderCount);
       },
       error => {
+        this.visible = true;
       }
     )
   }

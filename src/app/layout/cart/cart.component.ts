@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import {Location} from '@angular/common';
 import { ActivatedRoute, Router } from '@angular/router';
 import { environment } from '../../../environments/environment';
 import * as Globals from '../../core/globals';
@@ -26,6 +27,7 @@ export class CartComponent implements OnInit {
     private route: ActivatedRoute,
     private productService: ProductService,
     private cartService: CartService,
+    private location: Location
   ) { }
 
   ngOnInit() {
@@ -127,6 +129,10 @@ export class CartComponent implements OnInit {
     else {
       this.removeCart(this.customer_cart_data[i].product_id)
     }
+  }
+
+  goBack() {
+    this.location.back();
   }
 
 }

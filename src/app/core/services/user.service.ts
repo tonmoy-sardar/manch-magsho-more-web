@@ -7,6 +7,7 @@ import { Observable} from 'rxjs';
 })
 export class UserService {
   @Output() getLoggedInStatus: EventEmitter<any> = new EventEmitter();
+  @Output() getProfileUpdateStatus: EventEmitter<any> = new EventEmitter();
   constructor(
     private http: HttpClient
   ) { }
@@ -54,6 +55,27 @@ export class UserService {
   }
   updateUserProfile(id, data): Observable<any> {
     return this.http.post(environment.apiEndpoint + 'userprofileupdate/' + id, data)
+  }
+
+  // updatemyProfileImage(id, data): Observable<any> {
+  //   return this.http.post(environment.apiEndpoint + 'userprofileupdate/' + id, data)
+  // }
+
+  updatemyProfileImage(id,profileImage): Observable<any> {
+    const formData: FormData = new FormData();
+      if(profileImage) { 
+        formData.append('profile_image', profileImage, profileImage.name);
+      }
+      console.log(formData);
+    return this.http.post(environment.apiEndpoint + 'userprofileimageupdate/'+id, formData)
+   }
+
+
+  updateProfileStatus(data): Observable<any> {
+    if (data = true) {
+      this.getProfileUpdateStatus.emit(true);
+      return
+    }
   }
 
 }

@@ -1,9 +1,11 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { ActivatedRoute,Router } from '@angular/router';
+import {Location} from '@angular/common';
 import { environment } from '../../../../environments/environment';
 import * as Globals from '../../../core/globals';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { UserService } from '../../../core/services/user.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-edit',
@@ -22,6 +24,8 @@ export class EditComponent implements OnInit {
     private route: ActivatedRoute,
     private formBuilder: FormBuilder,
     private userService: UserService,
+    private toastr: ToastrService,
+    private location: Location
   ) {
     this.updateProfileForm = this.formBuilder.group({
       name: ["", Validators.required],
@@ -72,11 +76,19 @@ export class EditComponent implements OnInit {
           console.log(res);
           this.updateProfileForm.reset();
           localStorage.setItem('userName', this.profileDetails.name);
+          localStorage.setItem('userName', res['result']['name']);
+          this.userService.updateProfileStatus(true);
+          this.toastr.success('Profile update successfully', '', {
+            timeOut: 3000,
+          });
           this.getProfileDetails(this.userId);
           this.getmyAddress();
 
         },
         error => {
+          this.toastr.error('Profile update error', '', {
+            timeOut: 3000,
+          });
         }
       )
     } else {
@@ -94,6 +106,10 @@ export class EditComponent implements OnInit {
       error => {
       }
     )
+  }
+
+  goBack() {
+    this.location.back();
   }
 
   markFormGroupTouched(formGroup: FormGroup) {

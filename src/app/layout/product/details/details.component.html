@@ -33,10 +33,18 @@
                                 <span class=""><i class="fa fa-plus" aria-hidden="true"></i></span> </button> </span>
                           </div>
                         </div>
-                        <div class="col-md-6" *ngIf="!proDetails.isCart"> <button type="button" class="btn btn-secondary"
+                        <div class="col-md-6" *ngIf="!proDetails.isCart"> 
+                          <button type="button" class="btn btn-secondary"
                             data-toggle="tooltip" title="Add to cart" (click)="addtoCart(proDetails)"> Add to cart
                             <i class="fa fa-cart-plus" aria-hidden="true"></i></button>
+                            
                         </div>
+                        <div class="col-md-6" *ngIf="!proDetails.isCart"> 
+                            <button type="button" class="btn btn-secondary"
+                              data-toggle="tooltip" title="Add to cart" (click)="buyNow(proDetails)"> Buy Now
+                              <i class="fa fa-cart-plus" aria-hidden="true"></i></button>
+                              
+                          </div>
                       </div>
                     </td>
                   </tr>
