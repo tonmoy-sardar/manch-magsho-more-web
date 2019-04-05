@@ -4,6 +4,8 @@ import { environment } from '../../../../environments/environment';
 import * as Globals from '../../../core/globals';
 import { ProductService } from '../../../core/services/product.service';
 import { CartService } from '../../../core/services/cart.service';
+import {Location} from '@angular/common';
+import { Lightbox } from 'ngx-lightbox';
 @Component({
   selector: 'app-details',
   templateUrl: './details.component.html',
@@ -26,6 +28,8 @@ export class DetailsComponent implements OnInit {
     private route: ActivatedRoute,
     private productService: ProductService,
     private cartService: CartService,
+    private location: Location,
+    public lightbox:Lightbox
   ) { }
 
   ngOnInit() {
@@ -39,6 +43,7 @@ export class DetailsComponent implements OnInit {
       this.customer_cart_data = [];
     }
     this.productDetails(this.route.snapshot.params['id']);
+    this.getFoodValue(this.route.snapshot.params['id']);
 
     //this.getFoodValueList(this.route.snapshot.params['id']);
   }
@@ -206,14 +211,55 @@ export class DetailsComponent implements OnInit {
     this.cartService.cartNumberStatus(true);
   }
 
-  gotoFoodValue(id) {
-    //this.navCtrl.push('FoodvaluePage', { id: id });
+  // getFoodValueList(id) {
+  //   this.spinnerDialog.show();
+  //   this.productService.getFoodList(id).subscribe(res => {
+  //     this.foodValueList = res['result'];
+  //     this.photos.push({
+  //       url: this.imageBaseUrl + this.foodValueList.food_value_large,
+  //     });
+  //     this.spinnerDialog.hide();
+  //   },
+  //     error => { this.spinnerDialog.hide(); })
+  // }
+  getFoodValue(id) {
+    this.productService.getFoodList(id).subscribe(
+      res => {
+        console.log("Food Value ==>",res);
+        this.foodValueList = res['result'];
+
+      //   const album = {
+      //     src: src,
+      //     caption: caption,
+      //     thumb: thumb
+      //  };
+        this.photos.push({
+          src : this.imageBaseUrl + this.foodValueList.food_value_large,
+          thumb : this.imageBaseUrl + this.foodValueList.food_value_large,
+          caption:"",
+          //url: this.imageBaseUrl + this.foodValueList.food_value_large,
+        });
+        console.log("Photo==>",this.photos);
+      },
+      error => {
+
+      }
+    )
+  }
+
+  openFoodValue() {
+    this.lightbox.open(this.photos, 0);
+   
   }
   gotoRecipe(id) {
       this.router.navigate(['/recipe/product',id]);
   }
   gotoTrivia(id) {
     this.router.navigate(['/product/trivia',id]);
+  }
+
+  goBack() {
+    this.location.back();
   }
 
 }

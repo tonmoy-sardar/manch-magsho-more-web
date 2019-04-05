@@ -879,6 +879,42 @@ figure img {
     border-radius: 0 50px 50px 0;
 }
 
+.inform-btn {
+    background: #92d9e2;
+    padding: 17px 22px;
+    position: fixed;
+    right: 0;
+    z-index: 99;
+    top: 70%;
+    color: #fff;
+    font-size: 12px;
+    font-weight: bold;
+    border-radius: 10px 0 0 10px;
+    width:13%;
+    text-align: center;
+}
+// .inform-btn span {
+//     font-size:12px;
+// }
+.back-btn {
+    background: #92d9e2;
+    padding: 17px 22px;
+    position: fixed;
+    right: 0;
+    z-index: 99;
+    top: 80%;
+    color: #fff !important;
+    font-size: 12px;
+    font-weight: bold;
+    border-radius: 10px 0 0 10px;
+    width:13%;
+    text-align: center;
+    cursor: pointer;
+}
+// .back-btn span {
+//     font-size:12px;
+// }
+
 .submit-review-btn {
     background: #CAF5F8;
     padding: 17px 21px;

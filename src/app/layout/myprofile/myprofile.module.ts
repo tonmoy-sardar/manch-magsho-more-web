@@ -7,6 +7,9 @@ import { MyprofileComponent } from './myprofile.component';
 import {CoreModule} from '../../core/core.module';
 import { EditComponent } from './edit/edit.component';
 
+
+
+
 @NgModule({
   declarations: [MyprofileComponent, EditComponent],
   imports: [

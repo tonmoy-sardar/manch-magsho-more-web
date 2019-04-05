@@ -41,6 +41,8 @@ const routes: Routes = [
       { path: 'addreview/:id', loadChildren: './addreview/addreview.module#AddreviewModule' },
       { path: 'search/:name', loadChildren: './search/search.module#SearchModule' },
       { path: 'orderdetails/:id', loadChildren: './orderdetails/orderdetails.module#OrderdetailsModule' },
+      { path: 'ourservice', loadChildren: './ourservice/ourservice.module#OurserviceModule' },
+      { path: 'whyus', loadChildren: './whyus/whyus.module#WhyusModule' },
     ]
   }
 ];

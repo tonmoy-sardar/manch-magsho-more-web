@@ -29,6 +29,8 @@ export class RecipeComponent implements OnInit {
   upper_count: number;
   paginationMaxSize:number;
   visible: boolean;
+  searchText:any;
+  isPagination:number;
   constructor(
     private router: Router,
     private route: ActivatedRoute,
@@ -99,6 +101,21 @@ export class RecipeComponent implements OnInit {
 
   gotoDetails(id) {
     this.router.navigate(['recipe/details', id]);
+  }
+
+  recipeSearch(searchtxt) {
+    this.searchText = searchtxt;
+    this.proRecipeList = [];
+    this.productService.getSearchRecipeList(this.searchText).subscribe(
+      res => {
+        console.log("Serach Recipe List==>",res);
+        this.proRecipeList = res['result'];
+        this.isPagination=0;
+      },
+      error => {
+        this.proRecipeList=[];
+      }
+    )
   }
 
 }

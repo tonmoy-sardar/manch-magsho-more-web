@@ -29,11 +29,13 @@ import { SidebarButtonComponent } from './components/sidebar-button/sidebar-butt
 import { SidebarMenuComponent } from './components/sidebar-menu/sidebar-menu.component';
 import { SidebarUserdetailsComponent } from './components/sidebar-userdetails/sidebar-userdetails.component';
 import { UserSidebarComponent } from './components/user-sidebar/user-sidebar.component';
+import {AddressComponent} from '../core/components/address/address.component';
+import { ChartsModule } from 'ng2-charts';
 //services 
 import { UserService } from './services/user.service';
 import { ProductService } from './services/product.service';
 import { CartService } from './services/cart.service';
-
+import { LightboxModule } from 'ngx-lightbox';
 
 
 
@@ -48,6 +50,7 @@ import { CartService } from './services/cart.service';
       apiKey: 'AIzaSyDCwmrD9NEiBAtmQS8_UfaIO4wFg99N8MU'
     }),
     NgbModule.forRoot(),
+    ChartsModule,
 
 
     //----------------Material----------------//
@@ -62,6 +65,7 @@ import { CartService } from './services/cart.service';
 
     OwlModule,
     NgxImageGalleryModule,
+    LightboxModule
   ],
   declarations: [
     HeaderComponent,
@@ -69,7 +73,8 @@ import { CartService } from './services/cart.service';
     SidebarButtonComponent,
     SidebarMenuComponent,
     SidebarUserdetailsComponent,
-    UserSidebarComponent
+    UserSidebarComponent,
+   AddressComponent
   ],
 
   exports: [
@@ -87,17 +92,20 @@ import { CartService } from './services/cart.service';
     //----------------Material----------------//
     OwlModule,
     NgxImageGalleryModule,
+    LightboxModule,
     HeaderComponent,
     FooterComponent,
     SidebarButtonComponent,
     SidebarMenuComponent,
     SidebarUserdetailsComponent,
     UserSidebarComponent,
+    AddressComponent,
     NgbModule,
+    ChartsModule
 
   ],
   entryComponents: [
-
+    AddressComponent
   ]
 })
 

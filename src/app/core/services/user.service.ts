@@ -78,4 +78,8 @@ export class UserService {
     }
   }
 
+  updateAddress(data,id): Observable<any> {
+    return this.http.post(environment.apiEndpoint + 'updateCustomerAddressById/' + id, data)
+  }
+
 }

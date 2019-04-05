@@ -13,6 +13,7 @@ export class WishlistComponent implements OnInit {
   userId: number;
   whisListProduct: any = [];
   imageBaseUrl: any;
+  catName:any;
   constructor(
     private router: Router,
     private route: ActivatedRoute,

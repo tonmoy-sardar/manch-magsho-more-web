@@ -17,7 +17,7 @@ export class SearchComponent implements OnInit {
   productResultNext: any;
   userId:number;
   catName:string;
-
+  searchText:any;
   searchTxt:any;
   constructor(
     private router: Router,

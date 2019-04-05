@@ -4,6 +4,9 @@ import { environment } from '../../../environments/environment';
 import * as Globals from '../../core/globals';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { UserService } from '../../core/services/user.service';
+import {MatDialog, MAT_DIALOG_DATA} from '@angular/material';
+
+import { AddressComponent } from '../../core/components/address/address.component';
 
 @Component({
   selector: 'app-myprofile',
@@ -24,6 +27,7 @@ export class MyprofileComponent implements OnInit {
     private route: ActivatedRoute,
     private formBuilder: FormBuilder,
     private userService: UserService,
+    public dialog: MatDialog
   ) { }
 
   ngOnInit() {
@@ -97,6 +101,21 @@ export class MyprofileComponent implements OnInit {
 
       }
     )
+  }
+
+ 
+  openModal(address) {
+   // const dialogRef = this.dialog.open(AddressComponent,address);
+   const dialogRef = this.dialog.open(AddressComponent, {
+    data: {
+      data: address
+    }
+  });
+  
+    dialogRef.afterClosed().subscribe(result => {
+      this.showMyAddress();
+      console.log('Dialog Close');
+    });
   }
 
   markFormGroupTouched(formGroup: FormGroup) {

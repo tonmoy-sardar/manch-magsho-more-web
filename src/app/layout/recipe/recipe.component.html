@@ -13,8 +13,10 @@
                   <div class="row">
                     <div class="col-md-5">
                       <span>{{recipeList.blog_title}}</span>
-                      <a class="veg" href="javascript:void(0)" *ngIf="recipeList.recipe_type =='veg'">{{recipeList.recipe_type}}</a>
-                      <a class="sold" href="javascript:void(0)" *ngIf="recipeList.recipe_type !='veg'">{{recipeList.recipe_type}}</a>
+                      <a class="veg" href="javascript:void(0)"
+                        *ngIf="recipeList.recipe_type =='veg'">{{recipeList.recipe_type}}</a>
+                      <a class="sold" href="javascript:void(0)"
+                        *ngIf="recipeList.recipe_type !='veg'">{{recipeList.recipe_type}}</a>
                     </div>
                     <div class="col-md-7 img-btm">
                       <!-- <div class="rate">
@@ -29,25 +31,26 @@
                         <input type="radio" id="star1" name="rate" value="1" />
                         <label for="star1" title="text">1 star</label>
                       </div> -->
-                      
+
                       <div class="rate" *ngIf="recipeList.average_rating==null" style="padding-left: 10px;">
-                          <span class="rating" *ngFor="let rat of rating; let i = index" [ngClass]="[i <= 0 - 1 ? 'active' : '']"
-                            style="margin-right: 2px;">
-                            <i class="fa fa-star" aria-hidden="true"></i>
-                          </span>
-                        </div>
-                        <div class="rate" *ngIf="recipeList.average_rating!=null" style="padding-left: 10px;">
-                          
-                          <span class="rating" *ngFor="let rat of rating; let i = index"
-                            [ngClass]="[i <= recipeList.average_rating.averagerating - 1 ? 'active' : '']"
-                            style="margin-right: 2px;">
-                            <i class="fa fa-star" aria-hidden="true"></i>
-                          </span>
-                        </div>
+                        <span class="rating" *ngFor="let rat of rating; let i = index"
+                          [ngClass]="[i <= 0 - 1 ? 'active' : '']" style="margin-right: 2px;">
+                          <i class="fa fa-star" aria-hidden="true"></i>
+                        </span>
+                      </div>
+                      <div class="rate" *ngIf="recipeList.average_rating!=null" style="padding-left: 10px;">
+
+                        <span class="rating" *ngFor="let rat of rating; let i = index"
+                          [ngClass]="[i <= recipeList.average_rating.averagerating - 1 ? 'active' : '']"
+                          style="margin-right: 2px;">
+                          <i class="fa fa-star" aria-hidden="true"></i>
+                        </span>
+                      </div>
                       <img class="img-fluid"
-                      [src]="recipeList.blog_small_image != ''? imageBaseUrl+ recipeList.blog_small_image : 'assets/imgs/no-image.png'">
-                    
-                      <a class="price" href="javascript:void(0);"><span>Cooking</span><span>{{recipeList.cooking_time}}</span></a>
+                        [src]="recipeList.blog_small_image != ''? imageBaseUrl+ recipeList.blog_small_image : 'assets/imgs/no-image.png'">
+
+                      <a class="price"
+                        href="javascript:void(0);"><span>Cooking</span><span>{{recipeList.cooking_time}}</span></a>
                       <a class="language" href="javascript:void(0);">{{recipeList.recipe_language}}</a>
                     </div>
                   </div>
@@ -56,9 +59,9 @@
               </div>
               <div class="col-md-3" class="error-msg" *ngIf="proRecipeList.length==0"><span>No recors found</span></div>
             </div>
-            <div class="card-body pull-right" *ngIf="recipeListCount > itemPerPage">
-                <ngb-pagination [collectionSize]="recipeListCount" [maxSize]="paginationMaxSize" [(page)]="defaultPagination"
-                    (pageChange)="pagination()" size="sm"></ngb-pagination>
+            <div class="card-body pull-right" *ngIf="recipeListCount > itemPerPage && isPagination ==1">
+              <ngb-pagination [collectionSize]="recipeListCount" [maxSize]="paginationMaxSize"
+                [(page)]="defaultPagination" (pageChange)="pagination()" size="sm"></ngb-pagination>
             </div>
           </div>
         </div>
@@ -71,12 +74,12 @@
       <div class="form-group">
         <div class="input-group mb-2 rounded-pill search-input">
           <div class="input-group-prepend  width100 ">
-            <div class="input-group-text bg-info text-dark">Search </div>
+            <div style="cursor:pointer;" class="input-group-text bg-info text-dark" (click)="recipeSearch(searchText)">Search </div>
           </div>
-          <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Search Product" required>
+          <input type="text" [(ngModel)]="searchText" class="form-control" id="nombre" name="nombre" placeholder="Search Recipe" required>
         </div>
-        <a class="resend-btn subscribe text-dark" href="#">Clear Filter</a>
-        <a class="resend-btn subscribe text-dark" href="#">Filter</a>
+        <!-- <a class="resend-btn subscribe text-dark" href="#">Clear Filter</a>
+        <a class="resend-btn subscribe text-dark" href="#">Filter</a> -->
       </div>
     </div>
   </div>
