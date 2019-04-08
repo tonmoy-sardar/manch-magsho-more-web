@@ -193,6 +193,7 @@ ul {
     font-weight: bold;
     border-radius: 0 50px 50px 0;
     z-index: 999;
+    width:18%;
 }
 
 .contact-btn {
@@ -206,6 +207,7 @@ ul {
     font-size: 25px;
     font-weight: bold;
     border-radius: 0 50px 50px 0;
+    width:18%;
 }
 
 .body-banner .inner-page {
@@ -399,7 +401,7 @@ figure img {
 
 .item-box-blog-image figure img {
     width: 100%;
-    height: auto;
+    height: 100px;
 }
 
 .item-box-blog-date {
@@ -1315,6 +1317,7 @@ ul.list-style {
     text-align: center;
     min-width: 25%;
     right: 0;
+    background:#ccc;
 }
 
 .myfav {
@@ -1367,6 +1370,7 @@ ul.list-style {
 .delete {
     color: #FF0000;
     float: right;
+    cursor: pointer;
 }
 
 .pro-box {
@@ -1614,6 +1618,12 @@ span.total-cart {
 }
 .back-submitbtn {
     margin:2%;
+}
+.chart-show-monthly select {
+    width:40%;
+}
+.pro-search {
+    cursor: pointer;
 }
 // responsive-css
 //  Large Devices, Wide Screens 

@@ -82,5 +82,9 @@ export class HeaderComponent implements OnInit {
     }
   }
 
+  gotoDetails(id) {
+    this.router.navigate(['product/details', id]);
+  }
+
 
 }

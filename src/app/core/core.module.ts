@@ -36,6 +36,7 @@ import { UserService } from './services/user.service';
 import { ProductService } from './services/product.service';
 import { CartService } from './services/cart.service';
 import { LightboxModule } from 'ngx-lightbox';
+import { SearchBarComponent } from './components/search-bar/search-bar.component';
 
 
 
@@ -74,7 +75,8 @@ import { LightboxModule } from 'ngx-lightbox';
     SidebarMenuComponent,
     SidebarUserdetailsComponent,
     UserSidebarComponent,
-   AddressComponent
+   AddressComponent,
+   SearchBarComponent
   ],
 
   exports: [
@@ -100,6 +102,7 @@ import { LightboxModule } from 'ngx-lightbox';
     SidebarUserdetailsComponent,
     UserSidebarComponent,
     AddressComponent,
+    SearchBarComponent,
     NgbModule,
     ChartsModule
 

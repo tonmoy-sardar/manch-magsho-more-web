@@ -53,8 +53,8 @@ export class ProductService {
   getriviaDetails(id): Observable<any> {
     return this.http.get(environment.apiEndpoint + 'producttrivialistbyproductid/'+id)
   }
-  addFavourite(id): Observable<any> {
-    return this.http.get(environment.apiEndpoint + 'favouriteOrder/'+id)
+  addFavourite(id,status): Observable<any> {
+    return this.http.get(environment.apiEndpoint + 'favouriteOrder/'+id +'?order_status='+status)
   }
   getSpendingPattern(id): Observable<any> {
     return this.http.get(environment.apiEndpoint + 'productspendcatwisebyuserid/'+id+'/')
@@ -106,4 +106,7 @@ export class ProductService {
     return this.http.get(environment.apiEndpoint + 'recipelistsearch/recipe?search_key='+searchKey)
   }
 
+  myOrderDetails(id): Observable<any> {
+    return this.http.get(environment.apiEndpoint + 'orderdetailsbyid/'+id)
+  }
 }

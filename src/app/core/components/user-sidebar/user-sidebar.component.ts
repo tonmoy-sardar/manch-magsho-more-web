@@ -42,29 +42,38 @@ export class UserSidebarComponent implements OnInit {
   }
 
   onFileChange(event) {
-    this.profileImage = event.target.files[0];
-    console.log(this.profileImage);
-    this.userService.updatemyProfileImage(this.userId,this.profileImage).subscribe(
-      res => {
-        console.log(res);
-        //this.profileDetails = res['result'];
-        this.userImage = res['result']['profile_image'];
-        
-        localStorage.setItem('userImage', this.userImage);
-        // this.myprofileService.updateProfileStatus(true);
-        // this.editProfile = false;
-        // this.getProfileDetails(localStorage.getItem('userId'));
-        this.loadUserInfo();
-        this.toastr.success('Profile Update successfully', '', {
-          timeOut: 3000,
+    if(event.target.files[0].type == 'image/jpeg' || event.target.files[0].type == 'image/jpg' || event.target.files[0].type == 'image/png') {
+      this.profileImage = event.target.files[0];
+      console.log("File Type ===>",this.profileImage.type);
+      this.userService.updatemyProfileImage(this.userId,this.profileImage).subscribe(
+        res => {
+          console.log(res);
+          //this.profileDetails = res['result'];
+          this.userImage = res['result']['profile_image'];
+          
+          localStorage.setItem('userImage', this.userImage);
+          // this.myprofileService.updateProfileStatus(true);
+          // this.editProfile = false;
+          // this.getProfileDetails(localStorage.getItem('userId'));
+          this.loadUserInfo();
+          this.toastr.success('Profile Update successfully', '', {
+            timeOut: 3000,
+          });
+        },
+        error => {
+          // console.log(error)
+          this.toastr.error(error.error.message, '', {
+            timeOut: 3000,
+          });
         });
-      },
-      error => {
-        // console.log(error)
-        this.toastr.error(error.error.message, '', {
-          timeOut: 3000,
-        });
+    }
+    else {
+      this.toastr.error("Please upload image file", '', {
+        timeOut: 3000,
       });
+      
+    }
+ 
   }
   
 

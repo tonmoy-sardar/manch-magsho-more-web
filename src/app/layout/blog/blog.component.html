@@ -13,7 +13,10 @@
                                         <!-- <div class="item-box-blog-date bg-blue-ui white"> 
                       <span class="mon">Ajoy Dixit</span> 
                     </div> -->
-                                        <figure> <img src="assets/img/recipes.jpg" alt="Denim Jeans"> </figure>
+                                        <figure> 
+                                                <img
+                                                [src]="blog.blog_small_image != ''? imageBaseUrl+ blog.blog_small_image : 'assets/imgs/no-image.png'">
+                                        </figure>
                                     </div>
                                     <div class="item-box-blog-body">
                                         <div class="item-box-blog-heading"> <a href="javascript:void(0);" tabindex="0">
@@ -35,15 +38,5 @@
         </div>
     </div>
     <app-sidebar-button></app-sidebar-button>
-    <div class="inner-search">
-        <div class="col-md-6 offset-md-3">
-            <div class="form-group">
-                <div class="input-group mb-2 rounded-pill search-input">
-                    <div class="input-group-prepend width100 ">
-                        <div class="input-group-text bg-info text-dark">Search </div>
-                    </div><input type="text" class="form-control" id="nombre" name="nombre" placeholder="Search Product" required>
-                </div>
-            </div>
-        </div>
-    </div>
+    <app-search-bar></app-search-bar>
 </div>

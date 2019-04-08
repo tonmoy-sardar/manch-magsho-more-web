@@ -21,18 +21,18 @@
                           <div class="col-md-5">
                            
                             <span>{{product.name}}</span>
-                            <a class="veg" *ngIf="product.product_stock > 5" href="#">Available</a>
+                            <a class="veg" *ngIf="product.product_stock > 5" href="javascript:void(0)">Available</a>
                             <a class="limited" *ngIf="product.product_stock > 0 && product.product_stock < 6"
-                              href="#">Limited</a>
-                            <a class="sold" *ngIf="product.product_stock < 1" href="#">Sold Out</a>
+                              href="javascript:void(0)">Limited</a>
+                            <a class="sold" *ngIf="product.product_stock < 1" href="javascript:void(0)">Sold Out</a>
                           </div>
                           <div class="col-md-7 img-btm">
                               <i class="fa fa-trash delete" aria-hidden="true" (click)=deleteWishList(product.product_id)></i>
-                            <img class="img-fluid"
+                            <img style="cursor:pointer;" (click)="gotoDetails(product.product_id)"  class="img-fluid"
                               [src]="product.image_small != ''? imageBaseUrl+ product.image_small : 'assets/imgs/no-image.png'">
-                            <a class="price" href="#"><span>{{product.market_price}} /
+                            <a class="price" href="javascript:void(0)"><span>{{product.market_price}} /
                                 {{product.quantity_count}} {{product.unit}}</span><span> Price</span></a>
-                            <a class="language" href="#"><span>{{product.price}} /
+                            <a class="language" href="javascript:void(0)"><span>{{product.price}} /
                                 {{product.quantity_count}} {{product.unit}}</span><span> Our Price</span></a>
                           </div>
                         </div>
@@ -50,18 +50,6 @@
     </div>
   </div>
   <app-sidebar-button></app-sidebar-button>
-  <div class="inner-search">
-    <div class="col-md-6 offset-md-3">
-      <div class="form-group">
-        <div class="input-group mb-2 rounded-pill search-input">
-          <div class="input-group-prepend  width100 ">
-            <div class="input-group-text bg-info text-dark">Search </div>
-          </div>
-          <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Search Product" required>
-        </div>
-        <!-- <a class="resend-btn subscribe text-dark" href="javascript:void(0);">Subscribe</a> -->
-      </div>
-    </div>
-  </div>
+  <app-search-bar></app-search-bar>
   <app-sidebar-menu></app-sidebar-menu>
 </div>

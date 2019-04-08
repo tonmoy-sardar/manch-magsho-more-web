@@ -55,7 +55,7 @@ export class WishlistComponent implements OnInit {
   }
 
   gotoDetails(id) {
-    //this.navCtrl.push('ProductdetailsPage', { id: id });
+    this.router.navigate(['product/details', id]);
   }
 
 }

@@ -6,6 +6,7 @@ import { ProductService } from '../../../core/services/product.service';
 import { CartService } from '../../../core/services/cart.service';
 import {Location} from '@angular/common';
 import { Lightbox } from 'ngx-lightbox';
+import { ToastrService } from 'ngx-toastr';
 @Component({
   selector: 'app-details',
   templateUrl: './details.component.html',
@@ -23,13 +24,15 @@ export class DetailsComponent implements OnInit {
   photo: any;
   foodValueList: any;
   private photos: any[] = [];
+
   constructor(
     private router: Router,
     private route: ActivatedRoute,
     private productService: ProductService,
     private cartService: CartService,
     private location: Location,
-    public lightbox:Lightbox
+    public lightbox:Lightbox,
+    private toastr: ToastrService,
   ) { }
 
   ngOnInit() {
@@ -261,5 +264,9 @@ export class DetailsComponent implements OnInit {
   goBack() {
     this.location.back();
   }
-
+  informProduct() {
+    this.toastr.success('Get notified as soon as the product is available again in your registered email / mobile no', '', {
+      timeOut: 3000,
+    });
+  }
 }

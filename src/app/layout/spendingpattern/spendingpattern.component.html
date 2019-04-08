@@ -1,5 +1,6 @@
 <app-header></app-header>
-<div class="chart-page">
+<div class="chart-show-monthly chart-page">
+    <h4>Current Month Spending Pattern: </h4>
 <div class="chart-show" style="display: block; width:600px; height:300px">
   <canvas baseChart [data]="doughnutChartData" [labels]="doughnutChartLabels" [chartType]="doughnutChartType"
     [colors]="doughnutChartColors">
@@ -9,7 +10,7 @@
 <div class="chart-show-monthly">
   <h4>Monthly Spending Pattern: </h4>
   
-  <select [ngModel]="month" (ngModelChange)="selectMonth($event)" name="month">
+  <select class="form-control" [ngModel]="month" (ngModelChange)="selectMonth($event)" name="month">
       <option [value]="null">Select Month</option>
     <option *ngFor="let month of monthList" [value]="month.id">
       {{month.name}}

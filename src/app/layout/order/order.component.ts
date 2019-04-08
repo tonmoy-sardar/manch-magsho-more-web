@@ -131,15 +131,19 @@ export class OrderComponent implements OnInit {
     sessionStorage.setItem("cart", JSON.stringify(this.customer_cart_data));
   }
 
-  addFav(id) {
+  addFav(id,status) {
    
-    this.productService.addFavourite(id).subscribe(
+    this.productService.addFavourite(id,status).subscribe(
       res => {
         this.getOrderList(this.userId);
       },
       error => {
       }
     )
+  }
+
+  gotoDetails(id) {
+    this.router.navigate(['/orderdetails',id]);
   }
 
 }

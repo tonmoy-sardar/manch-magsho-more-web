@@ -1,110 +1,92 @@
 <app-header></app-header>
 <div class="body-banner">
-    <div class="col-md-12">
-        <div class="row">
-            <div class="col-md-12 "> <img class="img-fluid logo-small" src="images/logo.png" alt="">
+  <div class="col-md-12">
+    <div class="row">
+      <!-- <div class="col-md-12 "> <img class="img-fluid logo-small" src="images/logo.png" alt="">
                 <div class="product-details">
                     <div class="image-details">
                         <div class="container">
                             <h2>Roasted Brinjal</h2> <img class="img-fluid" src="assets/img/lntersection.png" alt=""></div>
                     </div>
                 </div>
-            </div>
-            <div class="bg-light text-primary details-text">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-md-6 offset-md-3 bg-info pt-3 pb-3 ">
-                            <mat-card>
-                                <div class="date-sec">
-                                    <div class="row">
-                                        <h3 class=" col-md-6 text-left ">NO:123orefe</h3>
-                                        <h3 class="col-md-6 text-right ">Date: Mar 8 / 2019 </h3>
-                                    </div>
-                                </div>
-
-
-
-                                <table id="customers">
-                                    <tr>
-                                        <th>Payment Status</th>
-                                        <th>Payment Mode</th>
-                                        <th>Grand Total</th>
-                                    </tr>
-                                    <tr>
-                                        <td>Pending</td>
-                                        <td>COD</td>
-                                        <td>₹ 231</td>
-                                    </tr>
-
-
-
-
-                                </table>
-                            </mat-card>
-
-                            <mat-card class="mt-2">
-
-
-
-
-                                <table id="customers" class="product-table">
-
-                                    <tr>
-                                        <td><img src="assets/img/lntersection.png" alt=""></td>
-                                        <td>COD</td>
-
-                                    </tr>
-
-
-
-
-                                </table>
-                            </mat-card>
-                            <mat-card class="mt-2">
-
-
-
-                                <table id="customers">
-                                    <tr>
-                                        <th>Delivery Address</th>
-
-                                    </tr>
-                                    <tr>
-                                        <td>Shyam Towers, EN-32, Salt Lake, Sector-V, Kolkata - 700 091</td>
-
-                                    </tr>
-
-
-
-
-                                </table>
-                            </mat-card>
-                            <mat-card class="mt-2">
-
-
-
-                                <table id="customers">
-                                    <tr>
-                                        <th>Delivery Charge</th>
-                                        <th>₹ 31</th>
-
-
-                                    </tr>
-                                    <tr>
-                                        <td>Total</td>
-                                        <td>₹ 200</td>
-
-                                    </tr>
-
-
-
-
-                                </table>
-                            </mat-card>
-                        </div>
-                    </div>
-
+            </div> -->
+      <div class="bg-light text-primary details-text">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-6 offset-md-3 bg-info pt-3 pb-3 ">
+              <mat-card>
+                <div class="date-sec">
+                  <div class="row">
+                    <h3 class=" col-md-6 text-left ">NO:{{orderDetails.order_no}}</h3>
+                    <h3 class="col-md-6 text-right ">Date: {{orderDetails.date_created |
+                            date:'MMM d, y'}} </h3>
+                  </div>
                 </div>
+                <table id="customers">
+                  <tr>
+                    <th>Payment Status</th>
+                    <th>Payment Mode</th>
+                    <th>Grand Total</th>
+                  </tr>
+                  <tr>
+                    <td>
+                      <p *ngIf="orderDetails.is_paid==0">Pending</p>
+                      <p *ngIf="orderDetails.is_paid==1">Paid</p>
+                      <p *ngIf="orderDetails.is_paid==2">Cancel</p>
+                    </td>
+                    <td>
+                            <p *ngIf="orderDetails.payment_type ==1">Paytm</p>
+                            <p *ngIf="orderDetails.payment_type ==2">COD</p>
+                    </td>
+                    <td>₹ {{orderDetails.total_price}}</td>
+                  </tr>
+                </table>
+              </mat-card>
+              <mat-card class="mt-2">
+                <table id="customers" class="product-table">
+                  <tr *ngFor="let product of productList; let i = index">
+                    <td>
+                        <!-- <img src="assets/img/lntersection.png" alt=""> -->
+                        <img [src]="product.product_image_small != ''? imageBaseUrl+ product.product_image_small: 'assets/imgs/no-image.png'">
+                    </td>
+                    <td>
+                        <p>{{product.product_name}}</p>
+                        <p>quantity : {{product.quantity}}</p>
+                        <p>price : {{product.total_cost}}</p>
+                    </td>
+                  </tr>
+                </table>
+              </mat-card>
+              <mat-card class="mt-2">
+                <table id="customers">
+                  <tr>
+                    <th>Delivery Address</th>
+
+                  </tr>
+                  <tr>
+                    <td>  {{orderDetails.customer_name}}, {{orderDetails.customer_address}}</td>
+
+                  </tr>
+                </table>
+              </mat-card>
+              <mat-card class="mt-2">
+                <table id="customers">
+                  <tr>
+                    <th>Delivery Charge</th>
+                    <th>₹ {{orderDetails.deliver_charge}}</th>
+                  </tr>
+                  <tr>
+                    <td>Total</td>
+                    <td>₹ {{orderDetails.total_price}}</td>
+
+                  </tr>
+                </table>
+              </mat-card>
             </div>
+          </div>
+
         </div>
-    </div> <a class="write-review-btn" href="#">Sold Out</a></div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -102,7 +102,6 @@ export class MyprofileComponent implements OnInit {
       }
     )
   }
-
  
   openModal(address) {
    // const dialogRef = this.dialog.open(AddressComponent,address);

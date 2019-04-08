@@ -19,6 +19,7 @@ export class SearchComponent implements OnInit {
   catName:string;
   searchText:any;
   searchTxt:any;
+  visibleKey: boolean;
   constructor(
     private router: Router,
     private route: ActivatedRoute,
@@ -26,8 +27,7 @@ export class SearchComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-   
-
+    this.visibleKey=false;
     this.imageBaseUrl = environment.imageBaseUrl;
     this.userId = +localStorage.getItem('userId');
     this.searchTxt = this.route.snapshot.params['name']
@@ -37,6 +37,7 @@ export class SearchComponent implements OnInit {
     this.searchTxt =name;
     this.productService.getSearchList(name, this.userId).subscribe(
       res => {
+        this.visibleKey=true;
         console.log("Product List==>",res);
         this.categoryBannerImage = res['category_banner_image'];
         this.catName = res['category_name'];
@@ -46,6 +47,7 @@ export class SearchComponent implements OnInit {
         //code for pagination
       },
       error => {
+        this.visibleKey=true;
         this.allProductList =[];
       console.log(error);
       }
@@ -72,5 +74,7 @@ export class SearchComponent implements OnInit {
   gotoPage() {
     this.router.navigate(['/login']);
   }
+
+  
 
 }

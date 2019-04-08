@@ -20,8 +20,9 @@
                   <div *ngIf="visible">
                   <div class="order-section order-section2" *ngFor="let order of orderList; let i = index">
                     <div class="row">
-                      <div class="col-md-4">
-                        <p>Order number {{order.order_no}}</p>
+                      <div class="col-md-3">
+                        <p>Order number</p>
+                        <p> {{order.order_no}}</p>
                         <div class="order-img">
                           <!-- <img src="assets/img/Intersection14.png" alt=""> -->
                         </div>
@@ -36,7 +37,7 @@
                         <h4>Grand Total<br><span>Payment Status</span></h4>
                         <div class="ptext">Payment Mode</div>
                       </div>
-                      <div class="col-md-3">
+                      <div class="col-md-2">
                         <h4>
                           {{order.total_price}}
                           <br>
@@ -49,10 +50,14 @@
                           <span *ngIf="order.payment_type ==2">COD</span>
                         </div>
 
+                       
 
+                        
 
-
-
+                      </div>
+                      <div class="col-md-2"> 
+                          <a href="javascript:void(0);" style="background:#CAF5F8;color:#fff !important;" (click)="gotoDetails(order.id)" class="btn btn-primary  bg-info text-dark border-radius">View
+                      </a>
                       </div>
                       <div class="col-md-12">
 
@@ -62,8 +67,8 @@
 
                         </div>
 
-                        <div (click)="addFav(order.id)" *ngIf="order.is_favourite ==0" class="favbtn"><a href="javascript:void(0);">Favourite</a></div>
-                        <div *ngIf="order.is_favourite ==1" class="favbtn myfav"><a href="javascript:void(0);">Favourite</a></div>
+                        <div (click)="addFav(order.id,1)" *ngIf="order.is_favourite ==0" class="favbtn"><a href="javascript:void(0);">Favourite</a></div>
+                        <div (click)="addFav(order.id,0)"*ngIf="order.is_favourite ==1" class="favbtn myfav"><a href="javascript:void(0);">Favourite</a></div>
 
 
                       </div>
@@ -86,18 +91,6 @@
   <!-- Sidebar button Download and contact us -->
   <app-sidebar-button></app-sidebar-button>
 
-  <div class="inner-search">
-    <div class="col-md-6 offset-md-3">
-      <div class="form-group">
-        <div class="input-group mb-2 rounded-pill search-input">
-          <div class="input-group-prepend  width100 ">
-            <div class="input-group-text bg-info text-dark">Search </div>
-          </div>
-          <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Search Product" required>
-        </div>
-        <!-- <a class="resend-btn subscribe text-dark" href="javascript:void(0);">Subscribe</a> -->
-      </div>
-    </div>
-  </div>
+  <app-search-bar></app-search-bar>
   <app-sidebar-menu></app-sidebar-menu>
 </div>
