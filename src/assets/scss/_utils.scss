@@ -183,31 +183,32 @@ ul {
 
 .download-app {
     background: #008000a3;
-    padding: 17px 21px;
+    bottom: 72px;
+    padding: 12px 21px;
     position: fixed;
     left: 0;
     z-index: 99;
-    top: 27%;
     color: #C4E286;
-    font-size: 25px;
+    font-size: 19px;
     font-weight: bold;
     border-radius: 0 50px 50px 0;
     z-index: 999;
-    width:18%;
+    width: 195px;
 }
 
 .contact-btn {
     background: #cac460e8;
-    padding: 17px 21px;
+    bottom: 10px;
+    padding: 12px 21px;
     position: fixed;
     left: 0;
     z-index: 99;
-    top: 70%;
-    color: #fff;
-    font-size: 25px;
+    color: #172103;
+    font-size: 19px;
     font-weight: bold;
     border-radius: 0 50px 50px 0;
-    width:18%;
+    z-index: 999;
+    width: 195px
 }
 
 .body-banner .inner-page {
@@ -745,7 +746,8 @@ figure img {
 .image-details h2 {
     text-align: center;
     display: block;
-    color: blue;
+    color: #535353;
+    text-transform: uppercase;
 }
 
 .image-details span {
@@ -791,6 +793,13 @@ figure img {
     width: 82px;
     padding: 13px;
     border-radius: 15px;
+}
+
+.head-logo img {
+    width: 75px;
+    margin-top: -7px;
+    padding-top: 2px;
+    cursor: pointer;
 }
 
 .text-btn .price {
@@ -892,9 +901,10 @@ figure img {
     font-size: 12px;
     font-weight: bold;
     border-radius: 10px 0 0 10px;
-    width:13%;
+    width: 13%;
     text-align: center;
 }
+
 // .inform-btn span {
 //     font-size:12px;
 // }
@@ -909,14 +919,14 @@ figure img {
     font-size: 12px;
     font-weight: bold;
     border-radius: 10px 0 0 10px;
-    width:13%;
+    width: 13%;
     text-align: center;
     cursor: pointer;
 }
+
 // .back-btn span {
 //     font-size:12px;
 // }
-
 .submit-review-btn {
     background: #CAF5F8;
     padding: 17px 21px;
@@ -971,13 +981,14 @@ figure img {
 }
 
 .profile-sec .profile-image {
-    width: 65px;
-    height: 65px;
-    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    border-radius: 100px;
 }
 
 .profile-sec h3 {
-    font-size: 22px;
+    font-size: 13px;
+    padding-left: 10px;
 }
 
 .profile-sec a {
@@ -1291,6 +1302,7 @@ ul.list-style {
 .order-img img {
     width: 100%;
 }
+
 .favbtn-repeat-order {
     margin: 40px 0px 0px 0px;
     padding: 6px 34px;
@@ -1306,7 +1318,6 @@ ul.list-style {
     cursor: pointer;
 }
 
-
 .favbtn {
     margin: 40px 0px 0px 0px;
     padding: 6px 34px;
@@ -1317,7 +1328,7 @@ ul.list-style {
     text-align: center;
     min-width: 25%;
     right: 0;
-    background:#ccc;
+    background: #ccc;
 }
 
 .myfav {
@@ -1382,6 +1393,7 @@ ul.list-style {
     top: 0px;
     left: 85%;
 }
+
 .not-favrate {
     cursor: pointer;
 }
@@ -1552,7 +1564,7 @@ span.rating.active {
     border-radius: 28px;
     font-size: 15px;
     font-weight: bold;
-    padding: 10px;
+    padding: 5px;
 }
 
 a.header-top-button {
@@ -1607,6 +1619,7 @@ a.header-top-button {
     height: 140px;
     border-radius: 100%;
 }
+
 span.total-cart {
     position: absolute;
     font-size: 11px;
@@ -1616,15 +1629,25 @@ span.total-cart {
     border-radius: 100%;
     text-align: center;
 }
+
 .back-submitbtn {
-    margin:2%;
+    margin: 2%;
 }
+
 .chart-show-monthly select {
-    width:40%;
+    width: 40%;
 }
+
 .pro-search {
     cursor: pointer;
 }
+
+.disabled button {
+    color: #fff;
+    background-color: #6c757d !important;
+    border-color: #6c757d !important;
+}
+
 // responsive-css
 //  Large Devices, Wide Screens 
 @media only screen and (max-width: 1200px) {}
@@ -1730,7 +1753,6 @@ span.total-cart {
         padding: 7px 13px;
     }
 }
-
 
 @media only screen and (max-width: 479px) {}
 

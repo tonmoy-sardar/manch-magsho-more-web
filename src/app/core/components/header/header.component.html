@@ -1,15 +1,16 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light static-top">
-    <div class="container">
+    <div class="container-fluid">
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
         <div class="collapse navbar-collapse border-box" id="navbarResponsive">
             <ul class="navbar-nav mr-auto social">
-                <li *ngIf="loggedIn" class="nav-item" >
-                    <a class="nav-link user-name"  [routerLink]="['/myprofile']" href="javascript:void(0);">{{userName}}</a>
+                <li *ngIf="loggedIn" class="nav-item">
+                    <app-sidebar-userdetails class="nav-link user-name"></app-sidebar-userdetails>
+                    <!-- <a class="nav-link user-name" [routerLink]="['/myprofile']" href="javascript:void(0);">{{userName}}</a> -->
                 </li>
                 <li *ngIf="loggedIn" class="nav-item">
-                    <a class="nav-link" (click)="logout()" href="javascript:void(0);">Logout</a>
+                    <a class="nav-link" (click)="logout()" href="javascript:void(0);"><i class="fa fa-power-off" aria-hidden="true"></i> Logout</a>
                 </li>
                 <li *ngIf="!loggedIn" class="nav-item dropdown">
                     <a class="nav-link" id="navbarDropdown1" [routerLink]="['/login']" href="javascript:void(0);" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Login</a>
@@ -57,6 +58,12 @@
                 <a class="header-top-button" [routerLink]="['/cart']">
                     <i aria-hidden="true" class="fa fa-shopping-cart"></i>
                     <span class="total-cart">{{totalCart}}</span></a>
+
+
+                <a class="head-logo">
+                    <img class="img-fluid" src="assets/img/logo.png" alt="">
+                </a>
+
             </ul>
         </div>
     </div>
