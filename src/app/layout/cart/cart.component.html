@@ -1,73 +1,73 @@
 <app-header></app-header>
 <div class="body-banner">
-  <div class="col-md-12">
-    <div class="row">
-      <div class="col-md-12 "> <img class="img-fluid logo-small" src="assets/img/logo.png" alt="">
-        <div class="pt-5">
-          <div class="recipe-list" *ngIf="customer_cart_data.length > 0">
-            <h2>Cart</h2>
-            <div class="row">
-              <div class="col-md-4" *ngFor="let allCart of customer_cart_data; let i = index">
-                <div class="card-box">
-                  <div class="row">
-                    <div class="col-md-5"> <span>{{allCart.product_name}} </span>
-                      <div class="count-btn ">
-                        <div class="input-group"> <span class="input-group-btn"> <button type="button"
+    <div class="col-md-12">
+        <div class="row">
+            <div class="col-md-9 offset-md-2">
+                <div class="pt-5">
+                    <div class="recipe-list" *ngIf="customer_cart_data.length > 0">
+                        <h2>Cart</h2>
+                        <div class="row">
+                            <div class="col-md-4" *ngFor="let allCart of customer_cart_data; let i = index">
+                                <div class="card-box">
+                                    <div class="row">
+                                        <div class="col-md-5"> <span>{{allCart.product_name}} </span>
+                                            <div class="count-btn ">
+                                                <div class="input-group"> <span class="input-group-btn"> <button type="button"
                               class="btn btn-info btn-number" data-type="minus"
                               data-field="quant[1]" (click)="decrement(i)"> <span  class=""><i class="fa fa-minus"
-                                  aria-hidden="true"></i></span> </button> </span> <input type="text" name="quant[1]"
-                            class="form-control input-number text-center" [(ngModel)]="allCart.quantity" min="1"
-                            max="10"> <span class="input-group-btn"> <button type="button"
+                                  aria-hidden="true"></i></span> </button>
+                                                    </span> <input type="text" name="quant[1]" class="form-control input-number text-center" [(ngModel)]="allCart.quantity" min="1" max="10"> <span class="input-group-btn"> <button type="button"
                               class="btn btn-info btn-number" data-type="plus" data-field="quant[1]" (click)="increment(i)"> <span
                                  class=""><i class="fa fa-plus" aria-hidden="true"></i></span>
-                            </button> </span></div>
-                      </div>
-                    </div>
-                    <div class="col-md-7 img-btm">
-                      <!-- <img class="img-fluid" src="assets/img/lntersection.png" alt=""> -->
-                      <img class="img-fluid"
-                        [src]="allCart.image_small != ''? imageBaseUrl+ allCart.image_small : 'assets/imgs/no-image.png'">
-                      <div class="clearfix"></div> <a class="price" href="javascript:void(0);"><span>₹
+                                                    </button>
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-7 img-btm">
+                                            <!-- <img class="img-fluid" src="assets/img/lntersection.png" alt=""> -->
+                                            <img class="img-fluid" [src]="allCart.image_small != ''? imageBaseUrl+ allCart.image_small : 'assets/imgs/no-image.png'">
+                                            <div class="clearfix"></div> <a class="price" href="javascript:void(0);"><span>₹
                           {{allCart.totalOurPrice}}</span><span> Price </span></a>
-                      <a class="language" href="javascript:void(0);"><span>₹ {{allCart.totalSavings}} </span><span>
+                                            <a class="language" href="javascript:void(0);"><span>₹ {{allCart.totalSavings}} </span><span>
                           saving </span></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-4 offset-md-4 submit-btn">
+                                <div class="row text-center">
+                                    <div class="col-md-12 ">
+
+                                        <table class="table table-bordered text-center">
+                                            <tbody>
+                                                <tr>
+                                                    <td>Savings: ₹ {{total_market_saving}}</td>
+                                                    <td>
+                                                        Items : {{customer_cart_data.length}}
+                                                    </td>
+                                                </tr>
+
+                                            </tbody>
+                                        </table>
+
+                                        <h2> Bag Value : ₹ {{total_item_price}}</h2>
+                                    </div>
+                                </div>
+                                <div class="row ">
+                                    <div class="col-md-6"> <a href="javascript:void(0);" (click)="gotoDetails()" class="price"> Proceed </a></div>
+                                    <div class="col-md-6"> <a href="javascript:void(0);" (click)="goBack()" class="trivia">Back </a></div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                  </div>
+                    <div class="recipe-list" *ngIf="customer_cart_data.length ==0">
+                        <h3>No records found</h3>
+                    </div>
                 </div>
-              </div>
             </div>
-            <div class="row">
-              <div class="col-md-4 offset-md-4 submit-btn">
-                <div class="row text-center">
-                  <div class="col-md-12 ">
-
-                    <table class="table table-bordered text-center">
-                      <tbody>
-                        <tr>
-                          <td>Savings: ₹ {{total_market_saving}}</td>
-                          <td>
-                            Items : {{customer_cart_data.length}}
-                          </td>
-                        </tr>
-
-                      </tbody>
-                    </table>
-
-                    <h2> Bag Value : ₹ {{total_item_price}}</h2>
-                  </div>
-                </div>
-                <div class="row ">
-                  <div class="col-md-6"> <a href="javascript:void(0);" (click)="gotoDetails()" class="price"> Proceed </a></div>
-                  <div class="col-md-6"> <a href="javascript:void(0);" (click)="goBack()" class="trivia">Back </a></div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="recipe-list" *ngIf="customer_cart_data.length ==0">
-              <h3>No records found</h3>
         </div>
-        </div>
-      </div>
     </div>
-  </div>
 </div>

@@ -1,86 +1,71 @@
 <app-header></app-header>
 <div class="body-banner">
-  <div class="col-md-12">
-    <div class="row">
-      <div class="col-md-12 ">
-        <img class="img-fluid logo-small" src="images/logo.png" alt="">
-        <div class="product-section-list">
-          <div class="recipe-list">
-            <h2>Recipe</h2>
-            <div class="row" *ngIf="visible">
-              <div class="col-md-3" *ngFor="let recipeList of proRecipeList; let i = index">
-                <div class="card-box" (click)="gotoDetails(recipeList.id)">
-                  <div class="row">
-                    <div class="col-md-5">
-                      <span>{{recipeList.blog_title}}</span>
-                      <a class="veg" href="javascript:void(0)"
-                        *ngIf="recipeList.recipe_type =='veg'">{{recipeList.recipe_type}}</a>
-                      <a class="sold" href="javascript:void(0)"
-                        *ngIf="recipeList.recipe_type !='veg'">{{recipeList.recipe_type}}</a>
+    <div class="inner-search">
+        <div class="col-md-6 offset-md-3">
+            <div class="form-group">
+                <div class="input-group mb-2 rounded-pill search-input">
+                    <div class="input-group-prepend  width100 ">
+                        <div style="cursor:pointer;" class="input-group-text bg-info text-dark" (click)="recipeSearch(searchText)">Search </div>
                     </div>
-                    <div class="col-md-7 img-btm">
-                      <!-- <div class="rate">
-                        <input type="radio" id="star5" name="rate" value="5" />
-                        <label for="star5" title="text">5 stars</label>
-                        <input type="radio" id="star4" name="rate" value="4" />
-                        <label for="star4" title="text">4 stars</label>
-                        <input type="radio" id="star3" name="rate" value="3" />
-                        <label for="star3" title="text">3 stars</label>
-                        <input type="radio" id="star2" name="rate" value="2" />
-                        <label for="star2" title="text">2 stars</label>
-                        <input type="radio" id="star1" name="rate" value="1" />
-                        <label for="star1" title="text">1 star</label>
-                      </div> -->
+                    <input type="text" [(ngModel)]="searchText" class="form-control" id="nombre" name="nombre" placeholder="Search Recipe" required>
+                </div>
+                <!-- <a class="resend-btn subscribe text-dark" href="#">Clear Filter</a>
+        <a class="resend-btn subscribe text-dark" href="#">Filter</a> -->
+            </div>
+        </div>
+    </div>
 
-                      <div class="rate" *ngIf="recipeList.average_rating==null" style="padding-left: 10px;">
-                        <span class="rating" *ngFor="let rat of rating; let i = index"
-                          [ngClass]="[i <= 0 - 1 ? 'active' : '']" style="margin-right: 2px;">
+    <div class="col-md-12">
+        <div class="row">
+            <div class="col-md-9 offset-md-2">
+
+
+                <div class="recipe-list">
+                    <h2>Recipe</h2>
+                    <div class="row" *ngIf="visible">
+                        <div class="col-md-4" *ngFor="let recipeList of proRecipeList; let i = index">
+                            <div class="card-box" (click)="gotoDetails(recipeList.id)">
+                                <div class="row">
+                                    <div class="col-md-5">
+                                        <span>{{recipeList.blog_title}}</span>
+                                        <a class="veg" href="javascript:void(0)" *ngIf="recipeList.recipe_type =='veg'">{{recipeList.recipe_type}}</a>
+                                        <a class="sold" href="javascript:void(0)" *ngIf="recipeList.recipe_type !='veg'">{{recipeList.recipe_type}}</a>
+                                    </div>
+                                    <div class="col-md-7 img-btm">
+
+                                        <div class="rate" *ngIf="recipeList.average_rating==null" style="padding-left: 10px;">
+                                            <span class="rating" *ngFor="let rat of rating; let i = index" [ngClass]="[i <= 0 - 1 ? 'active' : '']" style="margin-right: 2px;">
                           <i class="fa fa-star" aria-hidden="true"></i>
                         </span>
-                      </div>
-                      <div class="rate" *ngIf="recipeList.average_rating!=null" style="padding-left: 10px;">
+                                        </div>
+                                        <div class="rate" *ngIf="recipeList.average_rating!=null" style="padding-left: 10px;">
 
-                        <span class="rating" *ngFor="let rat of rating; let i = index"
-                          [ngClass]="[i <= recipeList.average_rating.averagerating - 1 ? 'active' : '']"
-                          style="margin-right: 2px;">
+                                            <span class="rating" *ngFor="let rat of rating; let i = index" [ngClass]="[i <= recipeList.average_rating.averagerating - 1 ? 'active' : '']" style="margin-right: 2px;">
                           <i class="fa fa-star" aria-hidden="true"></i>
                         </span>
-                      </div>
-                      <img class="img-fluid"
-                        [src]="recipeList.blog_small_image != ''? imageBaseUrl+ recipeList.blog_small_image : 'assets/imgs/no-image.png'">
+                                        </div>
+                                        <img class="img-fluid" [src]="recipeList.blog_small_image != ''? imageBaseUrl+ recipeList.blog_small_image : 'assets/imgs/no-image.png'">
 
-                      <a class="price"
-                        href="javascript:void(0);"><span>Cooking</span><span>{{recipeList.cooking_time}}</span></a>
-                      <a class="language" href="javascript:void(0);">{{recipeList.recipe_language}}</a>
+                                        <a class="price" href="javascript:void(0);"><span>Cooking</span><span>{{recipeList.cooking_time}}</span></a>
+                                        <a class="language" href="javascript:void(0);">{{recipeList.recipe_language}}</a>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="col-md-3" class="error-msg" *ngIf="proRecipeList.length==0"><span>No recors found</span></div>
                     </div>
-                  </div>
+                    <div class="card-body pull-right" *ngIf="recipeListCount > itemPerPage && isPagination ==1">
+                        <ngb-pagination [collectionSize]="recipeListCount" [maxSize]="paginationMaxSize" [(page)]="defaultPagination" (pageChange)="pagination()" size="sm"></ngb-pagination>
+                    </div>
                 </div>
 
-              </div>
-              <div class="col-md-3" class="error-msg" *ngIf="proRecipeList.length==0"><span>No recors found</span></div>
             </div>
-            <div class="card-body pull-right" *ngIf="recipeListCount > itemPerPage && isPagination ==1">
-              <ngb-pagination [collectionSize]="recipeListCount" [maxSize]="paginationMaxSize"
-                [(page)]="defaultPagination" (pageChange)="pagination()" size="sm"></ngb-pagination>
-            </div>
-          </div>
         </div>
-      </div>
     </div>
-  </div>
-  <app-sidebar-button></app-sidebar-button>
-  <div class="inner-search">
-    <div class="col-md-6 offset-md-3">
-      <div class="form-group">
-        <div class="input-group mb-2 rounded-pill search-input">
-          <div class="input-group-prepend  width100 ">
-            <div style="cursor:pointer;" class="input-group-text bg-info text-dark" (click)="recipeSearch(searchText)">Search </div>
-          </div>
-          <input type="text" [(ngModel)]="searchText" class="form-control" id="nombre" name="nombre" placeholder="Search Recipe" required>
-        </div>
-        <!-- <a class="resend-btn subscribe text-dark" href="#">Clear Filter</a>
-        <a class="resend-btn subscribe text-dark" href="#">Filter</a> -->
-      </div>
-    </div>
-  </div>
+    <app-sidebar-button></app-sidebar-button>
+
+    <app-sidebar-menu></app-sidebar-menu>
+    <app-sidebar-button></app-sidebar-button>
+
 </div>

@@ -3,7 +3,10 @@
     <div class="col-md-12">
         <div class="row">
             <div class="col-md-5 btn-sce"> <img class="img-fluid full-lady" src="assets/img/girl.png" alt=""> </div>
-            <div class="col-md-7 "> <img class="img-fluid logo-small" src="assets/img/logo.png" alt="">
+            <div class="col-md-7 ">
+                <!--                 
+                <img class="img-fluid logo-small" src="assets/img/logo.png" alt="">
+                 -->
                 <div class="product-section product-top">
                     <div class="recipe-sec">
                         <div class="row">
@@ -13,9 +16,8 @@
                                         <!-- <div class="item-box-blog-date bg-blue-ui white"> 
                       <span class="mon">Ajoy Dixit</span> 
                     </div> -->
-                                        <figure> 
-                                                <img
-                                                [src]="blog.blog_small_image != ''? imageBaseUrl+ blog.blog_small_image : 'assets/imgs/no-image.png'">
+                                        <figure>
+                                            <img [src]="blog.blog_small_image != ''? imageBaseUrl+ blog.blog_small_image : 'assets/imgs/no-image.png'">
                                         </figure>
                                     </div>
                                     <div class="item-box-blog-body">
@@ -38,5 +40,8 @@
         </div>
     </div>
     <app-sidebar-button></app-sidebar-button>
+    <app-sidebar-button></app-sidebar-button>
+
+    <app-sidebar-menu></app-sidebar-menu>
     <app-search-bar></app-search-bar>
 </div>

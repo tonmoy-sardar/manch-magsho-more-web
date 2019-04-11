@@ -1,90 +1,92 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light static-top">
-    <div class="container-fluid">
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+<div class="hedder-main">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light static-top">
+        <div class="container-fluid">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-        <div class="collapse navbar-collapse border-box" id="navbarResponsive">
-            <ul class="navbar-nav mr-auto social">
-                <li *ngIf="loggedIn" class="nav-item">
-                    <app-sidebar-userdetails class="nav-link user-name"></app-sidebar-userdetails>
-                    <!-- <a class="nav-link user-name" [routerLink]="['/myprofile']" href="javascript:void(0);">{{userName}}</a> -->
-                </li>
-                <li *ngIf="loggedIn" class="nav-item">
-                    <a class="nav-link" (click)="logout()" href="javascript:void(0);"><i class="fa fa-power-off" aria-hidden="true"></i> Logout</a>
-                </li>
-                <li *ngIf="!loggedIn" class="nav-item dropdown">
-                    <a class="nav-link" id="navbarDropdown1" [routerLink]="['/login']" href="javascript:void(0);" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Login</a>
-                </li>
-                <li *ngIf="!loggedIn" class="nav-item">
-                    <a class="nav-link" [routerLink]="['/signup']" href="javascript:void(0);">Register</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="javascript:void(0);"> <img class="img-fluid" src="assets/img/instagram.png" alt="">
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="javascript:void(0);"> <img class="img-fluid" src="assets/img/facebook.png" alt="">
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="javascript:void(0);"> <img class="img-fluid" src="assets/img/tweter.png" alt="">
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="javascript:void(0);"> <img class="img-fluid" src="assets/img/whattsapp.png" alt="">
-                    </a>
-                </li>
-            </ul>
-            <ul class="navbar-nav ml-auto">
-                <li class="nav-item active">
-                    <a class="nav-link" [routerLink]="['/category']" href="javascript:void(0);">Category</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" [routerLink]="['/aboutus']" href="javascript:void(0);">About Us</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="javascript:void(0);" [routerLink]="['/whyus']">Why Us</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="javascript:void(0);" [routerLink]="['/ourservice']">Services</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" [routerLink]="['/blog']" href="javascript:void(0);">Blog</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" [routerLink]="['/recipe']" href="javascript:void(0);">Recipes </a>
-                </li>
+            <div class="collapse navbar-collapse border-box" id="navbarResponsive">
+                <ul class="navbar-nav mr-auto social">
+                    <li *ngIf="loggedIn" class="nav-item">
+                        <app-sidebar-userdetails class="nav-link user-name"></app-sidebar-userdetails>
+                        <!-- <a class="nav-link user-name" [routerLink]="['/myprofile']" href="javascript:void(0);">{{userName}}</a> -->
+                    </li>
+                    <li *ngIf="loggedIn" class="nav-item">
+                        <a class="nav-link" (click)="logout()" href="javascript:void(0);"><i class="fa fa-power-off" aria-hidden="true"></i> Logout</a>
+                    </li>
+                    <li *ngIf="!loggedIn" class="nav-item dropdown">
+                        <a class="nav-link" id="navbarDropdown1" [routerLink]="['/login']" href="javascript:void(0);" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Login</a>
+                    </li>
+                    <li *ngIf="!loggedIn" class="nav-item">
+                        <a class="nav-link" [routerLink]="['/signup']" href="javascript:void(0);">Register</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="javascript:void(0);"> <img class="img-fluid" src="assets/img/instagram.png" alt="">
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="javascript:void(0);"> <img class="img-fluid" src="assets/img/facebook.png" alt="">
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="javascript:void(0);"> <img class="img-fluid" src="assets/img/tweter.png" alt="">
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="javascript:void(0);"> <img class="img-fluid" src="assets/img/whattsapp.png" alt="">
+                        </a>
+                    </li>
+                </ul>
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" [routerLink]="['/category']" href="javascript:void(0);">Category</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" [routerLink]="['/aboutus']" href="javascript:void(0);">About Us</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="javascript:void(0);" [routerLink]="['/whyus']">Why Us</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="javascript:void(0);" [routerLink]="['/ourservice']">Services</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" [routerLink]="['/blog']" href="javascript:void(0);">Blog</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" [routerLink]="['/recipe']" href="javascript:void(0);">Recipes </a>
+                    </li>
 
-                <a class="header-top-button" [routerLink]="['/cart']">
-                    <i aria-hidden="true" class="fa fa-shopping-cart"></i>
-                    <span class="total-cart">{{totalCart}}</span></a>
+                    <a class="header-top-button" [routerLink]="['/cart']">
+                        <i aria-hidden="true" class="fa fa-shopping-cart"></i>
+                        <span class="total-cart">{{totalCart}}</span></a>
 
 
-                <a class="head-logo">
-                    <img class="img-fluid" src="assets/img/logo.png" alt="">
-                </a>
+                    <a class="head-logo">
+                        <img class="img-fluid" src="assets/img/logo.png" alt="">
+                    </a>
 
-            </ul>
+                </ul>
+            </div>
         </div>
-    </div>
-</nav>
-<div class="col-md-12  bg-derk">
-    <div class="row">
-        <div class="market-scrool" *ngIf="visibleKey">
-            <marquee direction="left" speed="slow" behavior="loop">
-                <ul>
-                    <li *ngFor="let product of productList" [ngClass]="{'red':product.market_price_status == 1,'green':product.market_price_status == 2,'yellow':product.market_price_status == 3}" class="red">
-                        <a style="cursor: pointer;" (click)="gotoDetails(product.id)">{{product.name}} Rs {{product.price}} /
+    </nav>
+    <div class="col-md-12  bg-derk">
+        <div class="row">
+            <div class="market-scrool" *ngIf="visibleKey">
+                <marquee direction="left" speed="slow" behavior="loop">
+                    <ul>
+                        <li *ngFor="let product of productList" [ngClass]="{'red':product.market_price_status == 1,'green':product.market_price_status == 2,'yellow':product.market_price_status == 3}" class="red">
+                            <a style="cursor: pointer;" (click)="gotoDetails(product.id)">{{product.name}} Rs {{product.price}} /
             {{product.quantity_count}} {{product.unit}} 
             <i *ngIf="product.market_price_status == 3" class="fa fa-sort" aria-hidden="true"></i>
                   <i *ngIf="product.market_price_status == 2" class="fa fa-sort-asc" aria-hidden="true"></i>
                   <i *ngIf="product.market_price_status == 1" class="fa fa-sort-desc" aria-hidden="true"></i>
           </a>
-                    </li>
-                </ul>
-            </marquee>
+                        </li>
+                    </ul>
+                </marquee>
+            </div>
+
+
         </div>
-
-
     </div>
 </div>

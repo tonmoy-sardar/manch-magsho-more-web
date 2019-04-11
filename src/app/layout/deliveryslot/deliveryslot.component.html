@@ -1,63 +1,66 @@
 <app-header></app-header>
 <div class="body-banner">
     <div class="col-md-12">
-      <div class="row">
-        <div class="col-md-12 "><img class="img-fluid logo-small" src="images/logo.png" alt="">
-          <div class="row">
-            <div class="col-md-12 pading-top-sec">
-              <div class="row">
-                <div class="col-md-4">
-                  <app-sidebar-userdetails></app-sidebar-userdetails>
-                  <table class="table table-bordered text-center">
-                    <tbody>
-                      <tr>
-                        <td>Bag Value: ₹ {{total_item_price}}</td>
-                      </tr>
-                      <tr>
-                        <td>Savings : {{total_market_saving}}</td>
-                      </tr>
-                      <tr>
-                        <td>Items :{{customer_cart_data.length}}</td>
-                      </tr>
-  
-                    </tbody>
-                  </table>
-                </div>
-                <div class="col-md-4">
-                  <div class="order-history">
-                    <h3>Delivery Slot</h3>
-  
-                    <div class="clearfix"></div>
-                    <mat-card *ngFor="let delivery of deliverySlot" (click)="gotoPayMode(delivery)">
-                      <mat-list role="list">
-                        <mat-list-item role="listitem">{{delivery.deliver_slot}} </mat-list-item>
-                        <mat-list-item role="listitem">Delivery Charge : Rs. {{delivery.deliver_charge}}</mat-list-item>
-                        </mat-list>
-                        
-                    </mat-card>
-  
-                  </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="order-history" *ngIf="isShowPayMode ==2">
-                      <h3>Payment Mode</h3>
-    
-                      <div class="clearfix"></div>
-                      <mat-card (click)="gotoPayMode(delivery)">
-                        <mat-list role="list">
-                          <mat-list-item role="listitem">Paytm </mat-list-item>
-                          <mat-list-item role="listitem" (click)="placeOrder(2)">COD</mat-list-item>
-                          </mat-list>
-                          
-                      </mat-card>
-    
+        <div class="row">
+            <div class="col-md-12 ">
+                <div class="row">
+                    <div class="col-md-12 pt-50">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <!-- <app-sidebar-userdetails></app-sidebar-userdetails> -->
+                                <div class="order-history">
+                                    <table class="table table-bordered text-center ">
+                                        <tbody>
+                                            <tr>
+                                                <td>Bag Value: ₹ {{total_item_price}}</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Savings : {{total_market_saving}}</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Items :{{customer_cart_data.length}}</td>
+                                            </tr>
+
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="order-history">
+
+                                    <div class="clearfix"></div>
+                                    <mat-card class="mb-5" *ngFor="let delivery of deliverySlot" (click)="gotoPayMode(delivery)">
+                                        <h3>Delivery Slot</h3>
+                                        <div class="clearfix"></div>
+                                        <mat-list role="list">
+                                            <mat-list-item role="listitem">{{delivery.deliver_slot}} </mat-list-item>
+                                            <mat-list-item role="listitem">Delivery Charge : Rs. {{delivery.deliver_charge}}</mat-list-item>
+                                        </mat-list>
+
+                                    </mat-card>
+
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="order-history" *ngIf="isShowPayMode ==2">
+                                    <h3>Payment Mode</h3>
+
+                                    <div class="clearfix"></div>
+                                    <mat-card (click)="gotoPayMode(delivery)">
+                                        <mat-list role="list">
+                                            <mat-list-item role="listitem">Paytm </mat-list-item>
+                                            <mat-list-item role="listitem" (click)="placeOrder(2)">COD</mat-list-item>
+                                        </mat-list>
+
+                                    </mat-card>
+
+                                </div>
+                            </div>
+
+
+                        </div>
                     </div>
-                  </div>
-         
-               
-              </div>
+                </div>
             </div>
-          </div>
         </div>
-      </div>
     </div>

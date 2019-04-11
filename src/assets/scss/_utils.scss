@@ -44,6 +44,7 @@ ul {
 .market-scrool li {
     list-style: none;
     display: initial;
+    margin: 0 7px;
 }
 
 .market-scrool li a {
@@ -116,7 +117,7 @@ ul {
 }
 
 .bg-derk .market-scrool {
-    background: #0000004d;
+    background: #045f6d;
 }
 
 
@@ -184,36 +185,36 @@ ul {
 .download-app {
     background: #008000a3;
     bottom: 72px;
-    padding: 12px 21px;
+    padding: 8px 5px;
     position: fixed;
     left: 0;
     z-index: 99;
     color: #C4E286;
-    font-size: 19px;
+    font-size: 14px;
     font-weight: bold;
     border-radius: 0 50px 50px 0;
     z-index: 999;
-    width: 195px;
+    width: 124px;
 }
 
 .contact-btn {
     background: #cac460e8;
-    bottom: 10px;
-    padding: 12px 21px;
+    bottom: 30px;
+    padding: 8px 5px;
     position: fixed;
     left: 0;
     z-index: 99;
     color: #172103;
-    font-size: 19px;
+    font-size: 14px;
     font-weight: bold;
     border-radius: 0 50px 50px 0;
     z-index: 999;
-    width: 195px
+    width: 124px
 }
 
 .body-banner .inner-page {
     position: absolute;
-    top: 0%;
+    top: 10%;
     background: #fffc;
     width: 98%;
     left: 15px;
@@ -235,9 +236,20 @@ ul {
     font-size: 14px;
 }
 
+.body-banner {
+    padding-top: 105px;
+}
+
+.hedder-main {
+    position: fixed;
+    z-index: 999;
+    width: 100%;
+}
+
 .body-banner .inner-page .inner-logo {
     width: 50%;
     margin: 0 auto;
+    float: right;
 }
 
 .width100 {}
@@ -321,11 +333,8 @@ ul {
 }
 
 .body-banner .inner-search {
-    position: absolute;
-    top: 0%;
     background: #92D9E280;
-    width: 98%;
-    left: 15px;
+    width: 100%;
     z-index: 99;
     border-radius: 7px;
     padding: 40px;
@@ -463,6 +472,10 @@ figure img {
     float: left;
     margin-top: -10px;
     padding-top: 10px;
+}
+
+.pt-50 {
+    padding-top: 50px;
 }
 
 .btn.bg-blue-ui.white.read {
@@ -771,11 +784,17 @@ figure img {
 }
 
 .text-primary p {
-    color: blue;
+    color: #666767;
 }
 
 .details-text h2 {
     font-size: 25px;
+}
+
+.details-text .mat-list-item-content {
+    padding: 0 !important;
+    font-weight: 500;
+    color: #a5a5a5;
 }
 
 .details-text li {
@@ -878,16 +897,18 @@ figure img {
 }
 
 .write-review-btn {
-    background: #A8071980;
-    padding: 17px 21px;
+    background: #008000a3;
+    bottom: 72px;
+    padding: 8px 5px;
     position: fixed;
     left: 0;
     z-index: 99;
-    top: 70%;
-    color: #fff;
-    font-size: 25px;
+    color: #C4E286;
+    font-size: 14px;
     font-weight: bold;
     border-radius: 0 50px 50px 0;
+    z-index: 999;
+    width: 124px;
 }
 
 .inform-btn {
@@ -1059,38 +1080,38 @@ ul.list-style {
     background: #CAF5F8;
     padding: 10px 7px;
     position: fixed;
-    right: -1px;
+    left: -1px;
     z-index: 99;
     color: blue;
     font-size: 13px;
     font-weight: bold;
-    border-radius: 50px 0 0 50px;
+    border-radius: 0 50px 50px 0;
     border: 1px solid #a9a9a9;
     width: 124px;
 }
 
 .top-80 {
-    top: 80%;
+    top: 506px;
 }
 
 .top-73 {
-    top: 73%;
+    top: 460px;
 }
 
 .top-66 {
-    top: 66%;
+    top: 414px;
 }
 
 .top-59 {
-    top: 59%;
+    top: 368px;
 }
 
 .top-52 {
-    top: 52%;
+    top: 322px;
 }
 
 .top-45 {
-    top: 45%;
+    top: 276px;
 }
 
 .error-msg span {
@@ -1107,6 +1128,7 @@ ul.list-style {
     padding: 10px 0px;
     position: relative;
     min-height: 250px;
+    text-align: center;
 }
 
 .shop-box {
@@ -1133,7 +1155,7 @@ ul.list-style {
     background: #fff0;
     padding: 0px;
     margin: 0px 6px;
-    float: left;
+    display: inline-block;
     text-align: center;
     font-size: 12px;
     cursor: pointer;
@@ -1155,6 +1177,7 @@ ul.list-style {
     text-align: center;
     height: 79px;
     margin: 17px auto;
+    border-radius: 70%;
 }
 
 .shopping-veg {
@@ -1168,6 +1191,15 @@ ul.list-style {
 .shopping-veg h2 {
     font-size: 29px;
     color: #63C9D5;
+    line-height: 15px;
+    text-align: center;
+    margin: 0px 0px 37px 0px;
+    padding: 0px 0px;
+}
+
+.recipe-list h2 {
+    font-size: 29px;
+    color: #000;
     line-height: 15px;
     text-align: center;
     margin: 0px 0px 37px 0px;
