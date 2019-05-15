@@ -141,11 +141,13 @@ export class DeliveryslotComponent implements OnInit {
    
     this.order_details = [];
     this.customer_cart_data.forEach(item => {
+      console.log(item);
       this.order_details.push(
         {
           'product_id': item.product_id,
           'quantity': item.quantity,
           'unit_price': item.price,
+          'saving_price': (item.market_price - item.price),
           'IGST': '',
           'CGST': '',
           'GST': ''

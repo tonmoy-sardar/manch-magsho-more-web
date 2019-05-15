@@ -17,7 +17,7 @@
         <img class="img-fluid logo-small" src="assets/img/logo.png" alt="">
         <div class="daily-deal">
           <h2>Deals of the day</h2>
-          <ul class="product-section">
+          <ul class="product-section product-todays-special">
             <li class="d-flex align-items-center" *ngFor="let product of allProductList">
               <div class="heart-wishlist">
                 <i class="fa fa-heart not-favrate" *ngIf="product.whishlist == null && this.userId>0" aria-hidden="true"

@@ -6,7 +6,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./search-bar.component.scss']
 })
 export class SearchBarComponent implements OnInit {
-
+  searchText:any;
   constructor(
     public router:Router
   ) { }
