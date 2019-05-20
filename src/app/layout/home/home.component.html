@@ -1,6 +1,6 @@
 <div class="col-md-12  bg-derk">
-  <div class="row">
-     <!-- <ul class="market-scrool">
+    <div class="row">
+        <!-- <ul class="market-scrool">
       <marquee>
         <li class="red"><a href="javascript:void(0);">Onion Rs 24/ Kg <i class="fa fa-sort-desc" aria-hidden="true"></i>
           </a></li>
@@ -28,37 +28,35 @@
               aria-hidden="true"></i></a></li>
       </marquee>
     </ul>  -->
-    <div class="market-scrool" *ngIf="visibleKey">
-      <marquee direction="left" speed="slow" behavior="loop">
-        <ul>
-          <li *ngFor="let product of productList"
-            [ngClass]="{'red':product.market_price_status == 1,'green':product.market_price_status == 2,'yellow':product.market_price_status == 3}"
-            class="red">
-            <a style="cursor: pointer;" (click)="gotoDetails(product.id)">{{product.name}} Rs {{product.price}} /
+        <div class="market-scrool" *ngIf="visibleKey">
+            <marquee direction="left" speed="slow" behavior="loop">
+                <ul>
+                    <li *ngFor="let product of productList" [ngClass]="{'red':product.market_price_status == 1,'green':product.market_price_status == 2,'yellow':product.market_price_status == 3}" class="red">
+                        <a style="cursor: pointer;" (click)="gotoDetails(product.id)">{{product.name}} Rs {{product.price}} /
               {{product.quantity_count}} {{product.unit}}
               <i *ngIf="product.market_price_status == 3" class="fa fa-sort" aria-hidden="true"></i>
                   <i *ngIf="product.market_price_status == 2" class="fa fa-sort-asc" aria-hidden="true"></i>
                   <i *ngIf="product.market_price_status == 1" class="fa fa-sort-desc" aria-hidden="true"></i>
             </a>
-          </li>
-        </ul>
-      </marquee>
-    </div>
-  </div>
-</div>
-<div class="body-banner">
-  <div class="col-md-12">
-    <div class="row">
-      <div class="col-md-5 lady-image">
-      </div>
-      <div class="col-md-7 logo-sec d-flex align-items-center">
-        <div class="welcome-sec">
-          <h2>Welcome</h2>
-          <img class="img-fluid" src="assets/img/logo.png" alt="">
+                    </li>
+                </ul>
+            </marquee>
         </div>
-      </div>
-
     </div>
-  </div>
-  <a class="fixed-button" [routerLink]="['/category']" href="JavaScript:Void(0);">Continue</a>
 </div>
+<div class="body-banner lady-banner">
+    <div class="col-md-12">
+        <div class="row">
+
+            <div class="offset-md-5 col-md-7 logo-sec d-flex align-items-center">
+                <div class="welcome-sec">
+                    <h2>Welcome</h2>
+                    <img class="img-fluid" src="assets/img/logo.png" alt="">
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <a class="fixed-button" [routerLink]="['/category']" href="JavaScript:Void(0);">Continue</a>
+</div>
+<!--Author_by_Shuvendu_Dhenki(17-feb-2018)-->

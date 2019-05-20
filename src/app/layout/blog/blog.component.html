@@ -1,13 +1,16 @@
 <app-header></app-header>
-<div class="body-banner">
+
+
+<div class="body-banner lady-banner">
+    <app-search-bar></app-search-bar>
     <div class="col-md-12">
         <div class="row">
-            <div class="col-md-5 btn-sce"> <img class="img-fluid full-lady" src="assets/img/girl.png" alt=""> </div>
-            <div class="col-md-7 ">
+
+            <div class="col-md-7 offset-md-5 ">
                 <!--                 
                 <img class="img-fluid logo-small" src="assets/img/logo.png" alt="">
                  -->
-                <div class="product-section product-top">
+                <div class="product-section pt-50">
                     <div class="recipe-sec">
                         <div class="row">
                             <div class="col-md-3" *ngFor="let blog of blogList">
@@ -42,6 +45,8 @@
     <app-sidebar-button></app-sidebar-button>
     <app-sidebar-button></app-sidebar-button>
 
+
+
     <app-sidebar-menu></app-sidebar-menu>
-    <app-search-bar></app-search-bar>
+
 </div>

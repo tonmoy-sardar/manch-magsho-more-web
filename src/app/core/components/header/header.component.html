@@ -6,9 +6,9 @@
     </button>
             <div class="collapse navbar-collapse border-box" id="navbarResponsive">
                 <ul class="navbar-nav mr-auto social">
-                    <li *ngIf="loggedIn" class="nav-item">
+                    <!-- <li *ngIf="loggedIn" class="nav-item">
                         <app-sidebar-userdetails class="nav-link user-name"></app-sidebar-userdetails>
-                        <!-- <a class="nav-link user-name" [routerLink]="['/myprofile']" href="javascript:void(0);">{{userName}}</a> -->
+
                     </li>
                     <li *ngIf="loggedIn" class="nav-item">
                         <a class="nav-link" (click)="logout()" href="javascript:void(0);"><i class="fa fa-power-off" aria-hidden="true"></i> Logout</a>
@@ -18,7 +18,17 @@
                     </li>
                     <li *ngIf="!loggedIn" class="nav-item">
                         <a class="nav-link" [routerLink]="['/signup']" href="javascript:void(0);">Register</a>
+                    </li> -->
+
+
+                    <li class="back-to-btn">
+                        <a href="#">Back</a>
+
+                        <a href="#">My Account</a>
+
                     </li>
+
+
                     <li class="nav-item">
                         <a class="nav-link" href="javascript:void(0);"> <img class="img-fluid" src="assets/img/instagram.png" alt="">
                         </a>
@@ -36,9 +46,9 @@
                         </a>
                     </li>
                 </ul>
-                <ul class="navbar-nav ml-auto">
+                <ul class=" main-menu navbar-nav ml-auto">
                     <li class="nav-item active">
-                        <a class="nav-link" [routerLink]="['/category']" href="javascript:void(0);">Category</a>
+                        <a class="nav-link " [routerLink]="['/category']" href="javascript:void(0);">Category</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" [routerLink]="['/aboutus']" href="javascript:void(0);">About Us</a>

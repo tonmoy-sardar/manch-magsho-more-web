@@ -1,52 +1,47 @@
 <app-header></app-header>
-<div class="body-banner">
-  <div class="col-md-12">
-    <div class="row">
+<div class="body-banner lady-banner">
+    <div class="col-md-12">
+        <div class="row">
 
-      <div class="col-md-5 btn-sce">
+            <div class="col-md-6 btn-sce">
 
-        <a href="javascript:void(0);" class="btn-start">
-          <img class="img-fluid" src="assets/img/shopping-button.png" alt=""> </a>
+                <a href="javascript:void(0);" class="btn-start">
+                    <img class="img-fluid" src="assets/img/shopping-button.png" alt=""> </a>
 
-        <img class="img-fluid full-lady" src="assets/img/girl.png" alt="">
 
-      </div>
+            </div>
 
-      <div class="col-md-7 ">
+            <div class="col-md-6 ">
+                <div class="daily-deal">
+                    <img class="img-fluid logo-small" src="assets/img/logo.png" alt="">
+                    <div class="clearfix"></div>
+                    <h2>Deals of the day</h2>
+                    <ul class="product-section product-todays-special">
+                        <li class="d-flex align-items-center" *ngFor="let product of allProductList">
+                            <div class="heart-wishlist">
+                                <i class="fa fa-heart not-favrate" *ngIf="product.whishlist == null && this.userId>0" aria-hidden="true" (click)="addWishList(product.id)"></i>
+                                <i class="fa fa-heart not-favrate" *ngIf="product.whishlist == null && !this.userId" aria-hidden="true" (click)="gotoPage()"></i>
+                                <i class="fa fa-heart not-favrate favrate" *ngIf="product.whishlist != null" aria-hidden="true"></i>
+                            </div>
 
-        <img class="img-fluid logo-small" src="assets/img/logo.png" alt="">
-        <div class="daily-deal">
-          <h2>Deals of the day</h2>
-          <ul class="product-section product-todays-special">
-            <li class="d-flex align-items-center" *ngFor="let product of allProductList">
-              <div class="heart-wishlist">
-                <i class="fa fa-heart not-favrate" *ngIf="product.whishlist == null && this.userId>0" aria-hidden="true"
-                  (click)="addWishList(product.id)"></i>
-                <i class="fa fa-heart not-favrate" *ngIf="product.whishlist == null && !this.userId" aria-hidden="true"
-                  (click)="gotoPage()"></i>
-                <i class="fa fa-heart not-favrate favrate" *ngIf="product.whishlist != null" aria-hidden="true"></i>
-              </div>
+                            <div (click)="gotoProductDetails(product.id)" class="product-img">
+                                <img [src]="product.image_small != ''? imageBaseUrl+ product.image_small : 'assets/imgs/no-image.png'">
+                            </div>
+                            <h3 (click)="gotoProductDetails(product.id)">{{product.name}} <br> <i class="fa fa-inr" aria-hidden="true"></i>{{product.price}} / {{product.quantity_count}} {{product.unit}}</h3>
 
-              <div (click)="gotoProductDetails(product.id)" class="product-img">
-                <img [src]="product.image_small != ''? imageBaseUrl+ product.image_small : 'assets/imgs/no-image.png'">
-              </div>
-              <h3 (click)="gotoProductDetails(product.id)">{{product.name}} <br> <i class="fa fa-inr" aria-hidden="true"></i>{{product.price}}
-                /
-                {{product.quantity_count}} {{product.unit}}</h3>
-
-            </li>
-            <!-- <li class="d-flex align-items-center">
+                        </li>
+                        <!-- <li class="d-flex align-items-center">
               <div class="product-img">
                 <img src="assets/img/alu.png" alt="">
               </div>
               <h3>Potato <br>5Kg @ RS 90</h3>
             </li> -->
-          </ul>
+                    </ul>
+                </div>
+            </div>
         </div>
-      </div>
     </div>
-  </div>
-  <app-sidebar-button></app-sidebar-button>
+    <app-sidebar-button></app-sidebar-button>
 
 </div>
 

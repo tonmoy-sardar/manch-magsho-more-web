@@ -1,47 +1,45 @@
 <app-header></app-header>
-<div class="body-banner">
-  <div class="col-md-12">
-    <div class="row">
+<div class="body-banner lady-banner">
+    <div class="col-md-12">
+        <div class="row">
 
-      <div class="col-md-5 btn-sce">
+            <div class="col-md-6 btn-sce">
 
-        <a href="javascript:void(0);" class="btn-start">
-          <img class="img-fluid" src="assets/img/shopping-button.png" alt=""> </a>
+                <a href="javascript:void(0);" class="btn-start">
+                    <img class="img-fluid" src="assets/img/shopping-button.png" alt=""> </a>
 
-        <img class="img-fluid full-lady" src="assets/img/girl.png" alt="">
 
-      </div>
 
-      <div class="col-md-7 ">
+            </div>
 
-        <img class="img-fluid logo-small" src="assets/img/logo.png" alt="">
-        <div class="daily-deal">
-          <h2>Combo Offer</h2>
-          <ul class="product-section">
-            <li class="d-flex align-items-center" *ngFor="let product of allProductList">
-              <div class="heart-wishlist">
-                <i class="fa fa-heart not-favrate" *ngIf="product.whishlist == null && this.userId>0" aria-hidden="true"
-                  (click)="addWishList(product.id)"></i>
-                <i class="fa fa-heart not-favrate" *ngIf="product.whishlist == null && !this.userId" aria-hidden="true"
-                  (click)="gotoPage()"></i>
-                <i class="fa fa-heart not-favrate favrate" *ngIf="product.whishlist != null" aria-hidden="true"></i>
-              </div>
-              <div class="product-img" (click)="gotoProductDetails(product.id)">
-                <img [src]="product.image_small != ''? imageBaseUrl+ product.image_small : 'assets/imgs/no-image.png'">
+            <div class="col-md-6 ">
 
-              </div>
-              <h3 (click)="gotoProductDetails(product.id)">{{product.name}} <br>
-                <i class="fa fa-inr" aria-hidden="true"></i>
-                {{product.price}} /
-                {{product.quantity_count}} {{product.unit}}</h3>
-            </li>
+                <div class="daily-deal">
 
-          </ul>
+                    <img class="img-fluid logo-small" src="assets/img/logo.png" alt="">
+                    <div class="clearfix"></div>
+                    <h2>Combo Offer</h2>
+                    <ul class="product-section">
+                        <li class="d-flex align-items-center" *ngFor="let product of allProductList">
+                            <div class="heart-wishlist">
+                                <i class="fa fa-heart not-favrate" *ngIf="product.whishlist == null && this.userId>0" aria-hidden="true" (click)="addWishList(product.id)"></i>
+                                <i class="fa fa-heart not-favrate" *ngIf="product.whishlist == null && !this.userId" aria-hidden="true" (click)="gotoPage()"></i>
+                                <i class="fa fa-heart not-favrate favrate" *ngIf="product.whishlist != null" aria-hidden="true"></i>
+                            </div>
+                            <div class="product-img" (click)="gotoProductDetails(product.id)">
+                                <img [src]="product.image_small != ''? imageBaseUrl+ product.image_small : 'assets/imgs/no-image.png'">
+
+                            </div>
+                            <h3 (click)="gotoProductDetails(product.id)">{{product.name}} <br>
+                                <i class="fa fa-inr" aria-hidden="true"></i> {{product.price}} / {{product.quantity_count}} {{product.unit}}</h3>
+                        </li>
+
+                    </ul>
+                </div>
+            </div>
         </div>
-      </div>
     </div>
-  </div>
-  <app-sidebar-button></app-sidebar-button>
+    <app-sidebar-button></app-sidebar-button>
 
 </div>
 <!-- <app-header></app-header>

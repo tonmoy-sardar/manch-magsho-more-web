@@ -1,39 +1,40 @@
 <app-header></app-header>
 <div class="body-banner bg-light">
-  <div class="col-md-12">
-    <div class="row">
-      <div class="col-md-12 ">
-        <img class="img-fluid logo-small" src="assets/img/logo.png" alt="">
+    <app-search-bar></app-search-bar>
+    <div class="col-md-12">
         <div class="row">
-          <div class="col-md-10 pading-top-sec">
-            <div class="row">
-              <div class="col-md-4">
-                  <app-sidebar-userdetails></app-sidebar-userdetails> 
-              </div>
-              <div class="col-md-8">
-                <div class="shopping-user">
-                  <div (click)="gotoPage('todayspecial');" class="shop-box">
-                    <h3>Today’s Special</h3>
-                  </div>
-                  <div (click)="gotoPage('alacarte');" class="shop-box">
-                    <h3>Ala Carte</h3>
-                  </div>
-                  <div (click)="gotoPage('order');" class="shop-box">
-                    <h3>Repeat Order</h3>
-                  </div>
-                  <div (click)="gotoPage('combooffer');" class="shop-box">
-                    <h3>Combo Offers</h3>
-                  </div>
+            <div class="col-md-12 ">
+
+                <div class="row">
+                    <div class="col-md-10 ">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <app-sidebar-userdetails></app-sidebar-userdetails>
+                            </div>
+                            <div class="col-md-8  justify-content-center">
+                                <div class="shopping-user">
+                                    <div (click)="gotoPage('todayspecial');" class="shop-box">
+                                        <h3>Today’s Special</h3>
+                                    </div>
+                                    <div (click)="gotoPage('alacarte');" class="shop-box">
+                                        <h3>Ala Carte</h3>
+                                    </div>
+                                    <div (click)="gotoPage('order');" class="shop-box">
+                                        <h3>Repeat Order</h3>
+                                    </div>
+                                    <div (click)="gotoPage('combooffer');" class="shop-box">
+                                        <h3>Combo Offers</h3>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-              </div>
             </div>
-          </div>
         </div>
-      </div>
     </div>
-  </div>
-  <a class="download-app" href="javascript:void(0);">Download App</a>
-  <a class="contact-btn" href="javascript:void(0);">Contact Us</a>
-  <app-search-bar></app-search-bar>
-  <app-sidebar-menu></app-sidebar-menu>
+    <a class="download-app" href="javascript:void(0);">Download App</a>
+    <a class="contact-btn" href="javascript:void(0);">Contact Us</a>
+
+    <app-sidebar-menu></app-sidebar-menu>
 </div>
