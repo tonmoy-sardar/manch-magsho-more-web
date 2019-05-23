@@ -102,11 +102,27 @@ export class ProductService {
     return this.http.get(environment.apiEndpoint + 'productspendcatwisebyuserid/'+user_id+'/'+month_id)
   }
 
+  getSpendingPatternQuater(user_id,id): Observable<any> {
+    return this.http.get(environment.apiEndpoint + 'productspendcatandmonthbyuserid/'+user_id+'/'+id)
+  }
+
   getSearchRecipeList(searchKey): Observable<any> {
     return this.http.get(environment.apiEndpoint + 'recipelistsearch/recipe?search_key='+searchKey)
   }
 
   myOrderDetails(id): Observable<any> {
     return this.http.get(environment.apiEndpoint + 'orderdetailsbyid/'+id)
+  }
+
+  getPriceTrendDetails(id): Observable<any> {
+    return this.http.get(environment.apiEndpoint + 'productpricedetails/'+id)
+  }
+
+  getProductSpendAllMonth(id): Observable<any> {
+    return this.http.get(environment.apiEndpoint + 'productspendallmonth/'+id)
+  }
+
+  getFilterRecipeList(language,habbit,time): Observable<any> {
+    return this.http.get(environment.apiEndpoint + 'recipelistfilterwithrecipeval/recipe?recipe_language='+language+'&recipe_type='+habbit+'&cooking_time='+time)
   }
 }

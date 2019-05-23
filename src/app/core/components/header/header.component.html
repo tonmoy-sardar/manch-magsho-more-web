@@ -21,10 +21,16 @@
                     </li> -->
 
 
-                    <li class="back-to-btn">
-                        <a href="#">Back</a>
+                    <li class="back-to-btn" *ngIf="loggedIn">
+                        <a (click)="goBack()">Back</a>
 
-                        <a href="#">My Account</a>
+                        <a href="javascript:void(0);" [routerLink]="['/myprofile']">My Account</a>
+
+                    </li>
+                    <li class="back-to-btn" *ngIf="!loggedIn">
+                        <a [routerLink]="['/login']" href="javascript:void(0);">Login</a>
+
+                        <a [routerLink]="['/signup']" href="javascript:void(0);">Register</a>
 
                     </li>
 
@@ -84,12 +90,12 @@
             <div class="market-scrool" *ngIf="visibleKey">
                 <marquee direction="left" speed="slow" behavior="loop">
                     <ul>
-                        <li *ngFor="let product of productList" [ngClass]="{'red':product.market_price_status == 1,'green':product.market_price_status == 2,'yellow':product.market_price_status == 3}" class="red">
+                        <li *ngFor="let product of productList" [ngClass]="{'red':product.price_status == 1,'green':product.price_status == 2,'yellow':product.price_status == 3}" class="red">
                             <a style="cursor: pointer;" (click)="gotoDetails(product.id)">{{product.name}} Rs {{product.price}} /
             {{product.quantity_count}} {{product.unit}} 
-            <i *ngIf="product.market_price_status == 3" class="fa fa-sort" aria-hidden="true"></i>
-                  <i *ngIf="product.market_price_status == 2" class="fa fa-sort-asc" aria-hidden="true"></i>
-                  <i *ngIf="product.market_price_status == 1" class="fa fa-sort-desc" aria-hidden="true"></i>
+            <i *ngIf="product.price_status == 3" class="fa fa-sort" aria-hidden="true"></i>
+                  <i *ngIf="product.price_status == 2" class="fa fa-sort-asc" aria-hidden="true"></i>
+                  <i *ngIf="product.price_status == 1" class="fa fa-sort-desc" aria-hidden="true"></i>
           </a>
                         </li>
                     </ul>

@@ -38,7 +38,7 @@ export class LoginComponent implements OnInit {
           localStorage.setItem('userContact', res['result']['contact']);
           localStorage.setItem('userImage', res['result']['profile_image']);
           this.userService.loginStatus(true);
-          this.router.navigate(['category']);
+          this.router.navigate(['welcome']);
           this.toastr.success('Login successfully', '', {
             timeOut: 3000,
           });

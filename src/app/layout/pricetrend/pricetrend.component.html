@@ -1,0 +1,49 @@
+<app-header></app-header>
+<div class="body-banner">
+  <div class="col-md-12">
+    <div class="row">
+      <div class="inner-page">
+        <div class="col-md-12">
+          <div class="chart-show-monthly chart-page">
+            <h3 style="text-align:center;">Price Chart Details: </h3>
+            <div class="spend-savings">
+              <!-- <h4 (click)="gotoBarChart(spendingPattern)">Total : {{totalCurrentSum}}</h4>
+              <h4>Savings : {{totalCurrentSaving}}</h4> -->
+            </div>
+            <!-- <div class="chart-show" style="display: block; width:600px; height:300px">
+              <canvas baseChart [data]="doughnutChartData" [labels]="doughnutChartLabels"
+                [chartType]="doughnutChartType" [colors]="doughnutChartColors">
+              </canvas>
+            </div> -->
+            <!-- <canvas #barCanvas></canvas> -->
+            <div class="row">
+              
+                <div class="col-md-4">
+                  
+                  <h4 class="today-price price-trend-up-graph" *ngIf="priceStatus==1">Todays Price : <i class="fa fa-rupee"></i>{{trendDetails.todays_price | number:'1.2-2'}} </h4>
+                  <h4 class="today-price price-trend-down-graph" *ngIf="priceStatus==2">Todays Price : <i class="fa fa-rupee"></i>{{trendDetails.todays_price | number:'1.2-2'}} </h4>
+                  <h4 class="today-price price-trend-same-graph" *ngIf="priceStatus==3">Todays Price : <i class="fa fa-rupee"></i>{{trendDetails.todays_price | number:'1.2-2'}} </h4>
+
+                  <h4>Avg Last Week Price : <i class="fa fa-rupee"></i>{{trendDetails.last_week_avg_price | number:'1.2-2'}}  </h4>
+                  <h4>Average Last Month :  : <i class="fa fa-rupee"></i>{{trendDetails.last_month_avg_price | number:'1.2-2'}} </h4>
+                  <h4>Last Day's Price  : <i class="fa fa-rupee"></i>{{trendDetails.last_day_price | number:'1.2-2'}} </h4>
+                </div>
+                <div class="col-md-8">
+                    <div class="inner-page">
+                    <div class="chart-show" style="display: block; width:600px; height:300px; margin:0 auto;">
+                        <canvas baseChart [datasets]="data.datasets" [labels]="barChartLabels" [chartType]="barChartType"
+                          [colors]="barChartColors">
+                        </canvas>
+                      </div>
+                      </div>
+                  </div>
+              
+            </div>
+            
+          </div>
+        </div>
+
+
+
+      </div>
+    </div>

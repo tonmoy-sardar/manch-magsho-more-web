@@ -1,8 +1,8 @@
 <app-header></app-header>
-<div class="body-banner">
+<div class="body-banner lady-banner">
   <div class="col-md-12">
     <div class="row">
-      <div class="col-md-5 btn-sce">
+      <!-- <div class="col-md-5 btn-sce">
         <a href="javascript:void(0);" class="btn-start">
           <img class="img-fluid" src="assets/img/shopping-button.png" alt=""> </a>
         <img class="img-fluid full-lady" src="assets/img/girl.png" alt="">
@@ -12,13 +12,11 @@
       </div>
     </div>
   </div>
-  <!-- Sidebar button Download and contact us -->
-  <app-sidebar-button></app-sidebar-button>
+  <app-sidebar-button></app-sidebar-button> -->
   <div class="inner-page">
     <div class="col-md-12">
       <div class="row">
-
-        <div class="card text-center  card-body-full">
+        <div class="card text-center  card-body-full sign-up-body">
           <div class="card-header bg-info text-dark">
             <strong> Sign Up </strong>
           </div>
@@ -31,7 +29,7 @@
                 </div>
                 <input type="text" class="form-control"  name="name" placeholder="Name"
                 formControlName="name"
-                [ngClass]="displayFieldCss(signupForm,'name')" required>
+                [ngClass]="displayFieldCss(signupForm,'name')" required> 
                 <div class="invalid-feedback text-left" *ngIf="isFieldValid(signupForm,'name')">
                     Please enter name
                   </div>

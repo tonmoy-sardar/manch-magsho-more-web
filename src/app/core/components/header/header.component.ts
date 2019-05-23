@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { UserService } from '../../services/user.service';
 import { CartService } from '../../services/cart.service';
 import { ProductService } from '../../services/product.service';
+import { Location } from '@angular/common';
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
@@ -18,7 +19,8 @@ export class HeaderComponent implements OnInit {
     private router: Router,
     private userService: UserService,
     public cartService:CartService,
-    public productService:ProductService
+    public productService:ProductService,
+    private location: Location
   ) {
     this.loadUserInfo();
     cartService.getCartNumberStatus.subscribe(status => this.cartNumberStatus(status));
@@ -60,6 +62,7 @@ export class HeaderComponent implements OnInit {
 
     this.productService.getAllProList().subscribe(
       res => {
+        console.log("Marquee List===>",res);
         this.productList = res['result'];
         this.visibleKey = true;
       },
@@ -84,6 +87,10 @@ export class HeaderComponent implements OnInit {
 
   gotoDetails(id) {
     this.router.navigate(['product/details', id]);
+  }
+
+  goBack() {
+    this.location.back();
   }
 
 

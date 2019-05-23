@@ -1,7 +1,7 @@
 <div class="profile-sec  d-flex align-items-center">
     <img class="profile-image" [src]="userImage != ''? imageBaseUrl+ userImage : 'assets/img/no-image.png'">
     <div class="profile-sec">
-        <h3><b>Wellcome</b> {{userName}}</h3>
-        <a href="javascript:void(0);" (click)="logout()">Log out</a>
+        <h3><b>Welcome</b> {{userName}}</h3>
+        <a href="javascript:void(0);" (click)="logout()" *ngIf="loggedIn">Log out</a>
     </div>
 </div>

@@ -31,6 +31,9 @@ export class RecipeComponent implements OnInit {
   visible: boolean;
   searchText:any;
   isPagination:number;
+  selectedLanguage:string='Bengali';
+  selectedHabbit:string='veg';
+  selectedTime:string='0';
   constructor(
     private router: Router,
     private route: ActivatedRoute,
@@ -109,6 +112,23 @@ export class RecipeComponent implements OnInit {
     this.productService.getSearchRecipeList(this.searchText).subscribe(
       res => {
         console.log("Serach Recipe List==>",res);
+        this.proRecipeList = res['result'];
+        this.isPagination=0;
+      },
+      error => {
+        this.proRecipeList=[];
+      }
+    )
+  }
+
+  filterRecipe() {
+    console.log(this.selectedLanguage);
+    console.log(this.selectedHabbit);
+    console.log(this.selectedTime);
+    this.proRecipeList = [];
+    this.productService.getFilterRecipeList(this.selectedLanguage,this.selectedHabbit,this.selectedTime).subscribe(
+      res => {
+        console.log("Filter Recipe List==>",res);
         this.proRecipeList = res['result'];
         this.isPagination=0;
       },

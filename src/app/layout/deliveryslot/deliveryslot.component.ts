@@ -137,6 +137,7 @@ export class DeliveryslotComponent implements OnInit {
     this.order_data.deliver_charge=this.all_customer_data.delivery_slot.deliver_charge;
     this.order_data.pincode= this.all_customer_data.pincode;
     this.order_data.state_id= "1";
+    this.order_data.is_device_type= "1";
     this.order_data.type=this.all_customer_data.type;
    
     this.order_details = [];

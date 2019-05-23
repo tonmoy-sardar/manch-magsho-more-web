@@ -56,5 +56,9 @@ export class TodayspecialComponent implements OnInit {
   gotoPage() {
     this.router.navigate(['/login']);
   }
+  gotoCategory() {
+    this.router.navigate(['category']);
+  }
+ 
 
 }

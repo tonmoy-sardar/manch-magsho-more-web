@@ -1,0 +1,77 @@
+<div class="col-md-12  bg-derk">
+    <div class="row">
+        <div class="market-scrool" *ngIf="visibleKey">
+            <marquee direction="left" speed="slow" behavior="loop">
+                <ul>
+                    <li *ngFor="let product of productList" [ngClass]="{'red':product.market_price_status == 1,'green':product.market_price_status == 2,'yellow':product.market_price_status == 3}" class="red">
+                        <a style="cursor: pointer;" (click)="gotoDetails(product.id)">{{product.name}} Rs {{product.price}} /
+              {{product.quantity_count}} {{product.unit}}
+              <i *ngIf="product.market_price_status == 3" class="fa fa-sort" aria-hidden="true"></i>
+                  <i *ngIf="product.market_price_status == 2" class="fa fa-sort-asc" aria-hidden="true"></i>
+                  <i *ngIf="product.market_price_status == 1" class="fa fa-sort-desc" aria-hidden="true"></i>
+            </a>
+                    </li>
+                </ul>
+            </marquee>
+        </div>
+    </div>
+</div>
+<div class="body-banner lady-banner">
+    <div class="col-md-12">
+        <div class="row">
+
+            <div class="offset-md-5 col-md-7 logo-sec d-flex align-items-center">
+                <div class="welcome-sec">
+                    <app-sidebar-userdetails></app-sidebar-userdetails>
+                    <p>Savings Last Month : {{totalMonthlySum}} </p>
+                    <p>Total Savings : {{totalQuaterSaving}} </p>
+                    <p>Deals For You </p>
+                </div>
+
+                <div class="welcome-sec">
+                    <!-- <h2>Welcome</h2> -->
+                    <div> 
+                      <img style="cursor:pointer" (click)="gotoCategory('')" class="img-fluid" src="assets/img/shopping-button.png" alt="">
+                    </div>
+                   <div>
+                    <button (click)="previous()" >Previous</button>
+                    <!-- <li [class]="slides[selectedIndex] == slide ? 'active': ''" 
+                    *ngFor="let slide of slides">
+       <img src="../../assets/images/onboarding/slides/{{slide}}.png" alt="">
+     </li> -->
+                      <ul class="product-section product-todays-special">
+                          <li class="d-flex align-items-center" [class]="allProductList[selectedIndex] == product ? 'active': ''" 
+                          *ngFor="let product of allProductList | slice:start:end">
+                              <div class="heart-wishlist">
+                                  <i class="fa fa-heart not-favrate" *ngIf="product.whishlist == null && this.userId>0" aria-hidden="true" (click)="addWishList(product.id)"></i>
+                                  <i class="fa fa-heart not-favrate" *ngIf="product.whishlist == null && !this.userId" aria-hidden="true" (click)="gotoPage()"></i>
+                                  <i class="fa fa-heart not-favrate favrate" *ngIf="product.whishlist != null" aria-hidden="true"></i>
+                              </div>
+  
+                              <div (click)="gotoProductDetails(product.id)" class="product-img">
+                                  <img [src]="product.image_small != ''? imageBaseUrl+ product.image_small : 'assets/imgs/no-image.png'">
+                              </div>
+                              <h3 (click)="gotoProductDetails(product.id)">{{product.name}} <br> <i class="fa fa-inr" aria-hidden="true"></i>{{product.price}} / {{product.quantity_count}} {{product.unit}}</h3>
+  
+                          </li>
+                          <!-- <li class="d-flex align-items-center">
+                <div class="product-img">
+                  <img src="assets/img/alu.png" alt="">
+                </div>
+                <h3>Potato <br>5Kg @ RS 90</h3>
+              </li> -->
+                      </ul>
+                      <button *ngIf="!disableNext" (click)="next()">Next</button>
+                   </div>
+                </div>
+
+                <div class="welcome-sec">
+                    <app-sidebar-menu></app-sidebar-menu>
+                </div>
+            </div>
+
+        </div>
+    </div>
+  
+</div>
+<!--Author_by_Shuvendu_Dhenki(17-feb-2018)-->

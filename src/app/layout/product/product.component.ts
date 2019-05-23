@@ -121,4 +121,8 @@ export class ProductComponent implements OnInit {
     this.router.navigate(['/login']);
   }
 
+  gotoPriceTrend(id) {
+    this.router.navigate(['/pricetrend',id]);
+  }
+
 }

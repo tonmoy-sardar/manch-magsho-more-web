@@ -17,6 +17,7 @@ export class HomeComponent implements OnInit {
 
   ngOnInit() {
     this.getProList();
+    //alert(new Date().getMonth())
   }
 
   getProList() {

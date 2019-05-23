@@ -84,7 +84,7 @@
         <div *ngIf="proDetails.product_stock > 5"><a class="write-review-btn" style="color:green;background: #8CF82380;" href="javascript:void(0);">Available</a></div>
         <div *ngIf="proDetails.product_stock > 0 && proDetails.product_stock < 6"><a class="write-review-btn" style="color:#8E750B;background: #E3C02D4D;" href="javascript:void(0);">Limited</a></div>
         <div *ngIf="proDetails.product_stock < 1">
-            <a class="write-review-btn" href="javascript:void(0);">
+            <a class="write-review-btn" style="background:#f30b0b4d; color:#f30b0b" href="javascript:void(0);">
         Sold Out</a>
             <a class="inform-btn" href="javascript:void(0);" (click)="informProduct()">
                 <span>Inform When Available</span>

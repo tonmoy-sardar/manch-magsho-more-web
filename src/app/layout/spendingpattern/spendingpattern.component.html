@@ -1,6 +1,71 @@
 <app-header></app-header>
-<div class="chart-show-monthly chart-page">
+<div class="body-banner">
+  <div class="col-md-12">
+    <div class="row">
+      <div class="inner-page">
+        <div class="col-md-12">
+          <div class="chart-show-monthly chart-page">
+            <h4>Current Month Spending Pattern: </h4>
+            <div class="spend-savings">
+              <h4 (click)="gotoBarChart(spendingPattern)">Total : {{totalCurrentSum}}</h4>
+              <h4>Savings : {{totalCurrentSaving}}</h4>
+            </div>
+            <div class="chart-show" style="display: block; width:600px; height:300px">
+              <canvas baseChart [data]="doughnutChartData" [labels]="doughnutChartLabels"
+                [chartType]="doughnutChartType" [colors]="doughnutChartColors">
+              </canvas>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-12">
+            <div class="chart-show-monthly">
+                <h4>Monthly Spending Pattern: </h4>
+                <div class="spend-savings">
+                    <h4 (click)="gotoBarChart(spendingPattern)">Total : {{totalMonthlySum}}</h4>
+                    <h4>Savings : {{totalMonthlySaving}}</h4>
+                  </div>
+                <select class="form-control" [ngModel]="month" (ngModelChange)="selectMonth($event)" name="month">
+                    <option [value]="null">Select Month</option>
+                  <option *ngFor="let month of monthList" [value]="month.id">
+                    {{month.name}}
+                  </option>
+                </select>
+                <div style="display: block; width:600px; height:300px; margin:0 auto;">
+                  <canvas baseChart [data]="doughnutChartDataMonthly" [labels]="doughnutChartLabelsMonthly"
+                    [chartType]="doughnutChartType" [colors]="doughnutChartColors">
+                  </canvas>
+                </div>
+              </div>
+        </div>  
+        <div class="col-md-12">
+            <div class="chart-show-monthly">
+                <h4>Quarterly Spending Pattern: </h4>
+                <div class="spend-savings">
+                    <h4 (click)="gotoBarChart(spendingPattern)">Total : {{totalQuaterSum}}</h4>
+                    <h4>Savings : {{totalQuaterSaving}}</h4>
+                  </div>
+                <select class="form-control" [ngModel]="month" (ngModelChange)="selectQuater($event)" name="month">
+                    <option [value]="null">Select Quater</option>
+                  <option *ngFor="let quarter of quarterly" [value]="quarter.id">
+                    {{quarter.name}}
+                  </option>
+                </select>
+                <div style="display: block; width:600px; height:300px; margin:0 auto;">
+                  <canvas baseChart [data]="doughnutChartDataQuaterly" [labels]="doughnutChartLabelsQuaterly"
+                    [chartType]="doughnutChartType" [colors]="doughnutChartColors">
+                  </canvas>
+                </div>
+              </div>
+        </div>    
+      </div>
+    </div>
+    <!-- <div class="chart-show-monthly chart-page">
     <h4>Current Month Spending Pattern: </h4>
+    <div class="spend-savings">
+        <h3 (click)="gotoBarChart(spendingPattern)">Total : 1000</h3>
+        <h3>Savings : 200</h3>
+      </div>
 <div class="chart-show" style="display: block; width:600px; height:300px">
   <canvas baseChart [data]="doughnutChartData" [labels]="doughnutChartLabels" [chartType]="doughnutChartType"
     [colors]="doughnutChartColors">
@@ -23,4 +88,4 @@
   </div>
 
 </div>
-</div>
+</div> -->
