@@ -49,15 +49,15 @@
                                     </div>
                                     <div class="tab-pane fade show active" role="tabpanel" aria-labelledby="home-tab">
                                         <div class="profile-head">
-                                            <h5 (click)="showMyAddress()">Show Address <i class="fa fa-sort-desc" aria-hidden="true"></i></h5>
+                                            <h5 (click)="showMyAddress()">Show Address <i class="fa fa-sort-desc pull-right" aria-hidden="true"></i></h5>
                                         </div>
                                         <div class="row" *ngIf="buttonClicked">
                                             <div class="col-md-12">
-                                                <mat-card *ngFor="let myAddress of allAddressList; let i = index">
+                                                <mat-card style="margin-bottom:6px; margin-top: 6px;" *ngFor="let myAddress of allAddressList; let i = index">
                                                     <mat-list-item role="listitem">
                                                         {{myAddress.type}} : {{myAddress.address}} ,{{myAddress.landmark}}, {{myAddress.pincode}}
-                                                        <i (click)="openModal(myAddress)" class="fa fa-pencil-square-o" aria-hidden="true"></i>
-                                                        <i (click)="deleteAddress(myAddress.id)" class="fa fa-trash" aria-hidden="true"></i>
+                                                        <i (click)="openModal(myAddress)" class="fa fa-pencil-square-o" aria-hidden="true" style="margin: 0px 6px;"></i>
+                                                        <i (click)="deleteAddress(myAddress.id)" class="fa fa-trash" aria-hidden="true"  style="margin: 0px 6px;"></i>
                                                     </mat-list-item>
                                                 </mat-card>
                                             </div>
@@ -69,14 +69,14 @@
                                     </div>
                                     <div class="tab-pane fade show active" role="tabpanel" aria-labelledby="home-tab">
                                         <div class="profile-head">
-                                            <h5 (click)="showAddAddress()">Add Address <i class="fa fa-sort-desc" aria-hidden="true"></i></h5>
+                                            <h5 (click)="showAddAddress()">Add Address <i class="fa fa-sort-desc pull-right" aria-hidden="true"></i></h5>
                                         </div>
                                         <div class="row" *ngIf="showAddAddressForm">
                                             <div class="col-md-12">
                                                 <div class="card-body">
                                                     <form [formGroup]="addressForm" novalidate>
                                                         <div class="form-group">
-                                                            <div class="input-group mb-2 rounded-pill">
+                                                            <div class="input-group mb-2 rounded-pill rounded-pill2">
                                                                 <div class="input-group-prepend  width100 ">
                                                                     <div class="input-group-text bg-info text-dark">
                                                                         Type</div>
@@ -88,7 +88,7 @@
                                                             </div>
                                                         </div>
                                                         <div class="form-group">
-                                                            <div class="input-group mb-2 rounded-pill">
+                                                            <div class="input-group mb-2 rounded-pill rounded-pill2">
                                                                 <div class="input-group-prepend width100">
                                                                     <div class="input-group-text bg-info text-dark">
                                                                         Address</div>
@@ -100,7 +100,7 @@
                                                             </div>
                                                         </div>
                                                         <div class="form-group">
-                                                            <div class="input-group mb-2 rounded-pill">
+                                                            <div class="input-group mb-2 rounded-pill rounded-pill2">
                                                                 <div class="input-group-prepend width100">
                                                                     <div class="input-group-text bg-info text-dark">
                                                                         Landmark</div>
@@ -112,7 +112,7 @@
                                                             </div>
                                                         </div>
                                                         <div class="form-group">
-                                                            <div class="input-group mb-2 rounded-pill">
+                                                            <div class="input-group mb-2 rounded-pill rounded-pill2">
                                                                 <div class="input-group-prepend width100">
                                                                     <div class="input-group-text bg-info text-dark">
                                                                         Pincode</div>

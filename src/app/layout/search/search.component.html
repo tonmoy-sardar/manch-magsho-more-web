@@ -1,11 +1,29 @@
 <app-header></app-header>
 <div class="body-banner bg-light">
+        <div class="inner-search">
+                <div class="col-md-6 offset-md-3">
+                    <div class="form-group">
+                        <div class="input-group mb-2 rounded-pill search-input">
+                            <div class="input-group-prepend  width100 ">
+                                <div class="input-group-text bg-info text-dark pro-search" (click)="getSearchList(searchText)">Search </div>
+                            </div>
+                            <input type="text" [(ngModel)]="searchText" class="form-control" id="nombre" name="nombre" placeholder="Search Product" required>
+                        </div>
+                        <!-- <a class="resend-btn subscribe text-dark" href="javascript:void(0);">Subscribe</a> -->
+                    </div>
+                </div>
+                <a href="#">
+                <img alt="" class="img-fluid logo-small" src="assets/img/logo.png">
+                </a>
+            </div>
     <div class="col-md-12">
         <div class="row">
+
             <div class="col-md-12 ">
-                <img class="img-fluid logo-small" src="assets/img/logo.png" alt="">
+                
                 <div class="row">
-                    <div class="col-md-12 pading-top-sec">
+                    
+                    <div class="col-md-12 pading-top-sec2">
                         <div class="row">
                             <!-- <div class="col-md-3">
                 <app-sidebar-userdetails></app-sidebar-userdetails>
@@ -53,18 +71,6 @@
         </div>
     </div>
     <app-sidebar-button></app-sidebar-button>
-    <div class="inner-search">
-        <div class="col-md-6 offset-md-3">
-            <div class="form-group">
-                <div class="input-group mb-2 rounded-pill search-input">
-                    <div class="input-group-prepend  width100 ">
-                        <div class="input-group-text bg-info text-dark pro-search" (click)="getSearchList(searchText)">Search </div>
-                    </div>
-                    <input type="text" [(ngModel)]="searchText" class="form-control" id="nombre" name="nombre" placeholder="Search Product" required>
-                </div>
-                <!-- <a class="resend-btn subscribe text-dark" href="javascript:void(0);">Subscribe</a> -->
-            </div>
-        </div>
-    </div>
+
     <app-sidebar-menu></app-sidebar-menu>
 </div>

@@ -8,7 +8,7 @@
             <div class="row">
               <div class="col-md-4">
                 <!-- <app-sidebar-userdetails></app-sidebar-userdetails> -->
-                <div class="order-history">
+                <div class="order-history order-history2">
                   <table class="table table-bordered text-center ">
                     <tbody>
                       <tr>
@@ -26,32 +26,36 @@
                 </div>
               </div>
               <div class="col-md-4">
-                <div class="order-history">
+                <div class="order-history order-history2">
 
                   <div class="clearfix"></div>
-                  <mat-card class="mb-5" *ngFor="let delivery of deliverySlot" (click)="gotoPayMode(delivery)">
-                    <h3>Delivery Slot</h3>
+                  <mat-card class="mb-5" *ngFor="let delivery of deliverySlot" >
+                    <h5>Delivery Slot</h5>
                     <div class="clearfix"></div>
                     <mat-list role="list">
-                      <mat-list-item role="listitem">{{delivery.deliver_slot}} </mat-list-item>
-                      <mat-list-item role="listitem">Delivery Charge : Rs. {{delivery.deliver_charge}}</mat-list-item>
+                      <mat-list-item role="listitem"><h5><span>{{delivery.deliver_slot}}</span><br>
+                      <span>Delivery Charge : Rs. {{delivery.deliver_charge}}</span></h5></mat-list-item>
                     </mat-list>
-
+                    <a href="javascript:void(0);" (click)="gotoPayMode(delivery)" class="btn btn2 btn-primary  bg-info text-dark border-radius">Submit
+                        <i class="fa fa-angle-right" aria-hidden="true"></i>
+                      </a>
                   </mat-card>
 
                 </div>
               </div>
               <div class="col-md-4">
-                <div class="order-history" *ngIf="isShowPayMode ==2">
-                  <h3>Payment Mode</h3>
-
+                <div class="order-history order-history2" *ngIf="isShowPayMode ==2">
+                  
                   <div class="clearfix"></div>
                   <mat-card >
+                      <h5>Payment Mode</h5><br>
                     <mat-list role="list">
                       <!-- <mat-list-item role="listitem">Paytm </mat-list-item> -->
-                      <mat-list-item role="listitem" (click)="placeOrder(2)">COD</mat-list-item>
+                      <mat-list-item role="listitem"><h5><span>COD</span></h5></mat-list-item>
                     </mat-list>
-
+                    <a href="javascript:void(0);" (click)="placeOrder(2)" class="btn btn2 btn-primary  bg-info text-dark border-radius">Submit
+                        <i class="fa fa-angle-right" aria-hidden="true"></i>
+                      </a>
                   </mat-card>
 
                 </div>
