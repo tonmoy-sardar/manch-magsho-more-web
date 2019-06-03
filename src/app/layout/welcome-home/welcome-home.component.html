@@ -1,6 +1,20 @@
 <div class="col-md-12  bg-derk">
 
     <div class="row">
+        <!-- <div class="market-scrool" *ngIf="visibleKey">
+            <marquee direction="left" speed="slow" behavior="loop">
+                <ul>
+                    <li *ngFor="let product of productList" [ngClass]="{'red':product.market_price_status == 1,'green':product.market_price_status == 2,'yellow':product.market_price_status == 3}" class="red">
+                        <a style="cursor: pointer;" (click)="gotoDetails(product.id)">{{product.name}} Rs {{product.price}} /
+              {{product.quantity_count}} {{product.unit}}
+              <i *ngIf="product.market_price_status == 3" class="fa fa-sort" aria-hidden="true"></i>
+                  <i *ngIf="product.market_price_status == 2" class="fa fa-sort-asc" aria-hidden="true"></i>
+                  <i *ngIf="product.market_price_status == 1" class="fa fa-sort-desc" aria-hidden="true"></i>
+            </a>
+                    </li>
+                </ul>
+            </marquee>
+        </div> -->
         <div class="market-scrool" *ngIf="visibleKey">
             <marquee direction="left" speed="slow" behavior="loop">
                 <ul>
@@ -34,7 +48,7 @@
                 <div class="welcome-sec">
                     <!-- <h2>Welcome</h2> -->
                     <div> 
-                      <img style="cursor:pointer" (click)="gotoCategory('')" class="img-fluid" src="assets/img/shopping-button.png" alt="">
+                      <img style="cursor:pointer" (click)="gotoCategory()" class="img-fluid" src="assets/img/shopping-button.png" alt="">
                     </div>
                    <div>
                     

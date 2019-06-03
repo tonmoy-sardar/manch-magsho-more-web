@@ -57,4 +57,8 @@ export class AlacarteComponent implements OnInit {
     this.router.navigate(['/login']);
   }
 
+  gotoCategory() {
+    this.router.navigate(['category']);
+  }
+
 }

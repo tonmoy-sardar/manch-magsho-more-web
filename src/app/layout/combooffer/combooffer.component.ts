@@ -56,4 +56,8 @@ export class ComboofferComponent implements OnInit {
     this.router.navigate(['/login']);
   }
 
+  gotoCategory() {
+    this.router.navigate(['category']);
+  }
+
 }
