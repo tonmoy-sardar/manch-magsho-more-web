@@ -14,8 +14,9 @@
                             </div>
                             <div class="col-md-8">
                                 <div class="order-history">
-                                    <h3>Order History</h3>
-                                    <!-- <div class="favourit-btn"><a href="javascript:void(0);">Favourites</a></div> -->
+                                  <h3>Order History    <div class="favourit-btn"><a href="javascript:void(0);">Favourites</a></div></h3>
+                                    
+                                  
                                     <div class="clearfix"></div>
 
                                     <div *ngIf="visible">
@@ -60,11 +61,16 @@
                                                     <a href="javascript:void(0);" style="background:#CAF5F8;color:#fff !important;" (click)="gotoDetails(order.id)" class="btn btn-primary  bg-info text-dark border-radius">View
                       </a>
                                                 </div>
-                                                <div class="col-md-12">
-
+                                                <div class="col-md-12">                                              
+                                                 <div class="order-img2"><img _ngcontent-c2="" class="img-fluid" src="http://166.62.54.122/mamamo/mach_mangso_more/uploads/blog_images/_thumb/large1552038356palak-pakoda_thumb.jpg"></div>
+                                                 <div class="order-img3"><img _ngcontent-c2="" class="img-fluid" src="http://166.62.54.122/mamamo/mach_mangso_more/uploads/blog_images/_thumb/large1552037422chiken-french_thumb.JPG"></div>
+                                                 <div class="order-img4"><img _ngcontent-c2="" class="img-fluid" src="http://166.62.54.122/mamamo/mach_mangso_more/uploads/blog_images/_thumb/large1552037812chiken-curry_thumb.jpeg"></div>
+                                       
                                                     <div href="javascript:void(0);" (click)="repeatOrder(order)" class="favbtn-repeat-order">
                                                         <a><i class="fa fa-repeat" aria-hidden="true"></i>
                             Repeat Order</a>
+
+
 
                                                     </div>
 

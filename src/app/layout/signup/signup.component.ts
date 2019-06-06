@@ -11,12 +11,14 @@ import { Router } from '@angular/router';
 })
 export class SignupComponent implements OnInit {
   signupForm: FormGroup;
+  isShowMsg:number;
   constructor(
     private formBuilder: FormBuilder,
     private userService: UserService,
     private toastr: ToastrService,
     private router: Router,
   ) { 
+    this.isShowMsg =0;
     this.signupForm = this.formBuilder.group({
       name: ["",Validators.required],
       email: ["",[
@@ -42,7 +44,8 @@ export class SignupComponent implements OnInit {
       this.signupForm.value.address =  '1';
       this.userService.userSignup(this.signupForm.value).subscribe(
         res => {
-          this.router.navigate(['login']);
+          this.isShowMsg =1;
+         // this.router.navigate(['login']);
           this.toastr.success('Register successfully', '', {
             timeOut: 3000,
           });
@@ -57,6 +60,10 @@ export class SignupComponent implements OnInit {
     } else {
       this.markFormGroupTouched(this.signupForm)
     }
+  }
+
+  gotoPage() {
+    this.router.navigate(['/login']);
   }
 
   markFormGroupTouched(formGroup: FormGroup) {
