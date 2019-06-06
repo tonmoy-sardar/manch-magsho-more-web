@@ -53,9 +53,9 @@
                     </li>
                 </ul>
                 <ul class=" main-menu navbar-nav ml-auto">
-                    <li class="nav-item active">
+                    <!-- <li class="nav-item active">
                         <a class="nav-link " [routerLink]="['/category']" href="javascript:void(0);">Category</a>
-                    </li>
+                    </li> -->
                     <li class="nav-item">
                         <a class="nav-link" [routerLink]="['/aboutus']" href="javascript:void(0);">About Us</a>
                     </li>
@@ -76,10 +76,10 @@
                         <i aria-hidden="true" class="fa fa-shopping-cart"></i>
                         <span class="total-cart">{{totalCart}}</span></a>
 
-
+<!-- 
                     <a class="head-logo">
                         <img class="img-fluid" src="assets/img/logo.png" alt="">
-                    </a>
+                    </a> -->
 
                 </ul>
             </div>
@@ -90,12 +90,18 @@
             <div class="market-scrool" *ngIf="visibleKey">
                 <marquee direction="left" speed="slow" behavior="loop">
                     <ul>
+                        
                         <li *ngFor="let product of productList" [ngClass]="{'red':product.price_status == 1,'green':product.price_status == 2,'yellow':product.price_status == 3}" class="red">
                             <a style="cursor: pointer;" (click)="gotoDetails(product.id)">{{product.name}} Rs {{product.price}} /
             {{product.quantity_count}} {{product.unit}} 
-            <i *ngIf="product.price_status == 3" class="fa fa-sort" aria-hidden="true"></i>
+
+              <i *ngIf="product.market_price_status == 1" class="fa fa-arrow-up" aria-hidden="true"></i>
+              <i *ngIf="product.market_price_status == 2"  class="fa fa-arrow-down" aria-hidden="true"></i>
+              <i *ngIf="product.market_price_status == 3" class="fa fa-arrows-h font-icon" aria-hidden="true"></i>  
+         
+ <!-- <i *ngIf="product.price_status == 3" class="fa fa-sort" aria-hidden="true"></i>
                   <i *ngIf="product.price_status == 2" class="fa fa-sort-asc" aria-hidden="true"></i>
-                  <i *ngIf="product.price_status == 1" class="fa fa-sort-desc" aria-hidden="true"></i>
+                  <i *ngIf="product.price_status == 1" class="fa fa-sort-desc" aria-hidden="true"></i> -->
           </a>
                         </li>
                     </ul>

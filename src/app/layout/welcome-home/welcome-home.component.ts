@@ -109,7 +109,9 @@ export class WelcomeHomeComponent implements OnInit {
   }
 
   gotoCategory() {
-    this.router.navigate(['category']);
+   // this.router.navigate(['category']);
+   this.router.navigate(['dashboard']);
+   
   }
 
   getLastMonthSpending(monthid) {

@@ -13,76 +13,105 @@
     </div>
   </div>
   <app-sidebar-button></app-sidebar-button> -->
-  <div class="inner-page sign-up">
-    <div class="col-md-12">
-      <div class="row">
-        <div class="card text-center  card-body-full sign-up-body">
-          <div class="card-header bg-info text-dark">
-            <p><strong> Sign Up </strong></p>
-          </div>
-          <div class="card-body">
-            <form [formGroup]="signupForm" novalidate>
-            <div class="form-group">
-              <div class="input-group mb-2 rounded-pill rounded-pill2">
-                <div class="input-group-prepend  width100 ">
-                  <div class="input-group-text bg-info text-dark text-dark2"> Name</div>
-                </div>
-                <input type="text" class="form-control"  name="name" placeholder="Name"
-                formControlName="name"
-                [ngClass]="displayFieldCss(signupForm,'name')" required> 
-                <div class="invalid-feedback text-left" *ngIf="isFieldValid(signupForm,'name')">
-                    Please enter name
-                  </div>
+      <div class="inner-page sign-up" *ngIf="isShowMsg==0">
+        <div class="col-md-12">
+          <div class="row">
+            <div class="card text-center  card-body-full sign-up-body">
+              <div class="card-header bg-info text-dark">
+                <p><strong> Enter Credentials </strong></p>
               </div>
-            </div>
-            <div class="form-group">
-              <div class="input-group mb-2 rounded-pill rounded-pill2">
-                <div class="input-group-prepend width100">
-                  <div class="input-group-text bg-info text-dark text-dark2">Email</div>
-                </div>
-                <input type="text" class="form-control"  name="email" placeholder="Email" formControlName="email"
-                        [ngClass]="displayFieldCss(signupForm,'email')" required>
-                        <div class="invalid-feedback text-left" *ngIf="signupForm.controls['email'].hasError('pattern') && !signupForm.controls['email'].hasError('required')">
-                              Please enter a valid email address
-                            </div>
-                            <div class="invalid-feedback text-left" *ngIf="signupForm.controls['email'].hasError('required')">
-                              Email is required
-                            </div>
-              </div>
-            </div>
-            <div class="form-group">
-              <div class="input-group mb-2 rounded-pill rounded-pill2">
-                <div class="input-group-prepend width100">
-                  <div class="input-group-text bg-info text-dark  text-dark2">Mobile number</div>
-                </div>
-                <input type="text" class="form-control"  name="contact" placeholder="Mobile Number"
-                formControlName="contact"
-                [ngClass]="displayFieldCss(signupForm,'contact')" required>
-                <div class="invalid-feedback text-left" *ngIf="isFieldValid(signupForm,'contact')">
-                    Please enter Mobile Number
-                  </div>
-              </div>
-            </div>
-            <div class="form-group">
-                <div class="input-group mb-2 rounded-pill rounded-pill2">
-                  <div class="input-group-prepend width100">
-                    <div class="input-group-text bg-info text-dark text-dark2">Password</div>
-                  </div>
-                  <input type="password" class="form-control"  name="password" placeholder="Password"
-                  formControlName="password"
-                  [ngClass]="displayFieldCss(signupForm,'password')" required>
-                  <div class="invalid-feedback text-left" *ngIf="isFieldValid(signupForm,'password')">
-                      Please enter Password
+              <div class="card-body">
+                <form [formGroup]="signupForm" novalidate>
+                  <div class="form-group">
+                    <div class="input-group mb-2 rounded-pill rounded-pill2">
+                      <div class="input-group-prepend  width100 ">
+                        <div class="input-group-text bg-info text-dark text-dark2 text-dark3"> Name</div>
+                      </div>
+                      <input type="text" class="form-control" name="name" placeholder="Name" formControlName="name"
+                        [ngClass]="displayFieldCss(signupForm,'name')" required>
+                      <div class="invalid-feedback text-left" *ngIf="isFieldValid(signupForm,'name')">
+                        Please enter name
+                      </div>
                     </div>
-                </div>
+                  </div>
+                  <div class="form-group">
+                    <div class="input-group mb-2 rounded-pill rounded-pill2">
+                      <div class="input-group-prepend width100">
+                        <div class="input-group-text bg-info text-dark text-dark2 text-dark3">Email</div>
+                      </div>
+                      <input type="text" class="form-control" name="email" placeholder="Email" formControlName="email"
+                        [ngClass]="displayFieldCss(signupForm,'email')" required>
+                      <div class="invalid-feedback text-left"
+                        *ngIf="signupForm.controls['email'].hasError('pattern') && !signupForm.controls['email'].hasError('required')">
+                        Please enter a valid email address
+                      </div>
+                      <div class="invalid-feedback text-left" *ngIf="signupForm.controls['email'].hasError('required')">
+                        Email is required
+                      </div>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <div class="input-group mb-2 rounded-pill rounded-pill2">
+                      <div class="input-group-prepend width100">
+                        <div class="input-group-text bg-info text-dark  text-dark2 text-dark3">Mobile number</div>
+                      </div>
+                      <input type="text" class="form-control" name="contact" placeholder="Mobile Number"
+                        formControlName="contact" [ngClass]="displayFieldCss(signupForm,'contact')" required>
+                      <div class="invalid-feedback text-left" *ngIf="isFieldValid(signupForm,'contact')">
+                        Please enter Mobile Number
+                      </div>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <div class="input-group mb-2 rounded-pill rounded-pill2">
+                      <div class="input-group-prepend width100">
+                        <div class="input-group-text bg-info text-dark text-dark2 text-dark3">Password</div>
+                      </div>
+                      <input type="password" class="form-control" name="password" placeholder="Password"
+                        formControlName="password" [ngClass]="displayFieldCss(signupForm,'password')" required>
+                      <div class="invalid-feedback text-left" *ngIf="isFieldValid(signupForm,'password')">
+                        Please enter Password
+                      </div>
+                    </div>
+                  </div>
+                  <a href="javascript:void(0);" (click)="signUp()" class="btn sign-btn2">Sign Up </a>
+                </form>
               </div>
-            <a href="javascript:void(0);" (click)="signUp()" class="btn btn3 btn-primary bg-info text-dark border-radius">Submit <i
-                class="fa fa-angle-right" aria-hidden="true"></i>
-            </a>
-          </form>
+            </div>
           </div>
         </div>
       </div>
+
+      <div class="inner-page sign-up cong-bg" *ngIf="isShowMsg==1">
+          <div class="col-md-12">
+            <div class="row">
+              <div class="card text-center  card-body-full sign-up-body">
+                <div class="card-header bg-info text-dark">
+                  <p><strong> CONGRATULATIONS! </strong></p>
+                </div>
+                <div class="card-body cong-text">
+                  <form [formGroup]="signupForm" novalidate>
+    
+                    <h2> YOUR ACCOUNT HAS BEEN CREATED.<br>
+                      YOUR PASSWORD HAS BEEN SENT TO VIA EMAIL.<br>
+                      ENJOY BEST GOODS AT BEST PRICE WITH MM&M.<br>
+                      HAPPY SHOPPING!<br></h2>
+    
+                    <div class="pull-left"><a href="javascript:void(0);" (click)="gotoPage()"
+                        class="btn btn3 btn-primary bg-info text-dark border-radius">OK </a></div>
+                    <div class="pull-right">
+                      <h3>TEAM</h3>
+                      <div class="cong-logo"><img class="img-fluid" src="assets/img/logo.png" alt=""></div>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
     </div>
+
+
+
+   
   </div>
-</div>

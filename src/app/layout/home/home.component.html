@@ -28,15 +28,18 @@
               aria-hidden="true"></i></a></li>
       </marquee>
     </ul>  -->
-        <div class="market-scrool" *ngIf="visibleKey">
+        <div class="market-scrool market-scrool_2" *ngIf="visibleKey">
             <marquee direction="left" speed="slow" behavior="loop">
                 <ul>
                     <li *ngFor="let product of productList" [ngClass]="{'red':product.market_price_status == 1,'green':product.market_price_status == 2,'yellow':product.market_price_status == 3}" class="red">
                         <a style="cursor: pointer;" (click)="gotoDetails(product.id)">{{product.name}} Rs {{product.price}} /
               {{product.quantity_count}} {{product.unit}}
-              <i *ngIf="product.market_price_status == 3" class="fa fa-sort" aria-hidden="true"></i>
+              <i *ngIf="product.market_price_status == 1" class="fa fa-arrow-circle-up" aria-hidden="true"></i>
+              <i *ngIf="product.market_price_status == 2"  class="fa fa-arrow-circle-down" aria-hidden="true"></i>
+              <i *ngIf="product.market_price_status == 3" class="fa fa-arrows-h font-icon" aria-hidden="true"></i>             
+              <!-- <i *ngIf="product.market_price_status == 3" class="fa fa-sort" aria-hidden="true"></i>
                   <i *ngIf="product.market_price_status == 2" class="fa fa-sort-asc" aria-hidden="true"></i>
-                  <i *ngIf="product.market_price_status == 1" class="fa fa-sort-desc" aria-hidden="true"></i>
+                  <i *ngIf="product.market_price_status == 1" class="fa fa-sort-desc" aria-hidden="true"></i> -->
             </a>
                     </li>
                 </ul>
@@ -44,12 +47,12 @@
         </div>
     </div>
 </div>
-<div class="body-banner lady-banner">
+<div class="body-banner body-banner3 lady-banner3">
     <div class="col-md-12">
         <div class="row">
 
-            <div class="offset-md-5 col-md-7 logo-sec d-flex align-items-center">
-                <div class="welcome-sec">
+            <div class="offset-md-4 col-md-7 logo-sec22 d-flex align-items-center">
+                <div class="welcome-sec welcome-sec_2">
                     <h2>Welcome</h2>
                     <img class="img-fluid" src="assets/img/logo.png" alt="">
                 </div>
@@ -57,6 +60,6 @@
 
         </div>
     </div>
-    <a class="fixed-button" [routerLink]="['/category']" href="JavaScript:Void(0);">Continue</a>
+    <a class="fixed-button" [routerLink]="['/todayspecial']" href="JavaScript:Void(0);">Continue</a>
 </div>
 <!--Author_by_Shuvendu_Dhenki(17-feb-2018)-->
