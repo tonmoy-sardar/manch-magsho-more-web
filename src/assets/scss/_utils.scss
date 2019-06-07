@@ -6,6 +6,9 @@
   background-color: #ffffff;
   position: relative;
 }
+.body-banner26 {
+  padding-top: 100px;
+}
 .body-banner32 {
   padding-top: 90px !important;
 }
@@ -433,7 +436,11 @@ ul {
   -webkit-box-shadow: 1px 9px 30px 11px rgba(0, 0, 0, 0.22);
   -moz-box-shadow: 1px 9px 30px 11px rgba(0, 0, 0, 0.22);
   box-shadow: 1px 9px 30px 11px rgba(0, 0, 0, 0.22);
-  margin: 60px auto 0px auto;
+  margin: 0px auto 37px auto;
+}
+
+.body-banner .inner-page2 {
+  margin: -50px auto 33px auto;
 }
 
 .body-banner .inner-page h2 {
@@ -447,6 +454,9 @@ ul {
 }
 .body-banner22 {
   padding-top: 90px !important;
+}
+.body-banner25 {
+  padding-top: 95px !important;
 }
 .body-banner {
   padding-top: 140px;
@@ -581,10 +591,6 @@ width:40%;
 .body-banner .inner-search22 {
   background: #92d9e2 url(../img/vegetables_bg.jpg) repeat-x 0 0 !important;
  }
- .body-banner22{ 
-   padding-top: 100px;
-   background-color: #93d9e3;
-}
 .full-lady32 {
   margin-top: 2%;
 }
@@ -621,6 +627,7 @@ width:40%;
   -webkit-box-shadow: 1px 9px 30px 11px rgba(0, 0, 0, 0.22);
   -moz-box-shadow: 1px 9px 30px 11px rgba(0, 0, 0, 0.22);
   box-shadow: 1px 9px 30px 11px rgba(0, 0, 0, 0.22);
+  min-height: 128px;
 }
  .inner-search .bg-info {
   background-color: #caf5f8 !important;
@@ -648,12 +655,8 @@ width:40%;
  
 }
 .form-control22 {
-  border-radius: 6px  !important;
-  margin: 0px !important;
-  border: 0px;
-  padding: 12px;
-  font-size: 22px;
-  font-weight: bold;
+  border-radius: 4px !important;
+  margin: 0px 4px !important;
 }
 .inner-search .input-group > .form-control:not(:first-child), .input-group > .custom-select:not(:first-child) {
   border-radius: 50px;
@@ -921,6 +924,7 @@ figure img {
   -webkit-box-shadow: 3px 2px 21px -2px rgba(0, 0, 0, 0.59);
   -moz-box-shadow: 3px 2px 21px -2px rgba(0, 0, 0, 0.59);
   box-shadow: 3px 2px 21px -2px rgba(0, 0, 0, 0.59);
+  margin-top: 60px;
 }
 
 .card-box span {
@@ -1562,6 +1566,9 @@ ul.list-style {
   margin: 17px auto;
   border-radius: 70%;
 }
+.shopping-veg2 {
+ margin-top: 6%  !important;
+}
 
 .shopping-veg {
   background: #FFF0;
@@ -1649,6 +1656,21 @@ ul.list-style {
   margin-bottom: 20px;
   overflow-y: scroll;
 }
+.order-history-2{
+  background: #17a2b8;
+  margin-top: 6%;
+  padding: 14px 15px;
+  position: relative;
+  height: 178px;
+  margin-bottom: 20px;
+  overflow-y: hidden;
+  border: #c4e6ea 1px solid;
+  font-weight: bold;
+}
+.order-history-2 .mat-list-item-content {
+  padding: 0 0px 0px 0px !important;
+}
+
 .order-history .table-bordered th, .table-bordered td {
   border: 1px solid #97c8d0;
   background: #baf1f9;
@@ -1658,6 +1680,9 @@ ul.list-style {
   color: #ffffff !important;
   width: 100px;
   }
+  .order-history .bg-info22 {
+     width: 153px;
+    }
   .order-history .bg-info:hover {
     color: #ffffff !important;
      }
@@ -1703,6 +1728,26 @@ ul.list-style {
   margin-top: 9%;
 }
 
+.recipe-list2 {
+  position: relative;
+  height: 345px;
+  padding: 0px 21px 7px 21px;
+  overflow-y: scroll;
+  margin-top: 9%;
+}
+.recipe-list3 {
+  position: relative;
+  height: 277px;
+  padding: 0px 21px 7px 21px;
+  overflow-y: scroll;
+  margin-top: 9.3%;
+}
+.recipe-list4 {
+  height: 400px;
+  margin-top: 9.3%;
+  margin-bottom: 0px;
+}
+
 .order-history p {
   font-size: 15px;
   color: #0B0B0B;
@@ -1715,7 +1760,46 @@ ul.list-style {
 .chartjs-render-monitor {
   //margin-top: 25%;
 }
+.mat-list-base2{
+  padding: 12px;
+  display: block;
+  -webkit-tap-highlight-color: transparent;
+  background: #82bfc845;
+  margin-top: 15px;
+  border-radius: 6px;
+}
+.mat-list-base2 .text1{
+  font-size: 16px;
+  color: #0f3d44;
+  text-align: left;
+  margin: 0px 0px;
+  padding: 0px 0px;
+  width: 100%;
+  float: left;
+  font-weight: bold;
+}
+.mat-list-base2 .text1 span{
+  text-align: right;
+  float: right;
+}
+.mat-list-base2 p{
+  font-size: 12px;
+  color: #3a4648;
+  text-align: left;
+  margin: 0px 0px;
+  padding: 4px 0px 9px 0px;
+  width: 99%;
+  float: left;
+}
 
+.mat-list-base2 .btn2 {
+  margin-bottom: 0px;
+  margin-top: 12px;
+}
+
+.mat-list-base2 .mat-list-item .mat-list-item-content, .mat-list-base .mat-list-option .mat-list-item-content {
+  padding: 0 0px !important;
+}
 .order-history h3 {
   font-size: 29px;
   color: #0B0B0B;
@@ -1730,7 +1814,7 @@ ul.list-style {
 
 .order-history h5 {
   font-size: 18px;
-  color: #0B0B0B;
+  color: #03a2bb;
   text-align: left;
   margin: 0px 0px;
   padding: 0px 0px;
@@ -1744,7 +1828,7 @@ ul.list-style {
   float: left;
 }
 .order-history .mat-list-item-content {
-  padding: 0 0px 15px 0px !important; 
+  padding: 0 0px 15px 0px ; 
 }
 
 .order-history h2 {
@@ -2154,7 +2238,8 @@ width: 100%;
   margin-top: 27px;
   width: 122px;
   border: 1px solid #17a2b8;
-  border-radius: 50px;
+  border-radius: 40px;
+  padding: 3px 1px 0px 1px;
 }
 
 .count-btn .input-number {
@@ -2253,7 +2338,7 @@ width: 100%;
   padding-top: 277px;
   }
 .recipe1-body-banner {
-    padding-top: 218px;
+    padding-top: 216px;
     }
 
 .profile-head .nav-tabs {
@@ -2513,7 +2598,7 @@ span.total-cart {
   font-size: 22px;
   font-weight: 400;
   line-height: 1.5;
-  color: #f1eeee;
+  color: #000;
   background-color: #fff;
   background-clip: padding-box;
   border: 2px solid #cfcfcf;
