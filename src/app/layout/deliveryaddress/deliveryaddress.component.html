@@ -6,36 +6,74 @@
                 <!--         
         <img class="img-fluid logo-small" src="images/logo.png" alt=""> -->
                 <div class="row">
-                    <div class="col-md-12 pt-50">
+                    <div class="col-md-12 pt-50">   
+                            <div class="inner-page">                     
                         <div class="row">
-                            <div class="col-md-4">
+                            <div class="col-md-4 offset-md-2">
                                 <!-- <app-sidebar-userdetails></app-sidebar-userdetails> -->
-                                <div class="order-history">
+                                <div class="order-history order-history-2">
                                     <table class="table table-bordered text-center">
                                         <tbody>
                                             <tr>
-                                                <td>Bag Value: ₹ {{total_item_price}}</td>
+                                                <td>Bag Value : ₹ {{total_item_price}}</td>
                                             </tr>
                                             <tr>
-                                                <td>Savings : {{total_market_saving}}</td>
+                                                <td>Savings : ₹ {{total_market_saving}}</td>
                                             </tr>
                                             <tr>
-                                                <td>Items :{{customer_cart_data.length}}</td>
+                                                <td>Items : {{customer_cart_data.length}}</td>
                                             </tr>
 
                                         </tbody>
                                     </table>
                                 </div>
                             </div>
-                            <div class="col-md-4">
+
+                            <div class="col-md-4 offset-md-0">
+                                    <!-- <app-sidebar-userdetails></app-sidebar-userdetails> -->
+                                    <div class="order-history order-history-2">
+                                            <mat-card>
+                                                    <mat-list-item role="listitem">
+                                                        <a>Check Availability</a>
+                                                    </mat-list-item>
+                                                    <mat-list-item role="listitem">
+                                                        <form [formGroup]="pinCheckForm" novalidate>
+                                                            <div class="form-group">
+                                                                <div class="input-group mb-2 rounded-pill rounded-pill2">
+                                                                    <div class="input-group-prepend  width100 ">
+                                                                        <div class="input-group-text input-group-text2 bg-info text-dark"> Pin Code</div>
+                                                                    </div>
+                                                                    <input type="text" class="form-control" name="pincheck" placeholder="Pin Code" formControlName="pincheck" [ngClass]="displayFieldCss(pinCheckForm,'pincheck')" required>
+                                                                    <div class="invalid-feedback text-left" *ngIf="isFieldValid(pinCheckForm,'pincheck')">
+                                                                        Please enter Pincode
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+            
+            
+                                                            <a href="javascript:void(0);" (click)="checkPinCode()" class="btn btn-primary  bg-info text-dark border-radius">Submit
+                                      <i class="fa fa-angle-right" aria-hidden="true"></i>
+                                    </a>
+                                                        </form>
+                                                        <p class="error-msg" *ngIf="isAvailablePin===0">Currently out of stock in this area.</p>
+                                                        <p class="success-msg" *ngIf="isAvailablePin>0">Currently available in this area.</p>
+                                                    </mat-list-item>
+                                                </mat-card>
+                                    </div>
+                                </div>
+
+
+                            <div class="col-md-6">
                                 <div class="order-history">
                                     <mat-card>
                                         <h5>Delivery Address</h5>
                                         <div class="clearfix"></div>
-                                        <mat-list role="list" *ngFor="let myAddress of allAddressList; let i = index" (click)="checkAvailability(i,myAddress.id,myAddress.pincode,myAddress)">
+                                        <mat-list role="list" class="mat-list-base2" *ngFor="let myAddress of allAddressList; let i = index" (click)="checkAvailability(i,myAddress.id,myAddress.pincode,myAddress)">
                                             <mat-list-item role="listitem">
-                                               <h5><span>Saved Address : </span> <span class="address-type">{{myAddress.type}}</span><br/>
-                                                <span>{{myAddress.address}} ,{{myAddress.landmark}} {{myAddress.pincode}}</span></h5>
+                                               <div class="text1">Saved Address-1 :  <span class="address-type">{{myAddress.type}}</span>
+                                                <p>{{myAddress.address}} ,{{myAddress.landmark}} {{myAddress.pincode}}</p>
+                                            </div>
+                                               
                                             </mat-list-item>
                                             <a href="javascript:void(0);" (click)="checkAvailability(i,myAddress.id,myAddress.pincode,myAddress)" class="btn btn2 btn-primary  bg-info text-dark border-radius">Select
                         <i class="fa fa-angle-right" aria-hidden="true"></i>
@@ -46,46 +84,18 @@
                                     </mat-card>
                                 </div>
                             </div>
-                            <div class="col-md-4">
+                            <div class="col-md-6">
                                 <div class="order-history">
-                                    <mat-card>
+                                      <mat-card>
                                         <mat-list-item role="listitem">
-                                            <a class="mb-2">Check Availability</a>
-                                        </mat-list-item>
-                                        <mat-list-item role="listitem">
-                                            <form [formGroup]="pinCheckForm" novalidate>
-                                                <div class="form-group">
-                                                    <div class="input-group mb-2 rounded-pill rounded-pill2">
-                                                        <div class="input-group-prepend  width100 ">
-                                                            <div class="input-group-text input-group-text2 bg-info text-dark"> Pin Code</div>
-                                                        </div>
-                                                        <input type="text" class="form-control" name="pincheck" placeholder="Pin Code" formControlName="pincheck" [ngClass]="displayFieldCss(pinCheckForm,'pincheck')" required>
-                                                        <div class="invalid-feedback text-left" *ngIf="isFieldValid(pinCheckForm,'pincheck')">
-                                                            Please enter Pincode
-                                                        </div>
-                                                    </div>
-                                                </div>
-
-
-                                                <a href="javascript:void(0);" (click)="checkPinCode()" class="btn btn-primary  bg-info text-dark border-radius">Submit
-                          <i class="fa fa-angle-right" aria-hidden="true"></i>
-                        </a>
-                                            </form>
-                                            <p class="error-msg" *ngIf="isAvailablePin===0">Currently out of stock in this area.</p>
-                                            <p class="success-msg" *ngIf="isAvailablePin>0">Currently available in this area.</p>
-                                        </mat-list-item>
-                                    </mat-card>
-
-                                    <mat-card>
-                                        <mat-list-item role="listitem">
-                                            <a>New Address</a>
+                                           <h5 style="padding-bottom: 16px; float: left;"><a>New Address</a></h5>
                                         </mat-list-item>
                                         <mat-list-item role="listitem">
                                             <form [formGroup]="addressForm" novalidate>
                                                 <div class="form-group">
                                                     <div class="input-group mb-2 rounded-pill rounded-pill2">
                                                         <div class="input-group-prepend  width100 ">
-                                                            <div class="input-group-text bg-info text-dark"> Type</div>
+                                                            <div class="input-group-text bg-info  bg-info22 text-dark"> Type</div>
                                                         </div>
                                                         <input type="text" class="form-control" name="type" placeholder="Home / Office" formControlName="type" [ngClass]="displayFieldCss(addressForm,'type')" required>
                                                         <div class="invalid-feedback text-left" *ngIf="isFieldValid(addressForm,'type')">
@@ -94,9 +104,33 @@
                                                     </div>
                                                 </div>
                                                 <div class="form-group">
+                                                        <div class="input-group mb-2 rounded-pill rounded-pill2">
+                                                            <div class="input-group-prepend  width100 ">
+                                                                <div class="input-group-text bg-info  bg-info22 text-dark"> Name</div>
+                                                            </div>
+                                                            <input type="text" class="form-control" name="type" placeholder="Home / Office" formControlName="type" [ngClass]="displayFieldCss(addressForm,'type')" required>
+                                                            <div class="invalid-feedback text-left" *ngIf="isFieldValid(addressForm,'type')">
+                                                                Please enter Type
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                            <div class="input-group mb-2 rounded-pill rounded-pill2">
+                                                                <div class="input-group-prepend  width100 ">
+                                                                    <div class="input-group-text bg-info bg-info22 text-dark"> Building Number</div>
+                                                                </div>
+                                                                <input type="text" class="form-control" name="type" placeholder="Home / Office" formControlName="type" [ngClass]="displayFieldCss(addressForm,'type')" required>
+                                                                <div class="invalid-feedback text-left" *ngIf="isFieldValid(addressForm,'type')">
+                                                                    Please enter Type
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+
+                                                <div class="form-group">
                                                     <div class="input-group mb-2 rounded-pill rounded-pill2">
                                                         <div class="input-group-prepend  width100 ">
-                                                            <div class="input-group-text bg-info text-dark"> Address</div>
+                                                            <div class="input-group-text bg-info bg-info22 text-dark"> Street Name</div>
                                                         </div>
                                                         <input type="text" class="form-control" name="address" placeholder="Address" formControlName="address" [ngClass]="displayFieldCss(addressForm,'address')" required>
                                                         <div class="invalid-feedback text-left" *ngIf="isFieldValid(addressForm,'address')">
@@ -108,7 +142,7 @@
                                                 <div class="form-group">
                                                     <div class="input-group mb-2 rounded-pill rounded-pill2">
                                                         <div class="input-group-prepend  width100 ">
-                                                            <div class="input-group-text bg-info text-dark">Land Mark</div>
+                                                            <div class="input-group-text bg-info bg-info22 text-dark">Land Mark</div>
                                                         </div>
                                                         <input type="text" class="form-control" name="landmark" placeholder="Land Mark" formControlName="landmark" [ngClass]="displayFieldCss(addressForm,'landmark')" required>
                                                         <div class="invalid-feedback text-left" *ngIf="isFieldValid(addressForm,'landmark')">
@@ -120,7 +154,7 @@
                                                 <div class="form-group">
                                                     <div class="input-group mb-2 rounded-pill rounded-pill2">
                                                         <div class="input-group-prepend  width100 ">
-                                                            <div class="input-group-text bg-info text-dark"> Pin Code</div>
+                                                            <div class="input-group-text bg-info bg-info22 text-dark"> Pin Code</div>
                                                         </div>
                                                         <input type="text" class="form-control" name="pincode" placeholder="Pin Code" formControlName="pincode" [ngClass]="displayFieldCss(addressForm,'pincode')" required>
                                                         <div class="invalid-feedback text-left" *ngIf="isFieldValid(addressForm,'pincode')">
@@ -142,6 +176,7 @@
                                 </div>
                             </div>
 
+                        </div>
                         </div>
                     </div>
                 </div>

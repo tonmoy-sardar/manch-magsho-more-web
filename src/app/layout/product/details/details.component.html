@@ -22,17 +22,17 @@
                                         </td>
                                         <td>
                                             <div class="row disabled" *ngIf="proDetails.product_stock < 1">
-                                                <div class="col-md-6" *ngIf="!proDetails.isCart">
+                                                <div class="col-md-7" *ngIf="!proDetails.isCart">
                                                     <button type="button" class="btn btn-secondary" data-toggle="tooltip" title="Add to cart" disabled> Add to cart
                             <i class="fa fa-cart-plus" aria-hidden="true"></i></button>
                                                 </div>
-                                                <div class="col-md-6" *ngIf="!proDetails.isCart">
+                                                <div class="col-md-7" *ngIf="!proDetails.isCart">
                                                     <button type="button" class="btn btn-secondary" data-toggle="tooltip" title="Sold Out" disabled>  Sold Out
                             <i class="fa fa-cart-plus" aria-hidden="true"></i></button>
                                                 </div>
                                             </div>
                                             <div class="row" *ngIf="proDetails.product_stock > 1">
-                                                <div class="col-md-6" *ngIf="proDetails.isCart">
+                                                <div class="col-md-12" *ngIf="proDetails.isCart">
                                                     <div class="input-group"> <span class="input-group-btn"> <button type="button"
                                 class="btn btn-info btn-number" data-type="minus" data-field="quant[1]"
                                 (click)="decrement(proDetails)">
