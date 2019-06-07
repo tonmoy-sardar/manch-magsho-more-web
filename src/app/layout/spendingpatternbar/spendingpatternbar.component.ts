@@ -6,11 +6,11 @@ import { ProductService } from '../../core/services/product.service';
 import { Chart, ChartType } from 'chart.js';
 import { MultiDataSet, Label } from 'ng2-charts';
 @Component({
-  selector: 'app-spendingpattern',
-  templateUrl: './spendingpattern.component.html',
-  styleUrls: ['./spendingpattern.component.scss']
+  selector: 'app-spendingpatternbar',
+  templateUrl: './spendingpatternbar.component.html',
+  styleUrls: ['./spendingpatternbar.component.scss']
 })
-export class SpendingpatternComponent implements OnInit {
+export class SpendingpatternbarComponent implements OnInit {
   userId: number;
   whisListProduct: any = [];
   imageBaseUrl: any;
@@ -34,6 +34,8 @@ export class SpendingpatternComponent implements OnInit {
   totalQuaterSum:any;
   totalQuaterSaving:any;
   @ViewChild('doughnutCanvas') doughnutCanvas;
+  @ViewChild('lineCanvas') lineCanvas;
+  @ViewChild('barCanvas') barCanvas;
   doughnutChart: any;
   data: any;
   month:any;
@@ -57,6 +59,7 @@ export class SpendingpatternComponent implements OnInit {
   //   [350, 450, 100],
   // ];
   public doughnutChartType: ChartType = 'doughnut';
+  getSpendingDetails:any;
   constructor(
     private router: Router,
     private route: ActivatedRoute,
@@ -127,8 +130,7 @@ export class SpendingpatternComponent implements OnInit {
         'name': 'Dec'
       }
     ]
-
-  }
+   }
 
   ngOnInit() {
     this.imageBaseUrl = environment.imageBaseUrl;
@@ -136,6 +138,67 @@ export class SpendingpatternComponent implements OnInit {
    // this.userId = +localStorage.getItem('userId');
     this.getSpendingPattern(this.userId);
   }
+
+  getChart(context, chartType, data, options?) {
+    return new Chart(context, {
+      data,
+      options,
+      type: chartType,
+    });
+  }
+
+  getBarChart() {
+
+    // this.getSpendingDetails =this.navParams.get('data');
+    // console.log("Spending details==>",this.getSpendingDetails);
+    // var categoryNames: any = [];
+    // var categorySpending: any = [];
+    // this.getSpendingDetails.forEach(x => {
+    //   categoryNames.push(x.product_category_name);
+    //   categorySpending.push(x.order_details.total_price_val != null ? x.order_details.total_price_val:0)
+
+    // })
+    
+
+
+    // const data = {
+    //   labels: categoryNames,
+    //   datasets: [{
+    //     label: '',
+    //     data: categorySpending,
+    //     backgroundColor: [
+    //       'rgba(255, 99, 132, 0.2)',
+    //       'rgba(54, 162, 235, 0.2)',
+    //       'rgba(255, 206, 86, 0.2)',
+    //       'rgba(75, 192, 192, 0.2)',
+    //       'rgba(153, 102, 255, 0.2)',
+    //       'rgba(255, 159, 64, 0.2)'
+    //     ],
+    //     borderColor: [
+    //       'rgba(255,99,132,1)',
+    //       'rgba(54, 162, 235, 1)',
+    //       'rgba(255, 206, 86, 1)',
+    //       'rgba(75, 192, 192, 1)',
+    //       'rgba(153, 102, 255, 1)',
+    //       'rgba(255, 159, 64, 1)'
+    //     ],
+    //     borderWidth: 1
+    //   }]
+    // };
+
+    // const options = {
+    //   scales: {
+    //     yAxes: [{
+    //       ticks: {
+    //         beginAtZero: true
+    //       }
+    //     }]
+    //   }
+    // };
+
+    // return this.getChart(this.barCanvas.nativeElement, 'bar', data, options);
+  }
+
 
   getSpendingPattern(userId) {
     this.productService.getSpendingPattern(userId).subscribe(
@@ -210,117 +273,11 @@ export class SpendingpatternComponent implements OnInit {
     )
   }
 
-  selectMonth(monthid) {
-    this.productService.getSpendingPatternMonthWise(this.userId,monthid).subscribe(
-      res => {
-        console.log("Spending Parretn==>", res);
-        this.spendingPattern = res['result'];
-        this.visibleKey = true;
-        var categoryNames: any = [];
-        var categorySpending: any = [];
-        var categorySavingMonthly :any =[];
-        this.spendingPattern.forEach(x => {
-          categoryNames.push(x.product_category_name);
-          // categorySpending.push(x.order_details.total_price_val != null ? x.order_details.total_price_val : 0)
-          this.catSpendPriceMonthly = parseFloat(x.order_details.total_price_val);
-          if(isNaN(this.catSpendPriceMonthly)) {
-            this.catSpendPriceMonthly =0;
-          }
-          categorySpending.push(this.catSpendPriceMonthly);
-
-          // Saving monthly
-          this.catSavingPriceMonthly = parseFloat(x.order_details.saving_price_cost_val);
-          if(isNaN(this.catSavingPriceMonthly)) {
-            this.catSavingPriceMonthly =0;
-          }
-          categorySavingMonthly.push(this.catSavingPriceMonthly);
-        })
-        console.log(categoryNames);
-        console.log(categorySpending);
-        console.log("Spending month wise ==>",categorySpending);
-        // For Monthly Spending 
-        console.log("Quater Spending ==>",categorySpending);
-        const monthlySum = categorySpending.reduce((partial_sum, a) => partial_sum + a); 
-        this.totalMonthlySum  = monthlySum;
-        //For Monthly Savings 
-       const monthlysavings = categorySavingMonthly.reduce((partial_sum, a) => partial_sum + a); 
-       this.totalMonthlySaving  = monthlysavings;
-       console.log("Monthly Savings==>",this.totalMonthlySaving); 
-        this.doughnutChartLabelsMonthly = categoryNames;
-        this.doughnutChartDataMonthly = categorySpending;
-        this.data = {
-          labels: this.doughnutChartLabels,
-          datasets: [
-            {
-              data: this.doughnutChartData
-            }]
-
-        };
-        console.log(this.spendingPattern);
-      },
-      error => {
-      }
-    )
-  }
-
-  selectQuater(id) {
-    console.log("Select Quater",id)
-   // console.log("Select Quater id",data.id)
-   // this.selectedQuater = data.name;
-    this.productService.getSpendingPatternQuater(this.userId,id).subscribe(
-      res => {
-        this.isQuaterShow =1;
-        this.spendingPattern = res['result'];  
-        console.log("Quaterly==>",this.spendingPattern);
-        this.visibleKey = true;
-        var categoryNames: any = [];
-        var categorySpending: any = [];
-        var categorySpendingSaving: any= [];
-        this.totalQuaterSum =0;
-        this.spendingPattern.forEach(x => {
-          categoryNames.push(x.product_category_name);
-          // For QUater spending amount
-          this.catSpendPrice = parseFloat(x.order_details.total_price_val);
-          if(isNaN(this.catSpendPrice)) {
-            this.catSpendPrice =0;
-          }
-          categorySpending.push(this.catSpendPrice);
-          //Quater savings amount
-          this.catSpendSavingPrice = parseFloat(x.order_details.saving_price_cost_val);
-          if(isNaN(this.catSpendSavingPrice)) {
-            this.catSpendSavingPrice =0;
-          }
-          categorySpendingSaving.push(this.catSpendSavingPrice);
-        })
-        // For Quater Spending 
-        console.log("Quater Spending ==>",categorySpending);
-        const sum = categorySpending.reduce((partial_sum, a) => partial_sum + a); 
-        this.totalQuaterSum  = sum;
-        //For Quater Savings 
-        const savings = categorySpendingSaving.reduce((partial_sum, a) => partial_sum + a); 
-        this.totalQuaterSaving  = savings;
-        console.log("Final Savings==>",this.totalQuaterSaving); 
-        this.doughnutChartLabelsQuaterly = categoryNames;
-        this.doughnutChartDataQuaterly = categorySpending;
-        this.data = {
-          labels: this.doughnutChartLabels,
-          datasets: [
-            {
-              data: this.doughnutChartData
-            }]
-
-        };
-        console.log(this.spendingPattern);
-  
-      },
-      error => {
-        this.visibleKey = true;
-      }
-    )
-  }
+ 
+ 
 
   gotoBarChart(id) {
-    this.router.navigate(['/pricetrend',id]);
+    
   }
 
 

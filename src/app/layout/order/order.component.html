@@ -4,21 +4,19 @@
   <div class="col-md-12">
     <div class="row">
       <div class="col-md-12 ">
-
         <div class="row">
           <div class="col-md-12 pt-50 ">
             <div class="row">
               <div class="col-md-3">
-
-                                <app-sidebar-userdetails></app-sidebar-userdetails>
-                            </div>
-                            <div class="col-md-8">
-                                <div class="order-history">
-                                  <h3>Order History    <div class="favourit-btn"><a href="javascript:void(0);">Favourites</a></div></h3>
-                                    
-                                  
-                                    <div class="clearfix"></div>
-
+                <app-sidebar-userdetails></app-sidebar-userdetails>
+              </div>
+              <div class="col-md-8">
+                <div class="order-history">
+                  <h3>Order History 
+                    <div *ngIf="isFav==0" (click)="getOrderList(userId)" class="favourit-btn"><a href="javascript:void(0);">All</a></div>
+                    <div *ngIf="isFav==1" (click)="getFavOrderList(userId)" class="favourit-btn"><a href="javascript:void(0);">Favourites</a></div>
+                  </h3>
+                  <div class="clearfix"></div>
                   <div *ngIf="visible">
                     <div class="order-section order-section2" *ngFor="let order of orderList; let i = index">
                       <div class="row">
@@ -51,35 +49,43 @@
                             <span *ngIf="order.payment_type ==1">Paytm</span>
                             <span *ngIf="order.payment_type ==2">COD</span>
                           </div>
+                        </div>
+                        <div class="col-md-2">
+                          <a href="javascript:void(0);" style="background:#CAF5F8;color:#fff !important;"
+                            (click)="gotoDetails(order.id)"
+                            class="btn btn-primary  bg-info text-dark border-radius">View
+                          </a>
+                        </div>
+                        <div class="col-md-12">
+                          <!-- <div class="order-img2"><img _ngcontent-c2="" class="img-fluid"
+                              src="http://166.62.54.122/mamamo/mach_mangso_more/uploads/blog_images/_thumb/large1552038356palak-pakoda_thumb.jpg">
+                          </div> -->
+                          <div class="order-img3" *ngFor="let product of order.order_details">
+                            <!-- <img _ngcontent-c2="" class="img-fluid"
+                              src="http://166.62.54.122/mamamo/mach_mangso_more/uploads/blog_images/_thumb/large1552037422chiken-french_thumb.JPG"> -->
+                              <img style="cursor:pointer;"class="img-fluid" [src]="product.product_image != ''? imageBaseUrl+ product.product_image : 'assets/imgs/no-image.png'">
+                            </div>
+                          <!-- <div class="order-img4"><img _ngcontent-c2="" class="img-fluid"
+                              src="http://166.62.54.122/mamamo/mach_mangso_more/uploads/blog_images/_thumb/large1552037812chiken-curry_thumb.jpeg">
+                          </div> -->
+                          <!-- <div class="order-img2"><img _ngcontent-c2="" class="img-fluid"
+                              src="http://166.62.54.122/mamamo/mach_mangso_more/uploads/blog_images/_thumb/large1552038356palak-pakoda_thumb.jpg">
+                          </div>
+                          <div class="order-img3"><img _ngcontent-c2="" class="img-fluid"
+                              src="http://166.62.54.122/mamamo/mach_mangso_more/uploads/blog_images/_thumb/large1552037422chiken-french_thumb.JPG">
+                          </div>
+                          <div class="order-img4"><img _ngcontent-c2="" class="img-fluid"
+                              src="http://166.62.54.122/mamamo/mach_mangso_more/uploads/blog_images/_thumb/large1552037812chiken-curry_thumb.jpeg">
+                          </div> -->
 
-
-
-
-
-                                                </div>
-                                                <div class="col-md-2">
-                                                    <a href="javascript:void(0);" style="background:#CAF5F8;color:#fff !important;" (click)="gotoDetails(order.id)" class="btn btn-primary  bg-info text-dark border-radius">View
-                      </a>
-                                                </div>
-                                                <div class="col-md-12">                                              
-                                                 <div class="order-img2"><img _ngcontent-c2="" class="img-fluid" src="http://166.62.54.122/mamamo/mach_mangso_more/uploads/blog_images/_thumb/large1552038356palak-pakoda_thumb.jpg"></div>
-                                                 <div class="order-img3"><img _ngcontent-c2="" class="img-fluid" src="http://166.62.54.122/mamamo/mach_mangso_more/uploads/blog_images/_thumb/large1552037422chiken-french_thumb.JPG"></div>
-                                                 <div class="order-img4"><img _ngcontent-c2="" class="img-fluid" src="http://166.62.54.122/mamamo/mach_mangso_more/uploads/blog_images/_thumb/large1552037812chiken-curry_thumb.jpeg"></div>
-                                       
-                                                    <div href="javascript:void(0);" (click)="repeatOrder(order)" class="favbtn-repeat-order">
-                                                        <a><i class="fa fa-repeat" aria-hidden="true"></i>
-                            Repeat Order</a>
-
-
-
-                                                    </div>
-
+                          <div href="javascript:void(0);" (click)="repeatOrder(order)" class="favbtn-repeat-order">
+                            <a><i class="fa fa-repeat" aria-hidden="true"></i>
+                              Repeat Order</a>
+                          </div>
                           <div (click)="addFav(order.id,1)" *ngIf="order.is_favourite ==0" class="favbtn"><a
                               href="javascript:void(0);">Favourite</a></div>
                           <div (click)="addFav(order.id,0)" *ngIf="order.is_favourite ==1" class="favbtn myfav"><a
                               href="javascript:void(0);">Favourite</a></div>
-
-
                         </div>
                       </div>
                     </div>

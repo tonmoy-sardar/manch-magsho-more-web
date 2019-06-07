@@ -38,6 +38,7 @@ const routes: Routes = [
       { path: 'deliveryslot', loadChildren: './deliveryslot/deliveryslot.module#DeliveryslotModule' },
       { path: 'myprofile', loadChildren: './myprofile/myprofile.module#MyprofileModule' },
       { path: 'spendingpattern', loadChildren: './spendingpattern/spendingpattern.module#SpendingpatternModule' },
+      { path: 'spendingpatternbar', loadChildren: './spendingpatternbar/spendingpatternbar.module#SpendingpatternbarModule' },
       { path: 'pricetrend/:id', loadChildren: './pricetrend/pricetrend.module#PricetrendModule' },
       { path: 'addrating/:id', loadChildren: './addrating/addrating.module#AddratingModule' },
       { path: 'addreview/:id', loadChildren: './addreview/addreview.module#AddreviewModule' },
