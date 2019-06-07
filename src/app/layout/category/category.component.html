@@ -2,9 +2,6 @@
 <div class="body-banner bg-light">
     <app-search-bar></app-search-bar>
     <div class="col-md-12">
-
-
-
         <div class="row">
             <!-- <div class="col-md-4">
                                     <app-sidebar-userdetails></app-sidebar-userdetails> 
@@ -14,15 +11,12 @@
                     <div class="guestshop" *ngFor="let category of categoryList">
                         <div class="guestimg">
                             <img (click)="goToProList(category.id,category.name)" [src]="category.image_small != ''? imageBaseUrl+ category.image_small : 'assets/imgs/no-image.png'">
-                        </div> {{category.name}}
+                        </div> 
+                        <span class="cat-name">{{category.name}}</span>
                     </div>
 
                 </div>
             </div>
-
-
-
-
         </div>
     </div>
     <!-- Sidebar button Download and contact us -->

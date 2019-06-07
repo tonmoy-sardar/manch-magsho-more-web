@@ -1802,6 +1802,15 @@ ul.list-style {
 .order-img2 img{
   width: 100%;
 }
+.order-img3:first-child {
+  width: 80px;
+    height: 80px;
+    float: left;
+    border: #8febef 2px solid;
+    overflow: hidden;
+    border-radius: 50%;
+    margin-left: 18px;
+}
 .order-img3 {
   width: 80px;
   height: 80px;

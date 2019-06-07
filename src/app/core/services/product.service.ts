@@ -125,4 +125,8 @@ export class ProductService {
   getFilterRecipeList(language,habbit,time): Observable<any> {
     return this.http.get(environment.apiEndpoint + 'recipelistfilterwithrecipeval/recipe?recipe_language='+language+'&recipe_type='+habbit+'&cooking_time='+time)
   }
+
+  myFavOrderList(id,params): Observable<any> {
+    return this.http.get(environment.apiEndpoint + 'favouriteorderlistbycustid/'+id+'/?'+params)
+  }
 }
