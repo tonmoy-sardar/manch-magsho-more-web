@@ -1,19 +1,22 @@
 <app-header></app-header>
-<div class="body-banner">
+<div class="body-banner recipe1-body-banner">
   <div class="inner-search">
-    <!-- <div class="col-md-6 offset-md-3">
+   <div class="col-md-6 offset-md-3">
             <div class="form-group">
                 <div class="input-group mb-2 rounded-pill search-input">
                     <div class="input-group-prepend  width100 ">
                         <div style="cursor:pointer;" class="input-group-text bg-info text-dark" (click)="recipeSearch(searchText)">Search </div>
                     </div>
-                    <input type="text" [(ngModel)]="searchText" class="form-control" id="nombre" name="nombre" placeholder="Search Recipe" required>
+                    <input type="text" [(ngModel)]="searchText" class="form-control" id="nombre" name="nombre" placeholder="Type the name of the preparation here" required>
                 </div>
+                <a _ngcontent-c7="" class="resend-btn subscribe text-dark" href="javascript:void(0);">Search Recipe</a>
                
             </div>
-        </div> -->
+        </div>
+        <a _ngcontent-c4="" href="#"><img _ngcontent-c4="" alt="" class="img-fluid logo-small" src="assets/img/logo.png"></a>
+        <div class="clearfix"></div>
     <div class="row">
-      <div class="col-md-3">
+      <div class="col-md-2">
         <p>Ethenicity</p>
         <select  class="form-control" [(ngModel)]="selectedLanguage" name="language">
           <option>Bengali </option>
@@ -21,14 +24,22 @@
           <option>English</option>
         </select>
       </div>
-      <div class="col-md-3">
+      <div class="col-md-2">
         <p>Habbit</p>
         <select  class="form-control" [(ngModel)]="selectedHabbit" name="habbit">
           <option value="veg">Veg</option>
           <option value="nonveg">Non Veg</option>
         </select>
       </div>
-      <div class="col-md-3">
+
+      <div class="col-md-2">
+          <p>Food</p>
+          <select  class="form-control" [(ngModel)]="selectedHabbit" name="habbit">
+            <option value="veg">Veg</option>
+            <option value="nonveg">Non Veg</option>
+          </select>
+        </div>
+      <div class="col-md-2">
         <p>Cooking Time</p>
         <select  class="form-control" [(ngModel)]="selectedTime" name="time">
           <option value='0'>Quick Bite</option>
@@ -36,13 +47,15 @@
           <option value='2'>More than 20 min</option>
         </select>
       </div>
-      <div class="col-md-3">
-          <p></p>
-            <a href="javascript:void(0);" (click)="filterRecipe()" class="btn btn-primary  bg-info bg-info2 text-dark border-radius">Search Recipe 
+      <div class="col-md-4">   
+            <a href="javascript:void(0);" (click)="filterRecipe()" class="btn btn-primary  bg-info bg-info2 text-dark border-radius">Filter 
             </a>
+            <a href="javascript:void(0);" (click)="filterRecipe()" class="btn btn-primary  bg-info bg-info2 text-dark border-radius">Clear Filter 
+              </a>
       </div>
     </div>
   </div>
+
 
   <div class="col-md-12">
     <div class="row">
