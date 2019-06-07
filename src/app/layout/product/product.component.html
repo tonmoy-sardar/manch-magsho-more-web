@@ -1,32 +1,49 @@
 <app-header></app-header>
-<div class="body-banner bg-light">
+<div class="body-banner cat2-body-banner bg-light">
   <div class="background-images">
-    <app-search-bar></app-search-bar>
+    <!-- <app-search-bar></app-search-bar> -->
+    <div class="inner-search inner-search22 search-custom">
+        <div class="row">
+        <div class="col-md-3"><div class="topsear">
+          <div class="topsear-img"><img class="img-fluid" style="cursor:pointer;" src="http://166.62.54.122/mamamo/mach_mangso_more/uploads/product_images/image_small/large1559721028download_thumb.jpg"></div> 
+          <h2>Vegetables</h2></div> </div>
+        <div class="col-md-6 offset-md-0">
+            <div class="form-group">
+                <div class="input-group mb-2 rounded-pill search-input">
+                    <div class="input-group-prepend  width100 ">
+                        <div class="input-group-text bg-info text-dark pro-search" (click)="proSearch(searchText)">Search</div>
+                    </div>
+                    <input type="text" [(ngModel)]="searchText" class="form-control" id="nombre" name="nombre" placeholder="Type Keyword" required>
+                </div>
+                <a class="resend-btn subscribe text-dark" href="javascript:void(0);">Subscribe</a>
+    
+            </div>
+        </div>
+        <a href="#"> <img class="img-fluid logo-small" src="assets/img/logo.png" alt=""></a>
+        </div>
+    </div>
   </div>
   <div class="col-md-12">
     <div class="row">
-
-
-
-      <!-- <div class="col-md-3">
+      <div class="col-md-3 pro-user">
                 <app-sidebar-userdetails></app-sidebar-userdetails>
-              </div> -->
-      <div class="col-md-9 offset-md-2">
+              </div>
+      <div class="col-md-8 offset-md-0">
         <div class="shopping-veg">
           <h2>{{catName}}</h2>
-          <div class="row" *ngIf="visible">
+          <div class="row margin-top2" *ngIf="visible">
 
             <div class="col-md-4 pro-box" *ngFor="let product of allProductList">
               <div class="card-box">
                 <div class="row">
-                  <div class="col-md-5">
+                  <div class="col-md-4">
                     <span>{{product.name}}</span>
                     <a class="veg" *ngIf="product.product_stock > 5" href="javascript:void(0);">Available</a>
                     <a class="limited" *ngIf="product.product_stock > 0 && product.product_stock < 6"
                       href="javascript:void(0);">Limited</a>
                     <a class="sold" *ngIf="product.product_stock < 1" href="javascript:void(0);">Sold Out</a>
                   </div>
-                  <div class="col-md-7 img-btm">
+                  <div class="col-md-8 img-btm">
                     <div class="stock-price-change">
 
                       <button (click)="gotoPriceTrend(product.id)" class="price-trend-up"
@@ -70,9 +87,6 @@
           </div>
         </div>
       </div>
-
-
-
     </div>
   </div>
   <app-sidebar-button></app-sidebar-button>

@@ -15,7 +15,7 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-md-6 offset-md-3 ">
-                            <table class="table table-bordered text-center">
+                            <table class="table table-bordered table-bordered2 text-center">
                                 <tbody>
                                     <tr>
                                         <td>Rate: ₹ {{proDetails.price}} / {{proDetails.quantity_count}} {{proDetails.unit}}
@@ -38,7 +38,7 @@
                                 (click)="decrement(proDetails)">
                                 <span class=""><i class="fa fa-minus" aria-hidden="true"></i></span> </button>
                                                         </span>
-                                                        <input type="text" name="quant[1]" class="form-control input-number text-center" [(ngModel)]="proDetails.quantity" min="1" max="10"> <span class="input-group-btn">
+                                                        <input type="text" name="quant[1]" class="form-control form-control22 input-number text-center" [(ngModel)]="proDetails.quantity" min="1" max="10"> <span class="input-group-btn">
                               <button type="button" class="btn btn-info btn-number" data-type="plus"
                                 data-field="quant[1]" (click)="increment(proDetails)">
                                 <span class=""><i class="fa fa-plus" aria-hidden="true"></i></span> </button>
