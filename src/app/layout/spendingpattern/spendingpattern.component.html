@@ -7,7 +7,8 @@
           <div class="chart-show-monthly chart-page">
             <h4>Current Month Spending Pattern: </h4>
             <div class="spend-savings">
-              <h4 (click)="gotoBarChart(spendingPattern)">Total : {{totalCurrentSum}}</h4>
+              
+              <h4 >Total : {{totalCurrentSum}} <button class="resend-btn subscribe text-dark" (click)="gotoBarChart(spendingPattern)">Bar Graph</button></h4>
               <h4>Savings : {{totalCurrentSaving}}</h4>
             </div>
             <div class="chart-show" style="display: block; width:600px; height:300px">

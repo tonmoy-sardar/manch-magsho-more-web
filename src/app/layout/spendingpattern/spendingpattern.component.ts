@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute, Router,NavigationExtras } from '@angular/router';
 import { environment } from '../../../environments/environment';
 import * as Globals from '../../core/globals';
 import { ProductService } from '../../core/services/product.service';
@@ -34,6 +34,8 @@ export class SpendingpatternComponent implements OnInit {
   totalQuaterSum:any;
   totalQuaterSaving:any;
   @ViewChild('doughnutCanvas') doughnutCanvas;
+  @ViewChild('lineCanvas') lineCanvas;
+  @ViewChild('barCanvas') barCanvas;
   doughnutChart: any;
   data: any;
   month:any;
@@ -147,37 +149,22 @@ export class SpendingpatternComponent implements OnInit {
         var categorySpending: any = [];
         var categorySavingCurrent: any=[];
         this.spendingPattern.forEach(x => {
-          // categoryNames.push(x.product_category_name);
-          // categorySpending.push(x.order_details.total_price_val != null ? x.order_details.total_price_val : 0)
           categoryNames.push(x.product_category_name);
-          //categorySpending.push(x.order_details.total_price_val != null ? x.order_details.total_price_val:0)
           this.catSpendPriceCurrent = parseFloat(x.order_details.total_price_val);
           if(isNaN(this.catSpendPriceCurrent)) {
             this.catSpendPriceCurrent =0;
           }
           categorySpending.push(this.catSpendPriceCurrent);
-
-          // Saving monthly
           this.catSavingPriceCurrent = parseFloat(x.order_details.saving_price_cost_val);
           if(isNaN(this.catSavingPriceCurrent)) {
             this.catSavingPriceCurrent =0;
           }
           categorySavingCurrent.push(this.catSavingPriceCurrent);
         })
-        console.log(categoryNames);
-        console.log(categorySpending);
-
-        // For Monthly Spending 
-        console.log("Current Spending ==>",categorySpending);
         const currrentSum = categorySpending.reduce((partial_sum, a) => partial_sum + a); 
         this.totalCurrentSum  = currrentSum;
-        //For Monthly Savings 
-        console.log("Current Saving ==>",categorySavingCurrent);
        const currentsavings = categorySavingCurrent.reduce((partial_sum, a) => partial_sum + a); 
        this.totalCurrentSaving  = currentsavings;
-       console.log("Current Savings==>",this.totalMonthlySaving); 
-
-
         this.doughnutChartLabels = categoryNames;
         this.doughnutChartData = categorySpending;
         this.data = {
@@ -186,20 +173,6 @@ export class SpendingpatternComponent implements OnInit {
             {
               data: this.doughnutChartData,
               height: 260,
-              // hoverBackgroundColor: [
-              //   "#cc2900",
-              //   "#1068a2",
-              //   "#ffb700",
-              //   "#e60032",
-              //   "#00b3b3"
-              // ],
-              // backgroundColor: [
-              //   '#ff9980',
-              //   '#74bff1',
-              //   '#ffdb80',
-              //   '#ff809b',
-              //   '#80ffff'
-              // ]
             }]
 
         };
@@ -319,8 +292,11 @@ export class SpendingpatternComponent implements OnInit {
     )
   }
 
-  gotoBarChart(id) {
-    this.router.navigate(['/pricetrend',id]);
+  gotoBarChart(data) {
+    localStorage.setItem('spendingData', JSON.stringify(data));
+    console.log(data);
+    this.router.navigate(['/spendingpatternbar']);
+  
   }
 
 

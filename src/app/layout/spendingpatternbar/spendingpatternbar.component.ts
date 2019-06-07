@@ -39,6 +39,7 @@ export class SpendingpatternbarComponent implements OnInit {
   doughnutChart: any;
   data: any;
   month:any;
+  spendingData:any;
   public doughnutChartLabels: Label[];
   public doughnutChartData: MultiDataSet = [];
   public doughnutChartLabelsMonthly: Label[];
@@ -58,7 +59,7 @@ export class SpendingpatternbarComponent implements OnInit {
   // public doughnutChartData: MultiDataSet = [
   //   [350, 450, 100],
   // ];
-  public doughnutChartType: ChartType = 'doughnut';
+  public doughnutChartType: ChartType = 'bar';
   getSpendingDetails:any;
   constructor(
     private router: Router,
@@ -130,13 +131,22 @@ export class SpendingpatternbarComponent implements OnInit {
         'name': 'Dec'
       }
     ]
-   }
+    console.log("Spending Data==>",JSON.parse(localStorage.getItem('spendingData')));
+  this.spendingData = JSON.parse(localStorage.getItem('spendingData'));
+  this.getnewBarChart(this.spendingData);
+  }
 
   ngOnInit() {
     this.imageBaseUrl = environment.imageBaseUrl;
     this.userId = +localStorage.getItem('userId');
    // this.userId = +localStorage.getItem('userId');
     this.getSpendingPattern(this.userId);
+    //console.log("kkkkkkkkkkk123",this.route.snapshot.params['data'])
+    this.route.queryParams.subscribe(params => {
+      // this.firstname = params["firstname"];
+      // this.lastname = params["lastname"];
+      console.log("cccc==>",params);
+  });
   }
 
   getChart(context, chartType, data, options?) {
@@ -145,6 +155,7 @@ export class SpendingpatternbarComponent implements OnInit {
       options,
       type: chartType,
     });
+    
   }
 
   getBarChart() {
@@ -205,6 +216,8 @@ export class SpendingpatternbarComponent implements OnInit {
       res => {
         console.log("Spending Parretn==>", res);
         this.spendingPattern = res['result'];
+
+        console.log("Kalyan 123==>",this.spendingPattern);
         this.visibleKey = true;
         var categoryNames: any = [];
         var categorySpending: any = [];
@@ -248,21 +261,7 @@ export class SpendingpatternbarComponent implements OnInit {
           datasets: [
             {
               data: this.doughnutChartData,
-              height: 260,
-              // hoverBackgroundColor: [
-              //   "#cc2900",
-              //   "#1068a2",
-              //   "#ffb700",
-              //   "#e60032",
-              //   "#00b3b3"
-              // ],
-              // backgroundColor: [
-              //   '#ff9980',
-              //   '#74bff1',
-              //   '#ffdb80',
-              //   '#ff809b',
-              //   '#80ffff'
-              // ]
+              height: 260,   
             }]
 
         };
@@ -276,8 +275,68 @@ export class SpendingpatternbarComponent implements OnInit {
  
  
 
-  gotoBarChart(id) {
-    
+  getnewBarChart(spendData) {
+
+
+
+   // this.spendingPattern = res['result'];
+    this.spendingPattern = spendData;
+    console.log("Kalyan 234==>",this.spendingPattern);
+    this.visibleKey = true;
+    var categoryNames: any = [];
+    var categorySpending: any = [];
+    var categorySavingCurrent: any=[];
+    this.spendingPattern.forEach(x => {
+      // categoryNames.push(x.product_category_name);
+      // categorySpending.push(x.order_details.total_price_val != null ? x.order_details.total_price_val : 0)
+      categoryNames.push(x.product_category_name);
+      //categorySpending.push(x.order_details.total_price_val != null ? x.order_details.total_price_val:0)
+      this.catSpendPriceCurrent = parseFloat(x.order_details.total_price_val);
+      if(isNaN(this.catSpendPriceCurrent)) {
+        this.catSpendPriceCurrent =0;
+      }
+      categorySpending.push(this.catSpendPriceCurrent);
+
+      // Saving monthly
+      this.catSavingPriceCurrent = parseFloat(x.order_details.saving_price_cost_val);
+      if(isNaN(this.catSavingPriceCurrent)) {
+        this.catSavingPriceCurrent =0;
+      }
+      categorySavingCurrent.push(this.catSavingPriceCurrent);
+    })
+    console.log(categoryNames);
+    console.log(categorySpending);
+
+    // For Monthly Spending 
+    console.log("Current Spending ==>",categorySpending);
+    const currrentSum = categorySpending.reduce((partial_sum, a) => partial_sum + a); 
+    this.totalCurrentSum  = currrentSum;
+    //For Monthly Savings 
+    console.log("Current Saving ==>",categorySavingCurrent);
+   const currentsavings = categorySavingCurrent.reduce((partial_sum, a) => partial_sum + a); 
+   this.totalCurrentSaving  = currentsavings;
+   console.log("Current Savings==>",this.totalMonthlySaving); 
+
+
+    this.doughnutChartLabels = categoryNames;
+    this.doughnutChartData = categorySpending;
+    this.data = {
+      labels: this.doughnutChartLabels,
+      datasets: [
+        {
+          data: this.doughnutChartData,
+          height: 260,   
+        }]
+
+    };
+    // options: {
+    //   legend: {
+    //     display: false
+    //   }
+    // };
+    console.log(this.spendingPattern);
+
+
   }
 
 

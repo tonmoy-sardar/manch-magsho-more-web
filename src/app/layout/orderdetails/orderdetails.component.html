@@ -10,7 +10,7 @@
                     </div>
                 </div>
             </div> -->
-      <div class="bg-light text-primary details-text">
+      <div class="bg-light text-primary details-text" *ngIf="visible">
         <div class="container">
           <div class="row">
 
@@ -18,16 +18,21 @@
                   <mat-card>
                       <div class="date-sec">
                        <div class="profile_box">
-                         <div class="proimg"><img _ngcontent-c11="" class="img-fluid" src="http://166.62.54.122/mamamo/mach_mangso_more/uploads/blog_images/_thumb/large1550655829vegetables_thumb.jpg"></div>
+                         <div class="proimg">
+                           <!-- <img _ngcontent-c11="" class="img-fluid" src="http://166.62.54.122/mamamo/mach_mangso_more/uploads/blog_images/_thumb/large1550655829vegetables_thumb.jpg"> -->
+                           <img _ngcontent-c11="" class="img-fluid" [src]="orderDetails.customer_profile_image != ''? imageBaseUrl+ orderDetails.customer_profile_image: 'assets/imgs/no-image.png'">
+                          
+                          </div>
                          <div class="profile_text1">
-                            <p>User ID: MMM000001</p>
-                            <h2>Deb</h2>
-                            <h4>Date 22-05-2019</h4>
+                            <p>User ID: MMM000{{orderDetails.customer_id}}</p>
+                            <h2>{{orderDetails.customer_name}}</h2>
+                            <h4>Date {{orderDetails.date_created |
+                              date:'MMM d, y'}}</h4>
                                
                          </div>
-                         <div class="profile_text2"><h2>Value  (<i class="fa fa-inr" aria-hidden="true"></i>)</h2>  <h4>1280</h4></div>
-                         <div class="profile_text2"><h2>Items</h2> <h4>4</h4> </div>  
-                         <div class="profile_text3"><h2>Order No: MMM 201820199019</h2></div>                                                           
+                         <div class="profile_text2"><h2>Value  (<i class="fa fa-inr" aria-hidden="true"></i>)</h2>  <h4>{{orderDetails.total_price- orderDetails.deliver_charge}}</h4></div>
+                         <div class="profile_text2"><h2>Items</h2> <h4>{{productList.length}}</h4> </div>  
+                         <div class="profile_text3"><h2>Order No: {{orderDetails.order_no}}</h2></div>                                                           
                             </div>
 
                        <div class="cart_order">
@@ -42,20 +47,24 @@
                                 </tr>
                               </thead>
                               <tbody>
-                                <tr>
-                                  <td><div class="proimg2"><img _ngcontent-c11="" class="img-fluid" src="http://166.62.54.122/mamamo/mach_mangso_more/uploads/blog_images/_thumb/large1550655829vegetables_thumb.jpg"></div></td>
-                                  <td>Potato Jyoti.</td>
-                                  <td>10Kg.</td>
-                                  <td>18.00</td>
-                                  <td>180.00</td>
+                                <tr *ngFor="let product of productList; let i = index">
+                                  <td><div class="proimg2">
+                                    <!-- <img _ngcontent-c11="" class="img-fluid" src="http://166.62.54.122/mamamo/mach_mangso_more/uploads/blog_images/_thumb/large1550655829vegetables_thumb.jpg"> -->
+                                    <img _ngcontent-c11="" class="img-fluid" [src]="product.product_image_small != ''? imageBaseUrl+ product.product_image_small: 'assets/imgs/no-image.png'">
+                                  
+                                  </div></td>
+                                  <td>{{product.product_name}}</td>
+                                  <td>{{product.quantity}}</td>
+                                  <td>₹ {{product.unit_price}}</td>
+                                  <td>₹ {{product.total_cost}}</td>
                                 </tr>   
-                                <tr>
+                                <!-- <tr>
                                     <td><div class="proimg2"><img _ngcontent-c11="" class="img-fluid" src="http://166.62.54.122/mamamo/mach_mangso_more/uploads/blog_images/_thumb/large1550655829vegetables_thumb.jpg"></div></td>
                                     <td>Potato Jyoti.</td>
                                     <td>10Kg.</td>
                                     <td>18.00</td>
                                     <td>180.00</td>
-                                  </tr>                                
+                                  </tr>                                 -->
                           
                               </tbody>
                             </table>                       
@@ -70,11 +79,15 @@
                                 Kolkata  700059<br></p>
 
                                 <p><span>Payment Mode</span></p>
-                                <h2><span>COD</span></h2>
+                                <h2>
+                                  <span *ngIf="orderDetails.payment_type ==1">Paytm</span>
+                                  <span *ngIf="orderDetails.payment_type ==2">COD</span>
+                                  
+                                </h2>
                                 
                           </div>
-                          <div class="profile_text2 profile_text_2"><h2>Delivery (<i class="fa fa-inr" aria-hidden="true"></i>)</h2>  <h4> 120.00</h4></div>
-                          <div class="profile_text2 profile_text_2"><h2>Total (<i class="fa fa-inr" aria-hidden="true"></i>)</h2>  <h4>1400.00</h4></div>                                                                           
+                          <div class="profile_text2 profile_text_2"><h2>Delivery (<i class="fa fa-inr" aria-hidden="true"></i>)</h2>  <h4> ₹ {{orderDetails.deliver_charge}}</h4></div>
+                          <div class="profile_text2 profile_text_2"><h2>Total (<i class="fa fa-inr" aria-hidden="true"></i>)</h2>  <h4>₹ {{orderDetails.total_price}}</h4></div>                                                                           
                        <div class="order_logo">
                           <a href="#"><img alt="" src="assets/img/logo.png"></a>
 
@@ -83,8 +96,8 @@
                         </div>
 
                         <a _ngcontent-c16="" class="btn-print text-dark border-radius" href="javascript:void(0);" style="background:#CAF5F8;color:#fff !important;">Print</a>
-                        <a _ngcontent-c16="" class="btn-continue text-dark border-radius" href="javascript:void(0);" style="background:#CAF5F8;color:#fff !important;">Continue</a>
-                        <a _ngcontent-c16="" class="btn-back text-dark border-radius" href="javascript:void(0);" style="background:#CAF5F8;color:#fff !important;">Back</a>
+                        <a _ngcontent-c16="" class="btn-continue text-dark border-radius" href="javascript:void(0);" style="background:#CAF5F8;color:#fff !important;" (click)="gotoCategory(last_cat_id,last_cat_name)">Continue</a>
+                        <a _ngcontent-c16="" class="btn-back text-dark border-radius" href="javascript:void(0);" (click)="goBack()" style="background:#CAF5F8;color:#fff !important;">Back</a>
                       </div>
                   </mat-card>
               </div>
@@ -92,8 +105,8 @@
 
 
 
-
-            <div class="col-md-6 offset-md-3 bg-info pt-3 pb-3"  style="display: none;">
+<!-- Old Code -->
+            <!-- <div class="col-md-6 offset-md-3 bg-info pt-3 pb-3">
               <mat-card>
                 <div class="date-sec">
                   <div class="row">
@@ -126,7 +139,7 @@
                 <table id="customers" class="product-table">
                   <tr *ngFor="let product of productList; let i = index">
                     <td>
-                        <!-- <img src="assets/img/lntersection.png" alt=""> -->
+                       
                         <img [src]="product.product_image_small != ''? imageBaseUrl+ product.product_image_small: 'assets/imgs/no-image.png'">
                     </td>
                     <td>
@@ -162,7 +175,7 @@
                   </tr>
                 </table>
               </mat-card>
-            </div>
+            </div> -->
           </div>
 
         </div>
