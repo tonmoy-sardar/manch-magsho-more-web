@@ -34,6 +34,11 @@ export class RecipeComponent implements OnInit {
   selectedLanguage:string='Bengali';
   selectedHabbit:string='veg';
   selectedTime:string='0';
+  ethencityList:any =[];
+  habbitList:any =[];
+  foodList:any=[];
+  timeList:any=[];
+
   constructor(
     private router: Router,
     private route: ActivatedRoute,
@@ -56,6 +61,11 @@ export class RecipeComponent implements OnInit {
     else {
       this.recipeById(this.proId);
     }
+
+    this.listEthenicity();
+    this.listHabbit();
+    this.listFood();
+    this.listCookingTime();
 
   }
   allrecipeList() {
@@ -122,15 +132,59 @@ export class RecipeComponent implements OnInit {
   }
 
   filterRecipe() {
-    console.log(this.selectedLanguage);
-    console.log(this.selectedHabbit);
-    console.log(this.selectedTime);
-    this.proRecipeList = [];
     this.productService.getFilterRecipeList(this.selectedLanguage,this.selectedHabbit,this.selectedTime).subscribe(
       res => {
         console.log("Filter Recipe List==>",res);
         this.proRecipeList = res['result'];
         this.isPagination=0;
+      },
+      error => {
+        this.proRecipeList=[];
+      }
+    )
+  }
+
+  listEthenicity() {
+    this.productService.getlistEthenicity().subscribe(
+      res => {
+        console.log("List Ethenicity==>",res);
+        this.ethencityList = res['result'];
+      },
+      error => {
+        this.proRecipeList=[];
+      }
+    )
+  }
+
+  listHabbit() {
+    this.productService.getlistHabbit().subscribe(
+      res => {
+        console.log("list Habbit ==>",res);
+        this.habbitList = res['result'];
+      },
+      error => {
+        this.proRecipeList=[];
+      }
+    )
+  }
+
+  listFood() {
+    this.productService.getlistFood().subscribe(
+      res => {
+        console.log("list listFood==>",res);
+        this.foodList = res['result'];
+      },
+      error => {
+        this.proRecipeList=[];
+      }
+    )
+  }
+
+  listCookingTime() {
+    this.productService.getlistCookingTime().subscribe(
+      res => {
+        console.log("list listCookingTime==>",res);
+        this.timeList = res['result'];
       },
       error => {
         this.proRecipeList=[];

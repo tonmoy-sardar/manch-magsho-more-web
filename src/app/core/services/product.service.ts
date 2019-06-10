@@ -129,4 +129,23 @@ export class ProductService {
   myFavOrderList(id,params): Observable<any> {
     return this.http.get(environment.apiEndpoint + 'favouriteorderlistbycustid/'+id+'/?'+params)
   }
+
+  getlistEthenicity(): Observable<any> {
+    return this.http.get(environment.apiEndpoint + 'ethinicitylist')
+  }
+
+  getlistHabbit(): Observable<any> {
+    return this.http.get(environment.apiEndpoint + 'habbitlist')
+  }
+
+  getlistFood(): Observable<any> {
+    return this.http.get(environment.apiEndpoint + 'foodlist')
+  }
+
+  getlistCookingTime(): Observable<any> {
+    return this.http.get(environment.apiEndpoint + 'cookingtimelist')
+  }
+
+
+
 }

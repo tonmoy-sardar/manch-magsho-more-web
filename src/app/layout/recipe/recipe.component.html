@@ -19,32 +19,40 @@
       <div class="col-md-2">
         <p>Ethenicity</p>
         <select  class="form-control" [(ngModel)]="selectedLanguage" name="language">
-          <option>Bengali </option>
+            <option>Select Ethenicity </option>
+          <option *ngFor="let ethencity of ethencityList"> {{ethencity.ethinicity_name}}</option>
+          <!-- <option>Bengali </option>
           <option> Hindi</option>
-          <option>English</option>
+          <option>English</option> -->
         </select>
       </div>
       <div class="col-md-2">
         <p>Habbit</p>
         <select  class="form-control" [(ngModel)]="selectedHabbit" name="habbit">
-          <option value="veg">Veg</option>
-          <option value="nonveg">Non Veg</option>
+            <option>Select Habbit </option>
+            <option *ngFor="let habbit of habbitList"> {{habbit.habbit_name}}</option>
+          <!-- <option value="veg">Veg</option>
+          <option value="nonveg">Non Veg</option> -->
         </select>
       </div>
 
       <div class="col-md-2">
           <p>Food</p>
-          <select  class="form-control" [(ngModel)]="selectedHabbit" name="habbit">
-            <option value="veg">Veg</option>
-            <option value="nonveg">Non Veg</option>
+          <select  class="form-control" [(ngModel)]="selectedFood" name="food">
+            <!-- <option value="veg">Veg</option>
+            <option value="nonveg">Non Veg</option> -->
+            <option>Select Food </option>
+            <option *ngFor="let food of foodList"> {{food.food_name}}</option>
           </select>
         </div>
       <div class="col-md-2">
         <p>Cooking Time</p>
         <select  class="form-control" [(ngModel)]="selectedTime" name="time">
-          <option value='0'>Quick Bite</option>
+            <option>Select Time </option>
+            <option *ngFor="let time of timeList"> {{time.cooking_time}}</option>
+          <!-- <option value='0'>Quick Bite</option>
           <option value='1'>10 min - 20 min</option>
-          <option value='2'>More than 20 min</option>
+          <option value='2'>More than 20 min</option> -->
         </select>
       </div>
       <div class="col-md-4">   

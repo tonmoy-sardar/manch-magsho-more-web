@@ -23,7 +23,9 @@
             <div class="chart-show-monthly">
                 <h4>Monthly Spending Pattern: </h4>
                 <div class="spend-savings">
-                    <h4 (click)="gotoBarChart(spendingPattern)">Total : {{totalMonthlySum}}</h4>
+                    <h4 (click)="gotoBarChart(spendingPattern)">Total : {{totalMonthlySum}}
+                        <button class="resend-btn subscribe text-dark" (click)="gotoBarChart(spendingPattern)">Bar Graph</button>
+                    </h4>
                     <h4>Savings : {{totalMonthlySaving}}</h4>
                   </div>
                 <select class="form-control" [ngModel]="month" (ngModelChange)="selectMonth($event)" name="month">
@@ -43,7 +45,9 @@
             <div class="chart-show-monthly">
                 <h4>Quarterly Spending Pattern: </h4>
                 <div class="spend-savings">
-                    <h4 (click)="gotoBarChart(spendingPattern)">Total : {{totalQuaterSum}}</h4>
+                    <h4 >Total : {{totalQuaterSum}}
+                        <button class="resend-btn subscribe text-dark" (click)="gotoBarChart(spendingPattern)">Bar Graph</button>
+                    </h4>
                     <h4>Savings : {{totalQuaterSaving}}</h4>
                   </div>
                 <select class="form-control" [ngModel]="month" (ngModelChange)="selectQuater($event)" name="month">
