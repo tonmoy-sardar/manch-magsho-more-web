@@ -3,11 +3,11 @@
         <div class="form-group">
             <div class="input-group mb-2 rounded-pill search-input">
                 <div class="input-group-prepend  width100 ">
-                    <div class="input-group-text bg-info text-dark pro-search" (click)="proSearch(searchText)">Search</div>
+                    <div class="input-group-text bg-info text-dark pro-search" >Search</div>
                 </div>
                 <input type="text" [(ngModel)]="searchText" class="form-control" id="nombre" name="nombre" placeholder="Type Keyword" required>
             </div>
-            <a class="resend-btn subscribe text-dark" href="javascript:void(0);">Subscribe</a>
+            <a class="resend-btn subscribe text-dark" href="javascript:void(0);" (click)="proSearch(searchText)">Subscribe</a>
 
         </div>
     </div>
