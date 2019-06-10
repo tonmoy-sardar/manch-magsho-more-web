@@ -49,9 +49,16 @@
                   <div class="clearfix"></div>
                   <mat-card >
                       <h5>Payment Mode</h5><br>
-                    <mat-list role="list">
-                      <!-- <mat-list-item role="listitem">Paytm </mat-list-item> -->
-                      <mat-list-item role="listitem"><h5><span>COD</span></h5></mat-list-item>
+                      <!-- <mat-list role="list" class="mat-list-base2">
+                          <mat-list-item role="listitem">Paytm </mat-list-item>
+                         <mat-list-item role="listitem" class="mat-list-item22"><input type="radio" class="form-check-input" name="optradio">
+                          <p>Paytm</p> </mat-list-item>  
+                                         
+                        </mat-list> -->
+
+                    <mat-list role="list" class="mat-list-base2">
+                      <!-- <mat-list-item role="listitem">Paytm </mat-list-item> -->            
+                      <mat-list-item role="listitem" class="mat-list-item22"><input type="radio" class="form-check-input" name="optradio"><p>COD</p></mat-list-item>
                     </mat-list>
                     <a href="javascript:void(0);" (click)="placeOrder(2)" class="btn btn2 btn-primary  bg-info text-dark border-radius">Submit
                         <i class="fa fa-angle-right" aria-hidden="true"></i>

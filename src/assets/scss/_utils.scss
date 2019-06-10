@@ -459,8 +459,19 @@ ul {
   padding-top: 95px !important;
 }
 .body-banner {
+  padding-top: 149px;
+}
+.body-banner-2 {
+  padding-top: 100px;
+}
+.body-banner-login{
   padding-top: 140px;
 }
+.body-banner-order{
+  padding-top: 150px;
+}
+
+
 .body-banner3 {
   padding-top: 61px;
 }
@@ -1719,6 +1730,46 @@ ul.list-style {
   border: #fff 0px solid;
   width: 457px;
 }
+.product-section6 {
+  position: relative;
+  min-height: 280px;
+  padding: 0px 0px;
+  overflow-y: scroll;
+  border-radius: 35px;
+  border: #fff 0px solid;
+  width: 457px;
+}
+.product-section6 li {
+  background: #fff;
+  border-radius: 36px;
+  width: 437px;
+  padding: 60px 21px;
+  margin-bottom: 4px;
+  position: relative;
+  border: #61abb5 0px solid;
+}
+.product-section6 li h3 {
+  color: #DC2028;
+  font-weight: bold;
+  font-size: 34px;
+  cursor: pointer;
+  padding: 9px 0px;
+  line-height: 50px;
+}
+.product-section6 .product-img {
+  padding: 0px;
+  margin: 0px 15px 0px 0px;
+  border: #93d9e394 3px solid;
+  border-radius: 50%;
+  width: 218px;
+  height: 128px;;
+  overflow: hidden;
+  float: left;
+}
+.product-section6 .product-img img {
+  width: 100%;
+  height: 100%;
+}
 
 .recipe-list {
   position: relative;
@@ -1765,8 +1816,9 @@ ul.list-style {
   display: block;
   -webkit-tap-highlight-color: transparent;
   background: #82bfc845;
-  margin-top: 15px;
   border-radius: 6px;
+  margin-bottom: 6px;
+  margin-top: 6px;
 }
 .mat-list-base2 .text1{
   font-size: 16px;
@@ -1903,6 +1955,15 @@ ul.list-style {
   border-radius: 12px;
   background: #eaf8f7;
 }
+.product-gallery24{
+  margin: 62px 0px 15px 0px;
+  padding: 12px;
+  float: left;
+  width: 100%;
+  min-height: 200px;
+  border-radius: 12px;
+  background: #ffffff;
+}
 
 .product-gallery22{
   margin: 62px 0px 15px 0px;
@@ -1925,10 +1986,48 @@ ul.list-style {
   background: #ffffff;
   text-align: center;
 }
+.product-gallery24 .right-line{
+  margin: 0px;
+  padding: 0px; 
+  float: right;
+  border-right:#626060 2px solid;
+}
+.blog-scroll{ 
+  overflow: scroll;
+  height: 360px;  
+}
+.product-gallery24 ul{
+  margin: 0px;
+  padding: 0px 0px 25px 0px; 
+  list-style: none;
+  float: left;  
+  width: 100%;
+}
+
+.product-gallery24 ul li{
+  margin: 0px 9% 0px 9%;
+  padding: 5px 20px;
+  list-style: none;
+  float: left;
+  font-size: 23px;
+  color: #000;
+  border: 2px #626060 solid;
+  box-shadow: 1px 1px 3px 4px rgba(0, 0, 0, 0.2);
+
+}
+
+.product-gallery24 ul li.first{
+  margin:0px 11% 0px 5%; 
+}
+.product-gallery24 ul li.last{
+  margin:0px 3% 0px 14%;
+}
+
+
 .foodbox{
-  margin: 0px 9px;
-  padding: 0px;
-  width: 156px;
+  margin: 0px 0px;
+  padding: 0px 5px 0px 8px;
+  width: 100%;
   float: left;
   border: #000 0px solid;
 }
@@ -1940,12 +2039,14 @@ ul.list-style {
   color: #000;
   overflow: hidden;
   text-align: center;
+  font-weight: 600;
+  font-size: 22px;
 }
 .food-img{
-    width: 155px;
+    width: 99%;
     height: 155px;
     float: left;
-    border: #8febef 2px solid;
+    border: #8febef 0px solid;
     overflow: hidden;
     border-radius: 1%;  
     margin: 6px auto;
@@ -1958,7 +2059,7 @@ ul.list-style {
 .dessert{
   margin: 0px 9px;
   padding: 0px;
-  width: 156px;
+  width: 153px;
   float: left;
   border: #000 0px solid;
 }
@@ -1989,6 +2090,22 @@ ul.list-style {
 
 .mat-list-base2 .mat-list-item .mat-list-item-content, .mat-list-base .mat-list-option .mat-list-item-content {
   padding: 0 0px !important;
+  padding-top:0px !important;
+}
+.mat-list-base2 .form-check-input {
+    margin: 0px 6px 0px 0px;
+    padding: 0px;
+    float: left;
+}
+.mat-list-base2 .mat-list-item22{
+  height: auto !important;
+
+}
+
+.mat-list-base2 p{
+  float: left;
+  margin-left: 18px;
+  font-weight: 600;
 }
 .order-history h3 {
   font-size: 29px;
@@ -2456,6 +2573,24 @@ width: 100%;
   background: #fff;
 }
 
+.emp-profile .bg-info22 {
+  width: 153px;
+}
+.emp-profile .bg-info {
+  background-color: #17a2b8 !important;
+  color: #ffffff !important;
+  width: 146px;
+}
+
+.emp-profile .order-history {
+  background: #FFF0;
+  margin-top: 0%;
+  padding: 0px 2px;
+  position: relative;
+  height: 357px;
+  margin-bottom: 20px; 
+}
+
 .profile-img {
   text-align: center;
 }
@@ -2484,9 +2619,11 @@ width: 100%;
 }
 
 .profile-head h5 {
-  color: #4e4c4c;
-  font-size: 14px;
-  line-height: 15px;
+  color: #383636;
+  font-size: 17px;
+  line-height: 14px;
+  font-weight: bold;
+  padding: 4px 0px 0px 0px;
 }
 
 .profile-head h6 {
@@ -2498,18 +2635,27 @@ width: 100%;
   padding: 8px 12px;
   margin-bottom: 12px;
   border-radius: 13px;
+  box-shadow: 1px 3px 9px 2px rgba(0, 0, 0, 0.2);
 }
 
 .profile-edit-btn {
   border: none;
-  border-radius: 1.5rem;
+  border-radius: 13px;
   width: 70%;
   padding: 2%;
   font-weight: 600;
-  color: #6c757d;
+  color: #ffffff;
   cursor: pointer;
+  background: #639096;
+  padding: 9px 2px;
+  box-shadow: 1px 3px 9px 2px rgba(0, 0, 0, 0.2);
 }
-
+.myprofile{
+  background: #ecf9fb;
+  padding: 12px;
+  border-radius: 9px;
+  margin-bottom: 15px;
+}
 .proile-rating {
   font-size: 12px;
   color: #818182;
