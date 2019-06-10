@@ -1585,10 +1585,10 @@ ul.list-style {
 
 .shopping-veg {
   background: #FFF0;
-  margin-top: 0%;
+  margin-top: -6%;
   padding: 0px 15px;
   position: relative;
-  height: 357px;
+  height: 390px;
   overflow-y: scroll;
   margin-bottom: 2%;
 }
@@ -1612,7 +1612,7 @@ ul.list-style {
   color: #000;
   line-height: 15px;
   text-align: center;
-  margin: 0px 0px 37px 0px;
+  margin: 1px 0px 37px 0px;
   padding: 19px 0px;
   background: #ffffff;
   position: fixed;
@@ -1745,7 +1745,7 @@ ul.list-style {
   background: #fff;
   border-radius: 36px;
   width: 437px;
-  padding: 60px 21px;
+  padding:50px 0px;
   margin-bottom: 4px;
   position: relative;
   border: #61abb5 0px solid;
@@ -1757,14 +1757,15 @@ ul.list-style {
   cursor: pointer;
   padding: 9px 0px;
   line-height: 50px;
+  width: 60%;
 }
 .product-section6 .product-img {
   padding: 0px;
-  margin: 0px 15px 0px 0px;
+  margin: 0px 15px 0px 18px;
   border: #93d9e394 3px solid;
   border-radius: 50%;
-  width: 218px;
-  height: 128px;;
+  width: 130px;
+  height: 130px;;
   overflow: hidden;
   float: left;
 }
@@ -1994,10 +1995,38 @@ ul.list-style {
   float: right;
   border-right:#626060 2px solid;
 }
+.body-banner-combo{
+  padding-top: 282px;
+}
+.body-banner-combo .shopping-veg h2 {
+  font-size: 29px;
+  color: #51b5c2;
+  line-height: 15px;
+  text-align: center;
+  margin: 6px 0px 37px 0px;
+  padding: 14px 0px 19px 0px;
+  background: #ffffff;
+  position: fixed;
+  z-index: 99;
+  width: 61%;
+}
 .blog-scroll{ 
-  overflow: scroll;
+  overflow-y: scroll;
   height: 360px;  
 }
+.blog-scroll h2 {
+  font-size: 29px;
+  color: #51b5c2;
+  line-height: 15px;
+  text-align: center;
+  margin: 0px 0px 37px 0px;
+  padding: 14px 0px 19px 0px;
+  background: #ffffff;
+  position: fixed;
+  z-index: 99;
+  width: 61%;
+}
+
 .product-gallery24 ul{
   margin: 0px;
   padding: 0px 0px 25px 0px; 

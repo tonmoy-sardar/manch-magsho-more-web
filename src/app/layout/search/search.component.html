@@ -1,5 +1,5 @@
 <app-header></app-header>
-<div class="body-banner bg-light">
+<div class="body-banner body-banner-combo bg-light">
         <div class="inner-search">
                 <div class="col-md-6 offset-md-3">
                     <div class="form-group">
@@ -9,7 +9,7 @@
                             </div>
                             <input type="text" [(ngModel)]="searchText" class="form-control" id="nombre" name="nombre" placeholder="Search Product" required>
                         </div>
-                        <!-- <a class="resend-btn subscribe text-dark" href="javascript:void(0);">Subscribe</a> -->
+                        <a class="resend-btn subscribe text-dark" href="javascript:void(0);">Subscribe</a>
                     </div>
                 </div>
                 <a href="#">
@@ -30,7 +30,7 @@
               </div> -->
                             <div class="col-md-9 offset-md-2">
                                 <div class="shopping-veg">
-                                    <h2>{{catName}}</h2>
+                                    <h2>Search</h2>
                                     <div class="row" *ngIf="visibleKey">
 
                                         <div class="col-md-4 pro-box" *ngFor="let product of allProductList">
