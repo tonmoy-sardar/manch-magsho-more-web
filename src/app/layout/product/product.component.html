@@ -11,11 +11,11 @@
             <div class="form-group">
                 <div class="input-group mb-2 rounded-pill search-input">
                     <div class="input-group-prepend  width100 ">
-                        <div class="input-group-text bg-info text-dark pro-search" (click)="proSearch(searchText)">Search</div>
+                        <div class="input-group-text bg-info text-dark pro-search" >Search</div>
                     </div>
                     <input type="text" [(ngModel)]="searchText" class="form-control" id="nombre" name="nombre" placeholder="Type Keyword" required>
                 </div>
-                <a class="resend-btn subscribe text-dark" href="javascript:void(0);">Subscribe</a>
+                <a class="resend-btn subscribe text-dark" href="javascript:void(0);" (click)="proSearch(searchText)">Subscribe</a>
     
             </div>
         </div>
@@ -36,14 +36,16 @@
             <div class="col-md-4 pro-box" *ngFor="let product of allProductList">
               <div class="card-box">
                 <div class="row">
-                  <div class="col-md-4">
+                  <div class="col-md-5">
                     <span>{{product.name}}</span>
+                    <span>{{product.bengali_name}}</span>
+                    <span>{{product.hindi_name}}</span>
                     <a class="veg" *ngIf="product.product_stock > 5" href="javascript:void(0);">Available</a>
                     <a class="limited" *ngIf="product.product_stock > 0 && product.product_stock < 6"
                       href="javascript:void(0);">Limited</a>
                     <a class="sold" *ngIf="product.product_stock < 1" href="javascript:void(0);">Sold Out</a>
                   </div>
-                  <div class="col-md-8 img-btm">
+                  <div class="col-md-7 img-btm">
                     <div class="stock-price-change">
 
                       <button (click)="gotoPriceTrend(product.id)" class="price-trend-up"

@@ -16,10 +16,11 @@ export class AddreviewComponent implements OnInit {
   userId:any;
   recipeId:any;
   imageBaseUrl:any;
-  recipeDetails: any =[];
+  recipeDetails: any ={};
   recipeBannerImage:any;
   reviewForm: FormGroup;
   newRating:any;
+  pro_id:any;
   constructor(
     private router: Router,
     private route: ActivatedRoute,
@@ -36,6 +37,7 @@ export class AddreviewComponent implements OnInit {
     this.imageBaseUrl = environment.imageBaseUrl;
     this.userId = +localStorage.getItem('userId');
     this.recipeId = this.route.snapshot.params['id'];
+   // alert(this.recipeId);
     this.newRating = localStorage.getItem('rating')
     this.getRecipeDetails(this.recipeId);
   }
@@ -44,6 +46,7 @@ export class AddreviewComponent implements OnInit {
       res => {
         console.log(res);
         this.recipeDetails = res['result'];
+        this.pro_id = res['result'].product_val_id
         this.recipeBannerImage = this.imageBaseUrl + this.recipeDetails.blog_large_image;
       },
       error => {
@@ -67,6 +70,7 @@ export class AddreviewComponent implements OnInit {
           this.toastr.success('Review successfully Submitted', '', {
             timeOut: 3000,
           });
+         this.router.navigate(['/recipe/product',this.pro_id]);
         },
         error => {
           this.toastr.success('Error Occured', '', {

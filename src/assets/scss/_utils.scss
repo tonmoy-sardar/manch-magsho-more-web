@@ -1197,14 +1197,14 @@ figure img {
   margin: 0 auto;
   position: relative;
   float: none;
-  width: 360px;
+  width: 400px;
   display: block;
   text-align: center;
 }
 
 .rating-sec .rate a {
   color: #FFC107;
-  font-size: 48px;
+  font-size: 72px;
   margin: 4px;
 }
 
@@ -1255,18 +1255,20 @@ figure img {
 }
 
 .write-review-btn {
-  background: #008000a3;
-  bottom: 72px;
-  padding: 8px 5px;
+  //background: #008000a3;
+  background: #fcbec4;
+  color:#76a1d6 !important;
+  bottom: 118px;
+  padding: 25px 10px;
   position: fixed;
   left: 0;
   z-index: 99;
   color: #C4E286;
-  font-size: 14px;
+  font-size: 18px;
   font-weight: bold;
   border-radius: 0 50px 50px 0;
   z-index: 999;
-  width: 124px;
+  width: 160px;
 }
 
 .inform-btn {

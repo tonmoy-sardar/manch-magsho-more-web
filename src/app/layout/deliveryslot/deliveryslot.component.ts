@@ -63,6 +63,7 @@ export class DeliveryslotComponent implements OnInit {
     this.userService.getPinCode(this.pincode).subscribe(
       res => {
         this.deliverySlot = res['result'];
+        console.log("kkkk==>",this.deliverySlot);
       },
       error => {
  

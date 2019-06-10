@@ -29,10 +29,10 @@
               <div class="col-md-4">
                 <div class="order-history order-history2">
                   <div class="clearfix"></div>
-                  <mat-card class="mb-5" *ngFor="let delivery of deliverySlot" >
+                  <mat-card class="mb-5"  >
                     <h5>Delivery Slot</h5>
                     <div class="clearfix"></div>
-                    <mat-list role="list" class="mat-list-base2">
+                    <mat-list role="list" class="mat-list-base2" *ngFor="let delivery of deliverySlot">
                       <mat-list-item role="listitem"><div class="text1">{{delivery.deliver_slot}}<br>
                       <p>Delivery Charge : Rs. {{delivery.deliver_charge}}</p></div>
                     </mat-list-item>

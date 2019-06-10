@@ -78,6 +78,20 @@
                 <div class="row">
                   <div class="col-md-5">
                     <span>{{recipeList.blog_title}}</span>
+                    <div class="rate" *ngIf="recipeList.average_rating==null" style="padding-left: 0px;">
+                      <span class="rating" *ngFor="let rat of rating; let i = index"
+                        [ngClass]="[i <= 0 - 1 ? 'active' : '']" style="margin-right: 2px;">
+                        <i class="fa fa-star" aria-hidden="true"></i>
+                      </span>
+                    </div>
+                    <div class="rate" *ngIf="recipeList.average_rating!=null" style="padding-left: 0px;">
+
+                      <span class="rating" *ngFor="let rat of rating; let i = index"
+                        [ngClass]="[i <= recipeList.average_rating.averagerating - 1 ? 'active' : '']"
+                        style="margin-right: 2px;">
+                        <i class="fa fa-star" aria-hidden="true"></i>
+                      </span>
+                    </div>
                     <a class="veg" href="javascript:void(0)"
                       *ngIf="recipeList.recipe_type =='veg'">{{recipeList.recipe_type}}</a>
                     <a class="sold" href="javascript:void(0)"
@@ -85,7 +99,7 @@
                   </div>
                   <div class="col-md-7 img-btm">
 
-                    <div class="rate" *ngIf="recipeList.average_rating==null" style="padding-left: 10px;">
+                    <!-- <div class="rate" *ngIf="recipeList.average_rating==null" style="padding-left: 10px;">
                       <span class="rating" *ngFor="let rat of rating; let i = index"
                         [ngClass]="[i <= 0 - 1 ? 'active' : '']" style="margin-right: 2px;">
                         <i class="fa fa-star" aria-hidden="true"></i>
@@ -98,7 +112,7 @@
                         style="margin-right: 2px;">
                         <i class="fa fa-star" aria-hidden="true"></i>
                       </span>
-                    </div>
+                    </div> -->
                     <img class="img-fluid"
                       [src]="recipeList.blog_small_image != ''? imageBaseUrl+ recipeList.blog_small_image : 'assets/imgs/no-image.png'">
 
