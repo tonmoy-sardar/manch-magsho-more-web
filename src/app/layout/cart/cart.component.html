@@ -1,5 +1,5 @@
 <app-header></app-header>
-<div class="body-banner body-banner25">
+<div class="body-banner body-banner25 bg-header-blue">
         <div class="inner-search search-custom">
                 <div class="col-md-6 offset-md-3">
               
@@ -65,7 +65,8 @@
                                     </div>
                                 </div>
                                 <div class="row ">
-                                    <div class="col-md-6"> <a href="javascript:void(0);" (click)="gotoDetails()" class="price"> Proceed </a></div>
+                                    <div *ngIf="userId ==''" class="col-md-6"> <a href="javascript:void(0);" (click)="gotoLoginPage()" class="price"> Proceed </a></div>
+                                    <div *ngIf="userId !=''" class="col-md-6"> <a href="javascript:void(0);" (click)="gotoDetails()" class="price"> Proceed </a></div>
                                     <div class="col-md-6"> <a href="javascript:void(0);" (click)="goBack()" class="trivia">Back </a></div>
                                 </div>
                             </div>

@@ -1,5 +1,5 @@
 <app-header></app-header>
-<div class="body-banner body-banner-2 bg-light">
+<div class="body-banner body-banner-2 bg-light bg-header-white">
     <app-search-bar></app-search-bar>
     <div class="col-md-12">
         <div class="row">
@@ -33,8 +33,9 @@
             </div>
         </div>
     </div>
-    <a class="download-app" href="javascript:void(0);">Download App</a>
-    <a class="contact-btn" href="javascript:void(0);">Contact Us</a>
+    <a class="download-app" href="https://play.google.com/store?hl=en">Download App</a>
+    <a class="contact-btn" [routerLink]="['/contactus']" href="javascript:void(0);">Contact Us</a>
+    <!-- <app-sidebar-button></app-sidebar-button> -->
 
     <app-sidebar-menu></app-sidebar-menu>
 </div>

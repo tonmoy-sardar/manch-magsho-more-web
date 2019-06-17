@@ -7,7 +7,7 @@
           <div class="chart-show-monthly chart-page">
             <h4>Bar Chart: </h4>
             <div class="spend-savings">
-              <h4 (click)="gotoBarChart(spendingPattern)">Total : {{totalCurrentSum}}</h4>
+              <h4 >Total : {{totalCurrentSum}}</h4>
               <h4>Savings : {{totalCurrentSaving}}</h4>
             </div>
             <div class="chart-show" style="display: block; width:600px; height:300px">
@@ -17,7 +17,7 @@
               <canvas baseChart
               [data]="doughnutChartData"
               [labels]="doughnutChartLabels"
-              [chartType]="doughnutChartType" [colors]="backgroundColor"></canvas>
+              [chartType]="doughnutChartType"></canvas>
             </div>
           </div>
         </div>

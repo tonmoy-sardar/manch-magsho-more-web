@@ -26,7 +26,7 @@ const routes: Routes = [
       { path: 'recipe/product/:id', loadChildren: './recipe/recipe.module#RecipeModule' }, 
       { path: 'order', loadChildren: './order/order.module#OrderModule' }, 
       { path: 'blog', loadChildren: './blog/blog.module#BlogModule' }, 
-      { path: 'success', loadChildren: './success/success.module#SuccessModule' }, 
+      { path: 'success/:id', loadChildren: './success/success.module#SuccessModule' }, 
       { path: 'contactus', loadChildren: './contact/contact.module#ContactModule' },
       { path: 'todayspecial', loadChildren: './todayspecial/todayspecial.module#TodayspecialModule' },
       { path: 'alacarte', loadChildren: './alacarte/alacarte.module#AlacarteModule' },
@@ -46,6 +46,7 @@ const routes: Routes = [
       { path: 'orderdetails/:id', loadChildren: './orderdetails/orderdetails.module#OrderdetailsModule' },
       { path: 'ourservice', loadChildren: './ourservice/ourservice.module#OurserviceModule' },
       { path: 'whyus', loadChildren: './whyus/whyus.module#WhyusModule' },
+      { path: 'mobilescreen', loadChildren: './mobilescreen/mobilescreen.module#MobilescreenModule' },
     ]
   }
 ];

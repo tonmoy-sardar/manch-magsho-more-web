@@ -3,3 +3,30 @@
     color: #5dc4ce;
     font-weight: bold;
 }
+
+.recipe-list5 {
+    position: relative;
+    height: 385px;
+    padding: 0px 21px 7px 21px;
+    overflow-y: scroll;
+    margin-top: 11%;
+  }
+
+
+
+.recipe-list5 h2 {
+    font-size: 29px;
+    color: #000;
+    line-height: 15px;
+    text-align: center;
+    margin: 0px 0px 37px 0px;
+    padding: 19px 0px;
+    background: #ffffff;
+    position: fixed;
+    z-index: 99;
+    width: 64%;
+}
+
+.recipe-list5 .shopping-user {
+    margin-top: 14%;  
+}

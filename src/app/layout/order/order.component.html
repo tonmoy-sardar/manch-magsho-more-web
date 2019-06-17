@@ -53,7 +53,7 @@
                         <div class="col-md-2">
                           <a href="javascript:void(0);" style="background:#CAF5F8;color:#fff !important;"
                             (click)="gotoDetails(order.id)"
-                            class="btn btn-primary  bg-info text-dark border-radius">View
+                            class="btn btn-primary  bg-info text-dark border-radius ">View
                           </a>
                         </div>
                         <div class="col-md-12">
@@ -61,23 +61,10 @@
                               src="http://166.62.54.122/mamamo/mach_mangso_more/uploads/blog_images/_thumb/large1552038356palak-pakoda_thumb.jpg">
                           </div> -->
                           <div class="order-img3" *ngFor="let product of order.order_details">
-                            <!-- <img _ngcontent-c2="" class="img-fluid"
-                              src="http://166.62.54.122/mamamo/mach_mangso_more/uploads/blog_images/_thumb/large1552037422chiken-french_thumb.JPG"> -->
-                              <img style="cursor:pointer;"class="img-fluid" [src]="product.product_image != ''? imageBaseUrl+ product.product_image : 'assets/imgs/no-image.png'">
+                           <img class="img-fluid" [src]="product.product_image != ''? imageBaseUrl+ product.product_image : 'assets/imgs/no-image.png'">
                             </div>
-                          <!-- <div class="order-img4"><img _ngcontent-c2="" class="img-fluid"
-                              src="http://166.62.54.122/mamamo/mach_mangso_more/uploads/blog_images/_thumb/large1552037812chiken-curry_thumb.jpeg">
-                          </div> -->
-                          <!-- <div class="order-img2"><img _ngcontent-c2="" class="img-fluid"
-                              src="http://166.62.54.122/mamamo/mach_mangso_more/uploads/blog_images/_thumb/large1552038356palak-pakoda_thumb.jpg">
-                          </div>
-                          <div class="order-img3"><img _ngcontent-c2="" class="img-fluid"
-                              src="http://166.62.54.122/mamamo/mach_mangso_more/uploads/blog_images/_thumb/large1552037422chiken-french_thumb.JPG">
-                          </div>
-                          <div class="order-img4"><img _ngcontent-c2="" class="img-fluid"
-                              src="http://166.62.54.122/mamamo/mach_mangso_more/uploads/blog_images/_thumb/large1552037812chiken-curry_thumb.jpeg">
-                          </div> -->
-
+                          
+ 
                           <div href="javascript:void(0);" (click)="repeatOrder(order)" class="favbtn-repeat-order">
                             <a><i class="fa fa-repeat" aria-hidden="true"></i>
                               Repeat Order</a>
@@ -90,7 +77,7 @@
                       </div>
                     </div>
                   </div>
-                  <div class="error-msg" *ngIf="orderList.length==0"><span>No recors found</span></div>
+                  <div class="error-msg" *ngIf="orderList.length==0"><span>No records found</span></div>
                   <div class="card-body pull-right" *ngIf="orderCount > itemPerPage">
                     <ngb-pagination [collectionSize]="orderCount" [maxSize]="paginationMaxSize"
                       [(page)]="defaultPagination" (pageChange)="pagination()" size="sm"></ngb-pagination>

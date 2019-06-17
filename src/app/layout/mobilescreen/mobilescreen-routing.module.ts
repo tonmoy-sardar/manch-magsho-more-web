@@ -1,19 +1,15 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import {SuccessComponent} from './success.component';
+import { MobilescreenComponent } from './mobilescreen.component';
 const routes: Routes = [
   {
     path: '',
-    component: SuccessComponent
-  },
-  {
-    path: 'success/:id',
-    component: SuccessComponent
-  },
+    component: MobilescreenComponent
+  }
 ];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
-export class SuccessRoutingModule { }
+export class MobilescreenRoutingModule { }

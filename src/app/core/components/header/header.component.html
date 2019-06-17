@@ -90,8 +90,8 @@
   </nav>
   <div class="col-md-12  bg-derk">
     <div class="row">
-      <div class="market-scrool" *ngIf="visibleKey">
-        <marquee direction="left" speed="slow" behavior="loop">
+      <div class="market-scrool">
+        <marquee direction="left" speed="slow" behavior="loop" *ngIf="visibleKey">
           <ul>
 
             <li *ngFor="let product of productList"

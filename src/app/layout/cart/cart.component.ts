@@ -135,4 +135,8 @@ export class CartComponent implements OnInit {
     this.location.back();
   }
 
+  gotoLoginPage() {
+    this.router.navigate(['/login']);
+  }
+
 }

@@ -3,7 +3,7 @@
         <div class="form-group">
             <div class="input-group mb-2 rounded-pill search-input">
                 <div class="input-group-prepend  width100 ">
-                    <div class="input-group-text bg-info text-dark pro-search" >Search</div>
+                    <div class="input-group-text bg-info text-dark pro-search" style="cursor: default;">Search</div>
                 </div>
                 <input type="text" [(ngModel)]="searchText" class="form-control" id="nombre" name="nombre" placeholder="Type Keyword" required>
             </div>
@@ -11,5 +11,5 @@
 
         </div>
     </div>
-    <a href="#"> <img class="img-fluid logo-small" src="assets/img/logo.png" alt=""></a>
+    <a [routerLink]="['/home']"> <img class="img-fluid logo-small" src="assets/img/logo.png" alt=""></a>
 </div>

@@ -1,5 +1,5 @@
 <app-header></app-header>
-<div class="body-banner body-banner-login">
+<div class="body-banner body-banner-login bg-header-blue">
   <div class="col-md-12">
     <div class="row">
       <div class="inner-page sign-up">
@@ -46,7 +46,7 @@
                     
                       <div class="form-group form-check">
                           <label class="form-check-label pull-right">
-                            <input class="form-check-input" type="checkbox"> Keep me logged in
+                            <input class="form-check-input" type="checkbox" (change)="changeStatus(1)"> Keep me logged in
                           </label>
                         </div>                      
                   </div>
@@ -56,13 +56,14 @@
                                  <label class="form-check-label" for="exampleCheck1">Keep me logged in</label>
                               </div> -->
 
-                  <a href="javascript:void(0);" (click)="signIn()"
+                  <a  href="javascript:void(0);" (click)="signIn()"
                     class="btn btn3 btn-primary  bg-info text-dark border-radius">Login</a>
+                   
                   <!-- <button class="btn btn-primary  bg-info text-dark border-radius">Login <i
                                  class="fa fa-angle-right" aria-hidden="true"></i></button> -->
                 </form>
               </div>
-              <button [routerLink]="['/forgotpassword']">Forgot Password</button>
+              <button class="forgot-custom-btn" [routerLink]="['/forgotpassword']">Forgot Password</button>
             </div>
           </div>
         </div>

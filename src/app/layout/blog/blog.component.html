@@ -1,193 +1,274 @@
 <app-header></app-header>
 
 
-<div class="body-banner lady-banner body-banner-g">
-    <app-search-bar></app-search-bar>
-    <div class="col-md-12">
-        <div class="row">
+<div class="body-banner lady-banner body-banner-g bg-white-doll">
+  <app-search-bar></app-search-bar>
+  <div class="col-md-12">
+    <div class="row">
 
-            <div class="col-md-7 offset-md-3 blog-scroll">
-                <h2>Blog</h2>
-                
-                <!--                 
+      <div class="col-md-7 offset-md-3 blog-scroll">
+        <h2>Blog</h2>
+
+        <!--                 
                 <img class="img-fluid logo-small" src="assets/img/logo.png" alt="">
                  -->
-                 <div class="product-gallery pt-50">
-                        <div class="blog-gallery">
-                <div class="blog-left">     
-                       <div class="blog-box"> 
-                           <div class="blog-img"><img src="assets/img/recipes.jpg" alt=""></div>
-                           <p>What is Lorem Ipsum?</p>
-                        </div>                       
-                       <div class="blog-box"> 
-                           <div class="blog-img"><img src="assets/img/recipes.jpg" alt=""></div>
-                           <p>What is Lorem Ipsum?</p>
-                        </div>
+        <div class="product-gallery pt-50">
+          <div class="blog-gallery">
+            <div class="blog-left">
+              <div class="blog-box">
+
+                <div class="blog-img">
+
+                  <img
+                    [src]="blogList[0]?.blog_large_image != ''? imageBaseUrl+ blogList[0]?.blog_large_image : 'assets/imgs/no-image.png'">
                 </div>
-                <div class="blog-center">
-                       <div class="blog-box2"> 
-                           <div class="blog-img2"><img src="assets/img/recipes.jpg" alt=""></div>
-                           <p>What is Lorem Ipsum?</p>
-                        </div>
+                <p>{{blogList[0].blog_title}}</p>
+              </div>
+              <div class="blog-box">
+                <div class="blog-img">
+
+                  <img
+                    [src]="blogList[1]?.blog_large_image != ''? imageBaseUrl+ blogList[1]?.blog_large_image : 'assets/imgs/no-image.png'">
                 </div>
-             <div class="blog-right">   
-                       <div class="blog-box"> 
-                           <div class="blog-img"><img src="assets/img/recipes.jpg" alt=""></div>
-                           <p>What is Lorem Ipsum?</p>
-                        </div>
-                       <div class="blog-box"> 
-                           <div class="blog-img"><img src="assets/img/recipes.jpg" alt=""></div>
-                           <p>What is Lorem Ipsum?</p>
-                        </div>    
-            </div>         
-            </div></div>
+                <p>{{blogList[1].blog_title}}</p>
+              </div>
+            </div>
+            <div class="blog-center">
+              <div class="blog-box2">
+                <div class="blog-img2">
+
+                  <img class="img-fluid"
+                    [src]="blogList[2]?.blog_large_image != ''? imageBaseUrl+ blogList[2]?.blog_large_image : 'assets/imgs/no-image.png'">
+                </div>
+                <p>{{blogList[2].blog_title}}</p>
+              </div>
+            </div>
+            <div class="blog-right">
+              <div class="blog-box">
+                <div class="blog-img">
+
+                  <img
+                    [src]="blogList[3]?.blog_large_image != ''? imageBaseUrl+ blogList[3]?.blog_large_image : 'assets/imgs/no-image.png'">
+                </div>
+                <p>{{blogList[3].blog_title}}</p>
+              </div>
+              <div class="blog-box">
+                <div class="blog-img">
+
+                  <img
+                    [src]="blogList[4]?.blog_large_image != ''? imageBaseUrl+ blogList[4]?.blog_large_image : 'assets/imgs/no-image.png'">
+                </div>
+                <p>{{blogList[4].blog_title}}</p>
+              </div>
+            </div>
+          </div>
+        </div>
 
 
-            <div class="col-sm-12 pt-10">
-                  <div class="product-gallery22">
-                        <div class="text-top">Theme of the month: Dessert</div>
-                        <div class="dessert">
-                        <div class="dessert-img"><img class="img-fluid" src="http://166.62.54.122/mamamo/mach_mangso_more/uploads/blog_images/_thumb/large1559821748vegetables_thumb.jpg"></div>
-                        <p>Lorem Ipsum </p>
-                        </div>
-                        <div class="dessert">
-                        <div class="dessert-img"><img class="img-fluid" src="http://166.62.54.122/mamamo/mach_mangso_more/uploads/blog_images/_thumb/large1559821748vegetables_thumb.jpg"></div>
-                        <p>Lorem Ipsum </p>
-                        </div>
-
-                        <div class="dessert">
-                                <div class="dessert-img"><img class="img-fluid" src="http://166.62.54.122/mamamo/mach_mangso_more/uploads/blog_images/_thumb/large1559821748vegetables_thumb.jpg"></div>
-                                <p>Lorem Ipsum </p>
-                                </div>
-
-                                <div class="dessert">
-                                        <div class="dessert-img"><img class="img-fluid" src="http://166.62.54.122/mamamo/mach_mangso_more/uploads/blog_images/_thumb/large1559821748vegetables_thumb.jpg"></div>
-                                        <p>Lorem Ipsum </p>
-                                        </div>                                       
-                     
-                   </div>
+        <div class="col-sm-12 pt-10">
+          <div class="product-gallery22">
+            <!-- <div class="text-top">Theme of the month: Dessert</div> -->
+            <div class="text-top">Theme of the month: 
+                <select (change)="filterChanged($event.target.value)" >
+                    <option [value]="theme.id" *ngFor="let theme of themeList"> {{theme.name}}</option>
+                </select>
+            </div>
+            <div class="dessert"  *ngFor="let themeDetails of themeDetailss | slice:0:3">
+              <div class="dessert-img">
+                  <!-- <img class="img-fluid"
+                  src="http://166.62.54.122/mamamo/mach_mangso_more/uploads/blog_images/_thumb/large1559821748vegetables_thumb.jpg"> -->
+                  <img class="img-fluid" style="cursor:pointer;" [src]="themeDetails.blog_large_image != ''? imageBaseUrl+ themeDetails.blog_large_image : 'assets/imgs/no-image.png'">
+              </div>
+              <p>{{themeDetails.blog_title}} </p>
+            </div>
+            <!-- <div class="dessert">
+              <div class="dessert-img"><img class="img-fluid"
+                  src="http://166.62.54.122/mamamo/mach_mangso_more/uploads/blog_images/_thumb/large1559821748vegetables_thumb.jpg">
+              </div>
+              <p>Lorem Ipsum </p>
             </div>
 
-            <div class="col-sm-12 pt-10">
-                    <div class="product-gallery23 product-gallery24">
-                 <div class="row"> 
-                       <ul> <li class="first">Latest</li>    <li>Food</li>       <li class="last">Nutrition</li>  </ul>
-                    <div class="col-sm-3 right-line">
-                       <div class="foodbox">
-                           <div class="food-img"><img class="img-fluid" style="cursor:pointer;" src="http://166.62.54.122/mamamo/mach_mangso_more/uploads/product_images/image_large/1559817346bay-corn.png"></div>
-                           <p>Lorem Ipsum </p>
-                        </div>
-                        <div class="foodbox">
-                             <div class="food-img"><img class="img-fluid" style="cursor:pointer;" src="http://166.62.54.122/mamamo/mach_mangso_more/uploads/product_images/image_large/large1555334472Black-Pepper-powder.jpg"></div>
-                             <p>Lorem Ipsum </p>
-                        </div>
-                        <div class="foodbox">
-                             <div class="food-img"><img class="img-fluid" style="cursor:pointer;" src="http://166.62.54.122/mamamo/mach_mangso_more/uploads/product_images/image_large/1559817346bay-corn.png"></div>
-                             <p>Lorem Ipsum </p>
-                         </div>
-                        <div class="foodbox">
-                             <div class="food-img"><img class="img-fluid" style="cursor:pointer;" src="http://166.62.54.122/mamamo/mach_mangso_more/uploads/product_images/image_large/1559817346bay-corn.png"></div>
-                             <p>Lorem Ipsum </p>
-                        </div>
-                            <div class="foodbox">
-                                <div class="food-img"><img class="img-fluid" style="cursor:pointer;" src="http://166.62.54.122/mamamo/mach_mangso_more/uploads/product_images/image_large/large1555334472Black-Pepper-powder.jpg"></div>
-                                <p>Lorem Ipsum </p>
-                           </div>         
-                        </div>
+            <div class="dessert">
+              <div class="dessert-img"><img class="img-fluid"
+                  src="http://166.62.54.122/mamamo/mach_mangso_more/uploads/blog_images/_thumb/large1559821748vegetables_thumb.jpg">
+              </div>
+              <p>Lorem Ipsum </p>
+            </div>
 
-                        <div class="col-sm-5 right-line">
-                                <div class="foodbox">
-                                    <div class="food-img"><img class="img-fluid" style="cursor:pointer;" src="http://166.62.54.122/mamamo/mach_mangso_more/uploads/product_images/image_large/1559817346bay-corn.png"></div>
-                                    <p>Lorem Ipsum </p>
-                                 </div>
-                                 <div class="foodbox">
-                                      <div class="food-img"><img class="img-fluid" style="cursor:pointer;" src="http://166.62.54.122/mamamo/mach_mangso_more/uploads/product_images/image_large/large1555334472Black-Pepper-powder.jpg"></div>
-                                      <p>Lorem Ipsum </p>
-                                 </div>
-                                 <div class="foodbox">
-                                      <div class="food-img"><img class="img-fluid" style="cursor:pointer;" src="http://166.62.54.122/mamamo/mach_mangso_more/uploads/product_images/image_large/1559817346bay-corn.png"></div>
-                                      <p>Lorem Ipsum </p>
-                                  </div>
-                                 <div class="foodbox">
-                                      <div class="food-img"><img class="img-fluid" style="cursor:pointer;" src="http://166.62.54.122/mamamo/mach_mangso_more/uploads/product_images/image_large/1559817346bay-corn.png"></div>
-                                      <p>Lorem Ipsum </p>
-                                 </div>
-                                     <div class="foodbox">
-                                         <div class="food-img"><img class="img-fluid" style="cursor:pointer;" src="http://166.62.54.122/mamamo/mach_mangso_more/uploads/product_images/image_large/large1555334472Black-Pepper-powder.jpg"></div>
-                                         <p>Lorem Ipsum </p>
-                                    </div>         
-                                 </div>
-                                    
-                                 <div class="col-sm-4">
-                                        <div class="foodbox">
-                                            <div class="food-img"><img class="img-fluid" style="cursor:pointer;" src="http://166.62.54.122/mamamo/mach_mangso_more/uploads/product_images/image_large/1559817346bay-corn.png"></div>
-                                            <p>Lorem Ipsum </p>
-                                         </div>
-                                         <div class="foodbox">
-                                              <div class="food-img"><img class="img-fluid" style="cursor:pointer;" src="http://166.62.54.122/mamamo/mach_mangso_more/uploads/product_images/image_large/large1555334472Black-Pepper-powder.jpg"></div>
-                                              <p>Lorem Ipsum </p>
-                                         </div>
-                                         <div class="foodbox">
-                                              <div class="food-img"><img class="img-fluid" style="cursor:pointer;" src="http://166.62.54.122/mamamo/mach_mangso_more/uploads/product_images/image_large/1559817346bay-corn.png"></div>
-                                              <p>Lorem Ipsum </p>
-                                          </div>
-                                         <div class="foodbox">
-                                              <div class="food-img"><img class="img-fluid" style="cursor:pointer;" src="http://166.62.54.122/mamamo/mach_mangso_more/uploads/product_images/image_large/1559817346bay-corn.png"></div>
-                                              <p>Lorem Ipsum </p>
-                                         </div>
-                                             <div class="foodbox">
-                                                 <div class="food-img"><img class="img-fluid" style="cursor:pointer;" src="http://166.62.54.122/mamamo/mach_mangso_more/uploads/product_images/image_large/large1555334472Black-Pepper-powder.jpg"></div>
-                                                 <p>Lorem Ipsum </p>
-                                            </div>         
-                                         </div>           
-                                           
-                     
-               </div>                                
-            </div></div>
+            <div class="dessert">
+              <div class="dessert-img"><img class="img-fluid"
+                  src="http://166.62.54.122/mamamo/mach_mangso_more/uploads/blog_images/_thumb/large1559821748vegetables_thumb.jpg">
+              </div>
+              <p>Lorem Ipsum </p>
+            </div> -->
+
+          </div>
+        </div>
+
+        <div class="col-sm-12 pt-10">
+          <div class="product-gallery23 product-gallery24">
+            <div class="row">
+              <ul>
+                <li class="first">Latest</li>
+                <li>Food</li>
+                <li class="last">Nutrition</li>
+              </ul>
+              <div class="col-sm-3 right-line">
+                <div class="foodbox"  *ngFor="let latest of latestList">
+                  <div class="food-img">
+                      <!-- <img class="img-fluid" style="cursor:pointer;"
+                      src="http://166.62.54.122/mamamo/mach_mangso_more/uploads/product_images/image_large/1559817346bay-corn.png"> -->
+                      <img class="img-fluid" style="cursor:pointer;" [src]="latest.blog_large_image != ''? imageBaseUrl+ latest.blog_large_image : 'assets/imgs/no-image.png'">
+                  </div>
+                  <p>{{latest.blog_title}} </p>
+                </div>
+                <!-- <div class="foodbox">
+                  <div class="food-img"><img class="img-fluid" style="cursor:pointer;"
+                      src="http://166.62.54.122/mamamo/mach_mangso_more/uploads/product_images/image_large/large1555334472Black-Pepper-powder.jpg">
+                  </div>
+                  <p>Lorem Ipsum </p>
+                </div>
+                <div class="foodbox">
+                  <div class="food-img"><img class="img-fluid" style="cursor:pointer;"
+                      src="http://166.62.54.122/mamamo/mach_mangso_more/uploads/product_images/image_large/1559817346bay-corn.png">
+                  </div>
+                  <p>Lorem Ipsum </p>
+                </div>
+                <div class="foodbox">
+                  <div class="food-img"><img class="img-fluid" style="cursor:pointer;"
+                      src="http://166.62.54.122/mamamo/mach_mangso_more/uploads/product_images/image_large/1559817346bay-corn.png">
+                  </div>
+                  <p>Lorem Ipsum </p>
+                </div>
+                <div class="foodbox">
+                  <div class="food-img"><img class="img-fluid" style="cursor:pointer;"
+                      src="http://166.62.54.122/mamamo/mach_mangso_more/uploads/product_images/image_large/large1555334472Black-Pepper-powder.jpg">
+                  </div>
+                  <p>Lorem Ipsum </p>
+                </div> -->
+              </div>
+
+              <div class="col-sm-5 right-line">
+                <div class="foodbox" *ngFor="let food of foodList">
+                  <div class="food-img">
+                      <!-- <img class="img-fluid" style="cursor:pointer;"
+                      src="http://166.62.54.122/mamamo/mach_mangso_more/uploads/product_images/image_large/1559817346bay-corn.png"> -->
+                      <img class="img-fluid" style="cursor:pointer;" [src]="food.blog_large_image != ''? imageBaseUrl+ food.blog_large_image : 'assets/imgs/no-image.png'">
+                  </div>
+                  <p>{{food.blog_title}} </p>
+                </div>
+                <!-- <div class="foodbox">
+                  <div class="food-img"><img class="img-fluid" style="cursor:pointer;"
+                      src="http://166.62.54.122/mamamo/mach_mangso_more/uploads/product_images/image_large/large1555334472Black-Pepper-powder.jpg">
+                  </div>
+                  <p>Lorem Ipsum </p>
+                </div>
+                <div class="foodbox">
+                  <div class="food-img"><img class="img-fluid" style="cursor:pointer;"
+                      src="http://166.62.54.122/mamamo/mach_mangso_more/uploads/product_images/image_large/1559817346bay-corn.png">
+                  </div>
+                  <p>Lorem Ipsum </p>
+                </div>
+                <div class="foodbox">
+                  <div class="food-img"><img class="img-fluid" style="cursor:pointer;"
+                      src="http://166.62.54.122/mamamo/mach_mangso_more/uploads/product_images/image_large/1559817346bay-corn.png">
+                  </div>
+                  <p>Lorem Ipsum </p>
+                </div>
+                <div class="foodbox">
+                  <div class="food-img"><img class="img-fluid" style="cursor:pointer;"
+                      src="http://166.62.54.122/mamamo/mach_mangso_more/uploads/product_images/image_large/large1555334472Black-Pepper-powder.jpg">
+                  </div>
+                  <p>Lorem Ipsum </p>
+                </div> -->
+              </div>
+
+              <div class="col-sm-4">
+                <div class="foodbox" *ngFor="let nutrition of nutritionList">
+                  <div class="food-img">
+                      <!-- <img class="img-fluid" style="cursor:pointer;"
+                      src="http://166.62.54.122/mamamo/mach_mangso_more/uploads/product_images/image_large/1559817346bay-corn.png"> -->
+                      <img class="img-fluid" style="cursor:pointer;" [src]="nutrition.blog_large_image != ''? imageBaseUrl+ nutrition.blog_large_image : 'assets/imgs/no-image.png'">
+                  </div>
+                  <p>{{nutrition.blog_title}} </p>
+                </div>
+                <!-- <div class="foodbox">
+                  <div class="food-img"><img class="img-fluid" style="cursor:pointer;"
+                      src="http://166.62.54.122/mamamo/mach_mangso_more/uploads/product_images/image_large/large1555334472Black-Pepper-powder.jpg">
+                  </div>
+                  <p>Lorem Ipsum </p>
+                </div>
+                <div class="foodbox">
+                  <div class="food-img"><img class="img-fluid" style="cursor:pointer;"
+                      src="http://166.62.54.122/mamamo/mach_mangso_more/uploads/product_images/image_large/1559817346bay-corn.png">
+                  </div>
+                  <p>Lorem Ipsum </p>
+                </div>
+                <div class="foodbox">
+                  <div class="food-img"><img class="img-fluid" style="cursor:pointer;"
+                      src="http://166.62.54.122/mamamo/mach_mangso_more/uploads/product_images/image_large/1559817346bay-corn.png">
+                  </div>
+                  <p>Lorem Ipsum </p>
+                </div>
+                <div class="foodbox">
+                  <div class="food-img"><img class="img-fluid" style="cursor:pointer;"
+                      src="http://166.62.54.122/mamamo/mach_mangso_more/uploads/product_images/image_large/large1555334472Black-Pepper-powder.jpg">
+                  </div>
+                  <p>Lorem Ipsum </p>
+                </div> -->
+              </div>
 
 
-                <div class="product-gallery pt-50" style="display: none;">
-                    <div class="recipe-sec recipe-sec2">  
+            </div>
+          </div>
+        </div>
 
-                        <div class="row">
-                            <div class="col-md-3" *ngFor="let blog of blogList">
-                                <div class="item-box-blog">
-                                    <div class="item-box-blog-image">
-                                        <!-- <div class="item-box-blog-date bg-blue-ui white"> 
+
+        <div class="product-gallery pt-50" style="display: none;">
+          <div class="recipe-sec recipe-sec2">
+
+            <div class="row">
+
+              <div class="col-md-3" *ngFor="let blog of blogList">
+                <div class="item-box-blog">
+                  <div class="item-box-blog-image">
+                    <!-- <div class="item-box-blog-date bg-blue-ui white"> 
                       <span class="mon">Ajoy Dixit</span> 
                     </div> -->
-                                        <figure>
-                                            <img [src]="blog.blog_small_image != ''? imageBaseUrl+ blog.blog_small_image : 'assets/imgs/no-image.png'">
-                                        </figure>
-                                    </div>
-                                    <div class="item-box-blog-body">
-                                        <div class="item-box-blog-heading"> <a href="javascript:void(0);" tabindex="0">
-                       {{blog.blog_title}} </a> </div>
-                                    </div>
-                                </div>
-
-                            </div>
-
-                        </div>
-
-                        <div class="card-body pull-right" *ngIf="blogListCount > itemPerPage">
-                            <ngb-pagination [collectionSize]="blogListCount" [maxSize]="paginationMaxSize" [(page)]="defaultPagination" (pageChange)="pagination()" size="sm"></ngb-pagination>
-                        </div>
-                    </div>
-
+                    <figure>
+                      <img
+                        [src]="blog.blog_small_image != ''? imageBaseUrl+ blog.blog_small_image : 'assets/imgs/no-image.png'">
+                    </figure>
+                  </div>
+                  <div class="item-box-blog-body">
+                    <div class="item-box-blog-heading"> <a href="javascript:void(0);" tabindex="0">
+                        {{blog.blog_title}} </a> </div>
+                  </div>
                 </div>
+
+              </div>
+
             </div>
 
-
-  
+            <div class="card-body pull-right" *ngIf="blogListCount > itemPerPage">
+              <ngb-pagination [collectionSize]="blogListCount" [maxSize]="paginationMaxSize"
+                [(page)]="defaultPagination" (pageChange)="pagination()" size="sm"></ngb-pagination>
+            </div>
+          </div>
 
         </div>
+      </div>
+
+
+
+
     </div>
-    <app-sidebar-button></app-sidebar-button>
-    <app-sidebar-button></app-sidebar-button>
+  </div>
+  <app-sidebar-button></app-sidebar-button>
+  <app-sidebar-button></app-sidebar-button>
 
 
 
-    <app-sidebar-menu></app-sidebar-menu>
+  <app-sidebar-menu></app-sidebar-menu>
 
 </div>

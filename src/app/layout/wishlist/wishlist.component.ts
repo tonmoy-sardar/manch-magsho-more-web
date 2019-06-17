@@ -14,6 +14,7 @@ export class WishlistComponent implements OnInit {
   whisListProduct: any = [];
   imageBaseUrl: any;
   catName:any;
+  visibleKey:boolean =false;
   constructor(
     private router: Router,
     private route: ActivatedRoute,
@@ -31,9 +32,12 @@ export class WishlistComponent implements OnInit {
     this.productService.myWishlist(id).subscribe(
       res => {
         this.whisListProduct = res['result'];
+        this.visibleKey = true;
         console.log(this.whisListProduct);
+        //alert(this.whisListProduct.length);
       },
       error => {
+        this.whisListProduct = [];
       }
     )
   }
@@ -56,6 +60,10 @@ export class WishlistComponent implements OnInit {
 
   gotoDetails(id) {
     this.router.navigate(['product/details', id]);
+  }
+
+  gotoPriceTrend(id) {
+    this.router.navigate(['/pricetrend',id]);
   }
 
 }

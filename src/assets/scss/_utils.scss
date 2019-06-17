@@ -16,26 +16,30 @@
   background: url(../img/bg-girl_22.png) no-repeat 0 0;
   position: relative;
   background-attachment: fixed;
-  min-height: 635px;
+  //min-height: 635px;
+  min-height: 768px;
 }
 .lady-banner3 {
   background: #93d9e3 url(../img/bg-girl_3.jpg) no-repeat 0 0;
   position: relative;
   background-attachment: fixed;
-  min-height: 635px; 
+  // min-height: 635px; 
+  min-height: 768px;
 }
 .lady-banner {
   background: url(../img/bg-girl.jpg) no-repeat 0 0;
   position: relative;
   background-attachment: fixed;
-  min-height: 616px;
+ // min-height: 616px;
+ min-height: 768px;
 }
 
 .lady-banner2 {
   background: #92d9e2 url(../img/bg-girl_2.jpg) no-repeat 0 0;
   position: relative;
   background-attachment: fixed;
-  min-height: 616px;
+  //min-height: 616px;
+  min-height: 768px;
 }
 
 a {
@@ -399,7 +403,7 @@ ul {
 
 .download-app {
   background: #00800057;
-  top: 425px;
+  top: 420px;
   padding: 27px 5px;
   position: fixed;
   left: 0;
@@ -440,7 +444,7 @@ ul {
 }
 
 .body-banner .inner-page2 {
-  margin: -50px auto 33px auto;
+  margin: -25px auto 33px auto;
 }
 
 .body-banner .inner-page h2 {
@@ -528,9 +532,22 @@ width:40%;
   color: #ffffff !important;
 }
 
+
 .rounded-pill2 input {
   height: 40px;
 }
+
+.rounded-pill3 .text-dark2{
+  width: 225px;
+  padding-left: 19px;
+  color: #ffffff !important;
+}
+
+.rounded-pill3 input {
+  height: 40px;
+}
+
+
 .rounded-pill.search-input {
   background: #17a2b8;
 }
@@ -600,7 +617,10 @@ width:40%;
   font-size: 15px !important;
 }
 .body-banner .inner-search22 {
-  background: #92d9e2 url(../img/vegetables_bg.jpg) repeat-x 0 0 !important;
+  //background: #92d9e2 url(../img/vegetables_bg.jpg) repeat-x 0 0 !important;
+  background-repeat: no-repeat !important;
+    /* width: 100%; */
+    background-size: cover !important;
  }
 .full-lady32 {
   margin-top: 2%;
@@ -609,10 +629,14 @@ width:40%;
  .topsear h2{ 
   font-size: 34px;
   font-weight: bold;
-  margin: 23px 10px;
+  // margin: 23px 10px;
+  margin: 13px 10px;
   padding: 0px 0px;
   line-height: 22px;
   float: left;
+  background: #fff;
+  padding: 10px;
+  box-shadow: 5px 10px #caf5f8;
   }
  .topsear .topsear-img {
   width: 100px;
@@ -625,6 +649,7 @@ width:40%;
 .topsear .topsear-img img{
   width: 100%;
   height: 100%;
+  background:#fff;
 }
 
 .body-banner .inner-search {
@@ -1137,7 +1162,7 @@ figure img {
 }
 
 .bg-light {
-  background: #fff;
+  background: #fff !important;
   width: 100%;
 }
 
@@ -1527,6 +1552,7 @@ ul.list-style {
   min-height: 250px;
   text-align: center;
   margin-bottom: 2%;
+  margin-left:2%;
 
 }
 
@@ -2984,6 +3010,19 @@ span.total-cart {
   width: 203px;
 }
 
+.sign-up .rounded-pill3 .text-dark2 {
+  color: #4c4d49 !important;
+  font-size: 24px;
+  font-weight: 600;
+}
+.sign-up .rounded-pill3 .text-dark3 {
+  color: #4c4d49 !important;
+  font-size: 24px;
+  font-weight: 600;
+  width: 203px;
+}
+
+
 .sign-up .card-body-full button {
   background: #caf5f8;
   -webkit-transform: rotate(90deg);
@@ -3001,6 +3040,8 @@ span.total-cart {
   font-size: 22px;
   font-weight: bold;
 }
+
+
 .sign-up .form-check-input {
   position: absolute;
   margin-top: 4px;
@@ -3056,11 +3097,13 @@ span.total-cart {
     padding: 13px 12px 1px;
   }
 
-  .width100 .input-group-text {
+  .width100  .input-group-text {
     font-size: 12px;
     width: 57px;
     padding: 0 49px 0 9px;
   }
+
+
 
   .rounded-pill input {
     border-radius: 50px;
@@ -3244,3 +3287,48 @@ span.total-cart {
 
 // / Custom, iPhone Retina / 
 @media only screen and (max-width: 320px) {}
+
+.cursor-none {
+  cursor: none;
+}
+.add-cursor {
+  cursor: pointer;
+}
+
+.bg-header-white {
+  min-height: 768px;
+  background-color: #fff !important;
+}
+.bg-header-blue {
+  min-height: 768px;
+  background-color: #93d9e3;
+}
+.bg-white-doll {
+  min-height: 768px;
+  background-color: #fff;
+}
+.bg-blue-doll {
+ // min-height: 768px;
+//  background-color: #93d9e3;
+}
+.custom-scroll {
+  height:500px;
+  overflow-y: scroll;
+}
+.custom-scroll-inner {
+  overflow-y: scroll;
+    height: 400px;
+}
+
+body {
+  overflow-y: hidden;
+}
+
+// @-webkit-keyframes marquee {
+//   0% {
+//     text-indent: 260px;
+//   }
+//   100% {
+//     text-indent: -260px;
+//   }
+// }

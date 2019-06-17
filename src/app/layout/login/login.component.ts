@@ -11,6 +11,7 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent implements OnInit {
   loginForm: FormGroup;
+  keepLogin:number=0;
   constructor(
     private formBuilder: FormBuilder,
     private userService: UserService,
@@ -25,11 +26,17 @@ export class LoginComponent implements OnInit {
     });
   }
 
+  changeStatus(id) {
+    this.keepLogin =id;
+  }
+
   signIn() {
+    // alert(this.keepLogin);
     console.log(this.loginForm.value);
     if (this.loginForm.valid) {
       this.userService.userSignin(this.loginForm.value).subscribe(
         res => {
+          //alert(this.keepLogin);
           console.log("Login Result==>",res);
           localStorage.setItem('isLoggedin', 'true');
           localStorage.setItem('userId', res['result']['id']);
