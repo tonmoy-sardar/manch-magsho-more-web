@@ -164,7 +164,7 @@ export class DeliveryslotComponent implements OnInit {
         this.orderStatus = res.result;
         sessionStorage.clear();
         this.cartService.cartNumberStatus(true);
-        this.router.navigate(['/success']);
+        this.router.navigate(['/success',this.orderStatus.id]);
       },
       error => {
         console.log("Error==>",error);

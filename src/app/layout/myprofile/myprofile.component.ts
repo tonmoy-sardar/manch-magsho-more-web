@@ -22,20 +22,25 @@ export class MyprofileComponent implements OnInit {
   public buttonClicked: boolean = false;
   allAddressList: any = [];
   addressForm: FormGroup;
+  type:any;
   constructor(
     private router: Router,
     private route: ActivatedRoute,
     private formBuilder: FormBuilder,
     private userService: UserService,
     public dialog: MatDialog
-  ) { }
+  ) {
+    this.type ='Home';
+   }
 
   ngOnInit() {
     this.imageBaseUrl = environment.imageBaseUrl;
     this.userId = +localStorage.getItem('userId');
     this.addressForm = this.formBuilder.group({
       type: ["", Validators.required],
+      customer_name: ["", Validators.required],
       address: ["", Validators.required],
+      street_no: ["", Validators.required],
       landmark: ["", Validators.required],
       pincode: ["", Validators.required],
     });

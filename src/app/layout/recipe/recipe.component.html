@@ -1,15 +1,15 @@
 <app-header></app-header>
-<div class="body-banner recipe1-body-banner">
+<div class="body-banner recipe1-body-banner bg-header-blue">
   <div class="inner-search">
    <div class="col-md-6 offset-md-3">
             <div class="form-group">
                 <div class="input-group mb-2 rounded-pill search-input">
                     <div class="input-group-prepend  width100 ">
-                        <div style="cursor:pointer;" class="input-group-text bg-info text-dark" (click)="recipeSearch(searchText)">Search </div>
+                        <div style="cursor:pointer;" class="input-group-text bg-info text-dark" >Search </div>
                     </div>
                     <input type="text" [(ngModel)]="searchText" class="form-control" id="nombre" name="nombre" placeholder="Type the name of the preparation here" required>
                 </div>
-                <a _ngcontent-c7="" class="resend-btn subscribe text-dark" href="javascript:void(0);">Search Recipe</a>
+                <a _ngcontent-c7="" class="resend-btn subscribe text-dark" href="javascript:void(0);" (click)="recipeSearch(searchText)">Search Recipe</a>
                
             </div>
         </div>
@@ -17,10 +17,10 @@
         <div class="clearfix"></div>
     <div class="row">
       <div class="col-md-2">
-        <p>Ethenicity</p>
+        <p>Ethenicity </p>
         <select  class="form-control" [(ngModel)]="selectedLanguage" name="language">
-            <option>Select Ethenicity </option>
-          <option *ngFor="let ethencity of ethencityList"> {{ethencity.ethinicity_name}}</option>
+            <!-- <option>Select Ethenicity </option> -->
+          <option *ngFor="let ethencity of ethencityList; let i=index"   [value]="ethencity.id"> {{ethencity.ethinicity_name}}</option>
           <!-- <option>Bengali </option>
           <option> Hindi</option>
           <option>English</option> -->
@@ -29,8 +29,8 @@
       <div class="col-md-2">
         <p>Habbit</p>
         <select  class="form-control" [(ngModel)]="selectedHabbit" name="habbit">
-            <option>Select Habbit </option>
-            <option *ngFor="let habbit of habbitList"> {{habbit.habbit_name}}</option>
+            <!-- <option>Select Habbit </option> -->
+            <option *ngFor="let habbit of habbitList" [value]="habbit.id"> {{habbit.habbit_name}}</option>
           <!-- <option value="veg">Veg</option>
           <option value="nonveg">Non Veg</option> -->
         </select>
@@ -41,24 +41,24 @@
           <select  class="form-control" [(ngModel)]="selectedFood" name="food">
             <!-- <option value="veg">Veg</option>
             <option value="nonveg">Non Veg</option> -->
-            <option>Select Food </option>
-            <option *ngFor="let food of foodList"> {{food.food_name}}</option>
+            <!-- <option>Select Food </option> -->
+            <option *ngFor="let food of foodList" [value]="food.id"> {{food.food_name}}</option>
           </select>
         </div>
       <div class="col-md-2">
         <p>Cooking Time</p>
         <select  class="form-control" [(ngModel)]="selectedTime" name="time">
-            <option>Select Time </option>
-            <option *ngFor="let time of timeList"> {{time.cooking_time}}</option>
+            <!-- <option>Select Time </option> -->
+            <option *ngFor="let time of timeList" [value]="time.id"> {{time.cooking_time}}</option>
           <!-- <option value='0'>Quick Bite</option>
           <option value='1'>10 min - 20 min</option>
           <option value='2'>More than 20 min</option> -->
         </select>
       </div>
       <div class="col-md-4">   
-            <a href="javascript:void(0);" (click)="filterRecipe()" class="btn btn-primary  bg-info bg-info2 text-dark border-radius">Filter 
+            <a href="javascript:void(0);" (click)="filterRecipe(selectedLanguage,selectedHabbit,selectedFood,selectedTime)" class="btn btn-primary  bg-info bg-info2 text-dark border-radius">Filter 
             </a>
-            <a href="javascript:void(0);" (click)="filterRecipe()" class="btn btn-primary  bg-info bg-info2 text-dark border-radius">Clear Filter 
+            <a href="javascript:void(0);" (click)="clearFilterRecipe()" class="btn btn-primary  bg-info bg-info2 text-dark border-radius">Clear Filter 
               </a>
       </div>
     </div>
@@ -74,7 +74,7 @@
           <h2>Recipe</h2>
           <div class="row" *ngIf="visible">
             <div class="col-md-4" *ngFor="let recipeList of proRecipeList; let i = index">
-              <div class="card-box" (click)="gotoDetails(recipeList.id)">
+              <div class="card-box">
                 <div class="row">
                   <div class="col-md-5">
                     <span>{{recipeList.blog_title}}</span>
@@ -92,10 +92,10 @@
                         <i class="fa fa-star" aria-hidden="true"></i>
                       </span>
                     </div>
-                    <a class="veg" href="javascript:void(0)"
-                      *ngIf="recipeList.recipe_type =='veg'">{{recipeList.recipe_type}}</a>
-                    <a class="sold" href="javascript:void(0)"
-                      *ngIf="recipeList.recipe_type !='veg'">{{recipeList.recipe_type}}</a>
+                    <a class="veg cursor-none" href="javascript:void(0)"
+                      *ngIf="recipeList.recipe_type =='Veg'">{{recipeList.recipe_type}}</a>
+                    <a class="sold cursor-none" href="javascript:void(0)"
+                      *ngIf="recipeList.recipe_type !='Veg'">{{recipeList.recipe_type}}</a>
                   </div>
                   <div class="col-md-7 img-btm">
 
@@ -113,18 +113,18 @@
                         <i class="fa fa-star" aria-hidden="true"></i>
                       </span>
                     </div> -->
-                    <img class="img-fluid"
+                    <img (click)="gotoDetails(recipeList.id)" class="img-fluid add-cursor"
                       [src]="recipeList.blog_small_image != ''? imageBaseUrl+ recipeList.blog_small_image : 'assets/imgs/no-image.png'">
 
-                    <a class="price"
+                    <a class="price cursor-none"
                       href="javascript:void(0);"><span>Cooking</span><span>{{recipeList.cooking_time}}</span></a>
-                    <a class="language" href="javascript:void(0);">{{recipeList.recipe_language}}</a>
+                    <a class="language cursor-none" href="javascript:void(0);">{{recipeList.recipe_language}}</a>
                   </div>
                 </div>
               </div>
 
             </div>
-            <div class="col-md-3" class="error-msg" *ngIf="proRecipeList.length==0"><span>No recors found</span></div>
+            <div class="col-md-3" class="error-msg" *ngIf="proRecipeList.length==0"><span>No records found</span></div>
           </div>
           <div class="card-body pull-right" *ngIf="recipeListCount > itemPerPage && isPagination ==1">
             <ngb-pagination [collectionSize]="recipeListCount" [maxSize]="paginationMaxSize"

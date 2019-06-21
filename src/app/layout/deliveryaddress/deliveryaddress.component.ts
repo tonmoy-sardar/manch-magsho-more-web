@@ -33,20 +33,25 @@ export class DeliveryaddressComponent implements OnInit {
   customer_data:any;
   todayDate;
   userId: any;
+  type:any;
 
   constructor(
     private router: Router,
     private route: ActivatedRoute,
     private formBuilder: FormBuilder,
     private userService: UserService,
-  ) { }
+  ) { 
+    this.type ='Home';
+  }
 
   ngOnInit() {
     this.userId = +localStorage.getItem('userId');
     this.imageBaseUrl = environment.imageBaseUrl;
     this.addressForm = this.formBuilder.group({
       type: ["", Validators.required],
+      customer_name: ["", Validators.required],
       address: ["", Validators.required],
+      street_no: ["", Validators.required],
       landmark: ["", Validators.required],
       pincode: ["", Validators.required],
     });
@@ -64,7 +69,7 @@ export class DeliveryaddressComponent implements OnInit {
    // this.getProfileDetails(this.userId);
     this.populateData();
     this.todayDate = Date.now();
-
+    this.type ='Home';
   
   }
   addNewAddress() {
@@ -168,6 +173,7 @@ export class DeliveryaddressComponent implements OnInit {
           this.addressForm.reset();
           this.showAddressForm = false;
           this.myAddressList(this.userId);
+          this.type ='Home';
         },
         error => {
 

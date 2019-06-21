@@ -1,28 +1,48 @@
 <div class="row" >
   <div class="col-md-12">
-      <div class="card-body">
+      <div class="card-body emp-profile">
           <form [formGroup]="addressForm" novalidate>
               <div class="form-group">
                   <div class="input-group mb-2 rounded-pill">
-                      <div class="input-group-prepend  width100 ">
-                          <div class="input-group-text bg-info text-dark">
+                      <div class="input-group-prepend  width100 " style="height:50px;">
+                          <div class="input-group-text bg-info bg-info22 text-dark">
                               Type</div>
                       </div>
-                      <input type="text" class="form-control" name="type"
+                      <!-- <input type="text" class="form-control" name="type"
                           placeholder="Type" formControlName="type"
                           [ngClass]="displayFieldCss(addressForm,'type')"
-                          required>
-                      <div class="invalid-feedback text-left"
+                          required> -->
+                          <select style="height:50px;"  [(ngModel)]="type" formControlName="type" class="form-control">
+                              <option>Home</option>
+                              <option>Work</option>
+                          </select>
+                      <!-- <div class="invalid-feedback text-left"
                           *ngIf="isFieldValid(addressForm,'type')">
                           Please enter Address type
-                      </div>
+                      </div> -->
                   </div>
               </div>
               <div class="form-group">
+                <div class="input-group mb-2 rounded-pill">
+                    <div class="input-group-prepend  width100 ">
+                        <div class="input-group-text bg-info bg-info22 text-dark">
+                             Name</div>
+                    </div>
+                    <input type="text" class="form-control" name="customer_name"
+                        placeholder="Customer Name" formControlName="customer_name"
+                        [ngClass]="displayFieldCss(addressForm,'customer_name')"
+                        required>
+                    <div class="invalid-feedback text-left"
+                        *ngIf="isFieldValid(addressForm,'customer_name')">
+                        Please enter Name
+                    </div>
+                </div>
+            </div>
+              <div class="form-group">
                   <div class="input-group mb-2 rounded-pill">
                       <div class="input-group-prepend width100">
-                          <div class="input-group-text bg-info text-dark">
-                              Address</div>
+                          <div class="input-group-text bg-info bg-info22 text-dark">
+                              Building Number</div>
                       </div>
                       <input type="text" class="form-control" name="address"
                           placeholder="Address" formControlName="address"
@@ -30,14 +50,30 @@
                           required>
                       <div class="invalid-feedback text-left"
                           *ngIf="isFieldValid(addressForm,'address')">
-                          Please enter Address
+                          Please enter Building Number
                       </div>
                   </div>
               </div>
               <div class="form-group">
+                <div class="input-group mb-2 rounded-pill">
+                    <div class="input-group-prepend  width100 ">
+                        <div class="input-group-text bg-info bg-info22 text-dark">
+                            Street Name</div>
+                    </div>
+                    <input type="text" class="form-control" name="street_no"
+                        placeholder="Street Number" formControlName="street_no"
+                        [ngClass]="displayFieldCss(addressForm,'street_no')"
+                        required>
+                    <div class="invalid-feedback text-left"
+                        *ngIf="isFieldValid(addressForm,'street_no')">
+                        Please enter Street Name
+                    </div>
+                </div>
+            </div>
+              <div class="form-group">
                   <div class="input-group mb-2 rounded-pill">
                       <div class="input-group-prepend width100">
-                          <div class="input-group-text bg-info text-dark">
+                          <div class="input-group-text bg-info bg-info22 text-dark">
                               Landmark</div>
                       </div>
                       <input type="text" class="form-control" name="landmark"
@@ -53,7 +89,7 @@
               <div class="form-group">
                   <div class="input-group mb-2 rounded-pill">
                       <div class="input-group-prepend width100">
-                          <div class="input-group-text bg-info text-dark">
+                          <div class="input-group-text bg-info bg-info22 text-dark">
                               Pincode</div>
                       </div>
                       <input type="text" class="form-control" name="pincode"

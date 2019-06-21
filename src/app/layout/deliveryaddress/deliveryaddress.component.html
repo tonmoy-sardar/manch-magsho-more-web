@@ -1,185 +1,204 @@
 <app-header></app-header>
-<div class="body-banner">
-    <div class="col-md-12">
-        <div class="row">
-            <div class="col-md-12 ">
-                <!--         
+<div class="body-banner bg-header-blue">
+  <div class="col-md-12">
+    <div class="row">
+      <div class="col-md-12 ">
+        <!--         
         <img class="img-fluid logo-small" src="images/logo.png" alt=""> -->
-                <div class="row">
-                    <div class="col-md-12 pt-20">   
-                            <div class="inner-page">                     
-                        <div class="row">
-                            <div class="col-md-4 offset-md-2">
-                                <!-- <app-sidebar-userdetails></app-sidebar-userdetails> -->
-                                <div class="order-history order-history-2">
-                                    <table class="table table-bordered text-center">
-                                        <tbody>
-                                            <tr>
-                                                <td>Bag Value : ₹ {{total_item_price}}</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Savings : ₹ {{total_market_saving}}</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Items : {{customer_cart_data.length}}</td>
-                                            </tr>
+        <div class="row">
+          <div class="col-md-12 pt-20">
+            <div class="inner-page custom-scroll">
+              <div class="row">
+                <div class="col-md-4 offset-md-2">
+                  <!-- <app-sidebar-userdetails></app-sidebar-userdetails> -->
+                  <div class="order-history order-history-2">
+                    <table class="table table-bordered text-center">
+                      <tbody>
+                        <tr>
+                          <td>Bag Value : ₹ {{total_item_price}}</td>
+                        </tr>
+                        <tr>
+                          <td>Savings : ₹ {{total_market_saving}}</td>
+                        </tr>
+                        <tr>
+                          <td>Items : {{customer_cart_data.length}}</td>
+                        </tr>
 
-                                        </tbody>
-                                    </table>
-                                </div>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+
+                <div class="col-md-4 offset-md-0">
+                  <!-- <app-sidebar-userdetails></app-sidebar-userdetails> -->
+                  <div class="order-history order-history-2">
+                    <mat-card>
+                      <mat-list-item role="listitem">
+                        <a>Check Availability</a>
+                      </mat-list-item>
+                      <mat-list-item role="listitem">
+                        <form [formGroup]="pinCheckForm" novalidate>
+                          <div class="form-group">
+                            <div class="input-group mb-2 rounded-pill rounded-pill2">
+                              <div class="input-group-prepend  width100 ">
+                                <div class="input-group-text input-group-text2 bg-info text-dark"> Pin Code</div>
+                              </div>
+                              <input type="text" class="form-control" name="pincheck" placeholder="Pin Code"
+                                formControlName="pincheck" [ngClass]="displayFieldCss(pinCheckForm,'pincheck')"
+                                required>
+                              <div class="invalid-feedback text-left" *ngIf="isFieldValid(pinCheckForm,'pincheck')">
+                                Please enter Pincode
+                              </div>
                             </div>
-
-                            <div class="col-md-4 offset-md-0">
-                                    <!-- <app-sidebar-userdetails></app-sidebar-userdetails> -->
-                                    <div class="order-history order-history-2">
-                                            <mat-card>
-                                                    <mat-list-item role="listitem">
-                                                        <a>Check Availability</a>
-                                                    </mat-list-item>
-                                                    <mat-list-item role="listitem">
-                                                        <form [formGroup]="pinCheckForm" novalidate>
-                                                            <div class="form-group">
-                                                                <div class="input-group mb-2 rounded-pill rounded-pill2">
-                                                                    <div class="input-group-prepend  width100 ">
-                                                                        <div class="input-group-text input-group-text2 bg-info text-dark"> Pin Code</div>
-                                                                    </div>
-                                                                    <input type="text" class="form-control" name="pincheck" placeholder="Pin Code" formControlName="pincheck" [ngClass]="displayFieldCss(pinCheckForm,'pincheck')" required>
-                                                                    <div class="invalid-feedback text-left" *ngIf="isFieldValid(pinCheckForm,'pincheck')">
-                                                                        Please enter Pincode
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-            
-            
-                                                            <a href="javascript:void(0);" (click)="checkPinCode()" class="btn btn-primary  bg-info text-dark border-radius">Submit
-                                      <i class="fa fa-angle-right" aria-hidden="true"></i>
-                                    </a>
-                                                        </form>
-                                                        <p class="error-msg" *ngIf="isAvailablePin===0">Currently out of stock in this area.</p>
-                                                        <p class="success-msg" *ngIf="isAvailablePin>0">Currently available in this area.</p>
-                                                    </mat-list-item>
-                                                </mat-card>
-                                    </div>
-                                </div>
+                          </div>
 
 
-                            <div class="col-md-6">
-                                <div class="order-history">
-                                    <mat-card>
-                                        <h5>Delivery Address</h5>
-                                        <div class="clearfix"></div>
-                                        <mat-list role="list" class="mat-list-base2" *ngFor="let myAddress of allAddressList; let i = index" (click)="checkAvailability(i,myAddress.id,myAddress.pincode,myAddress)">
-                                            <mat-list-item role="listitem">
-                                               <div class="text1">Saved Address-1 :  <span class="address-type">{{myAddress.type}}</span>
-                                                <p>{{myAddress.address}} ,{{myAddress.landmark}} {{myAddress.pincode}}</p>
-                                            </div>
-                                               
-                                            </mat-list-item>
-                                            <a href="javascript:void(0);" (click)="checkAvailability(i,myAddress.id,myAddress.pincode,myAddress)" class="btn btn2 btn-primary  bg-info text-dark border-radius">Select
-                        <i class="fa fa-angle-right" aria-hidden="true"></i>
-                      </a>
-                                            <p class="error-msg" *ngIf="isAvailable===0 && isActive ==i"><span>Currently out of stock in this
-                          area.</span></p>
-                                        </mat-list>
-                                    </mat-card>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="order-history">
-                                      <mat-card>
-                                        <mat-list-item role="listitem">
-                                           <h5 style="padding-bottom: 16px; float: left;"><a>New Address</a></h5>
-                                        </mat-list-item>
-                                        <mat-list-item role="listitem">
-                                            <form [formGroup]="addressForm" novalidate>
-                                                <div class="form-group">
-                                                    <div class="input-group mb-2 rounded-pill rounded-pill2">
-                                                        <div class="input-group-prepend  width100 ">
-                                                            <div class="input-group-text bg-info  bg-info22 text-dark"> Type</div>
-                                                        </div>
-                                                        <input type="text" class="form-control" name="type" placeholder="Type" formControlName="type" [ngClass]="displayFieldCss(addressForm,'type')" required>
-                                                        <div class="invalid-feedback text-left" *ngIf="isFieldValid(addressForm,'type')">
-                                                            Please enter Type
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="form-group">
-                                                        <div class="input-group mb-2 rounded-pill rounded-pill2">
-                                                            <div class="input-group-prepend  width100 ">
-                                                                <div class="input-group-text bg-info  bg-info22 text-dark"> Name</div>
-                                                            </div>
-                                                            <input type="text" class="form-control" name="type" placeholder="Name" formControlName="type" [ngClass]="displayFieldCss(addressForm,'type')" required>
-                                                            <div class="invalid-feedback text-left" *ngIf="isFieldValid(addressForm,'type')">
-                                                                Please enter Type
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="form-group">
-                                                            <div class="input-group mb-2 rounded-pill rounded-pill2">
-                                                                <div class="input-group-prepend  width100 ">
-                                                                    <div class="input-group-text bg-info bg-info22 text-dark"> Building Number</div>
-                                                                </div>
-                                                                <input type="text" class="form-control" name="type" placeholder="Building Number" formControlName="type" [ngClass]="displayFieldCss(addressForm,'type')" required>
-                                                                <div class="invalid-feedback text-left" *ngIf="isFieldValid(addressForm,'type')">
-                                                                    Please enter Type
-                                                                </div>
-                                                            </div>
-                                                        </div>
+                          <a href="javascript:void(0);" (click)="checkPinCode()"
+                            class="btn btn-primary  bg-info text-dark border-radius">Submit
+                            <i class="fa fa-angle-right" aria-hidden="true"></i>
+                          </a>
+                        </form>
+                        <p class="error-msg" *ngIf="isAvailablePin===0">Currently out of stock in this area.</p>
+                        <p class="success-msg" *ngIf="isAvailablePin>0">Currently available in this area.</p>
+                      </mat-list-item>
+                    </mat-card>
+                  </div>
+                </div>
 
 
-                                                <div class="form-group">
-                                                    <div class="input-group mb-2 rounded-pill rounded-pill2">
-                                                        <div class="input-group-prepend  width100 ">
-                                                            <div class="input-group-text bg-info bg-info22 text-dark"> Street Name</div>
-                                                        </div>
-                                                        <input type="text" class="form-control" name="address" placeholder="Street Name" formControlName="address" [ngClass]="displayFieldCss(addressForm,'address')" required>
-                                                        <div class="invalid-feedback text-left" *ngIf="isFieldValid(addressForm,'address')">
-                                                            Please enter Address
-                                                        </div>
-                                                    </div>
-                                                </div>
+                <div class="col-md-6">
+                  <div class="order-history">
+                    <mat-card>
+                      <h5>Delivery Address</h5>
+                      <div class="clearfix"></div>
+                      <mat-list role="list" class="mat-list-base2"
+                        *ngFor="let myAddress of allAddressList; let i = index"
+                        (click)="checkAvailability(i,myAddress.id,myAddress.pincode,myAddress)">
+                        <mat-list-item role="listitem">
+                          <div class="text1">Saved Address-1 : <span class="address-type">{{myAddress.type}}</span>
+                            <p>{{myAddress.customer_name}},{{myAddress.address}} ,{{myAddress.street_no}},{{myAddress.landmark}} {{myAddress.pincode}}</p>
+                          </div>
 
-                                                <div class="form-group">
-                                                    <div class="input-group mb-2 rounded-pill rounded-pill2">
-                                                        <div class="input-group-prepend  width100 ">
-                                                            <div class="input-group-text bg-info bg-info22 text-dark">Land Mark</div>
-                                                        </div>
-                                                        <input type="text" class="form-control" name="landmark" placeholder="Land Mark" formControlName="landmark" [ngClass]="displayFieldCss(addressForm,'landmark')" required>
-                                                        <div class="invalid-feedback text-left" *ngIf="isFieldValid(addressForm,'landmark')">
-                                                            Please enter Land Mark
-                                                        </div>
-                                                    </div>
-                                                </div>
-
-                                                <div class="form-group">
-                                                    <div class="input-group mb-2 rounded-pill rounded-pill2">
-                                                        <div class="input-group-prepend  width100 ">
-                                                            <div class="input-group-text bg-info bg-info22 text-dark"> Pin Code</div>
-                                                        </div>
-                                                        <input type="text" class="form-control" name="pincode" placeholder="Pin Code" formControlName="pincode" [ngClass]="displayFieldCss(addressForm,'pincode')" required>
-                                                        <div class="invalid-feedback text-left" *ngIf="isFieldValid(addressForm,'pincode')">
-                                                            Please enter Pin Code
-                                                        </div>
-                                                    </div>
-                                                </div>
-
-
-                                                <a href="javascript:void(0);" (click)="submitAddress()" class="btn btn-primary  bg-info text-dark border-radius">Submit
+                        </mat-list-item>
+                        <a href="javascript:void(0);"
+                          (click)="checkAvailability(i,myAddress.id,myAddress.pincode,myAddress)"
+                          class="btn btn2 btn-primary  bg-info text-dark border-radius">Select
                           <i class="fa fa-angle-right" aria-hidden="true"></i>
                         </a>
-                                            </form>
-                                            <p class="error-msg" *ngIf="isAvailablePin===0">Currently out of stock in this area.</p>
-                                            <p class="success-msg" *ngIf="isAvailablePin>0">Currently available in this area.</p>
-                                        </mat-list-item>
-                                    </mat-card>
-
-                                </div>
-                            </div>
-
-                        </div>
-                        </div>
-                    </div>
+                        <p class="error-msg" *ngIf="isAvailable===0 && isActive ==i"><span>Currently out of stock in
+                            this
+                            area.</span></p>
+                      </mat-list>
+                    </mat-card>
+                  </div>
                 </div>
+                <div class="col-md-6">
+                  <div class="order-history">
+                    <mat-card>
+                      <mat-list-item role="listitem">
+                        <h5 style="padding-bottom: 16px; float: left;"><a>New Address</a></h5>
+                      </mat-list-item>
+                      <mat-list-item role="listitem">
+                        <form [formGroup]="addressForm" novalidate>
+                          <div class="form-group">
+                            <div class="input-group mb-2 rounded-pill rounded-pill2">
+                              <div class="input-group-prepend  width100 ">
+                                <div class="input-group-text bg-info  bg-info22 text-dark"> Type</div>
+                              </div>
+                              <!-- <input type="text" class="form-control" name="type" placeholder="Type"
+                                formControlName="type" [ngClass]="displayFieldCss(addressForm,'type')" required>
+                              <div class="invalid-feedback text-left" *ngIf="isFieldValid(addressForm,'type')">
+                                Please enter Type
+                              </div> -->
+                              <select  [(ngModel)]="type" formControlName="type" class="form-control">
+                                <option>Home</option>
+                                <option>Work</option>
+                            </select>
+                            </div>
+                          </div>
+                          <div class="form-group">
+                            <div class="input-group mb-2 rounded-pill rounded-pill2">
+                              <div class="input-group-prepend  width100 ">
+                                <div class="input-group-text bg-info  bg-info22 text-dark"> Name</div>
+                              </div>
+                              <input type="text" class="form-control" name="customer_name" placeholder="Name"
+                                formControlName="customer_name" [ngClass]="displayFieldCss(addressForm,'customer_name')" required>
+                              <div class="invalid-feedback text-left" *ngIf="isFieldValid(addressForm,'customer_name')">
+                                Please enter Name
+                              </div>
+                            </div>
+                          </div>
+                          <div class="form-group">
+                            <div class="input-group mb-2 rounded-pill rounded-pill2">
+                              <div class="input-group-prepend  width100 ">
+                                <div class="input-group-text bg-info bg-info22 text-dark"> Building Number</div>
+                              </div>
+                              <input type="text" class="form-control" name="type" placeholder="Building Number"
+                                formControlName="address" [ngClass]="displayFieldCss(addressForm,'address')" required>
+                              <div class="invalid-feedback text-left" *ngIf="isFieldValid(addressForm,'address')">
+                                Please enter Building Number
+                              </div>
+                            </div>
+                          </div>
+
+
+                          <div class="form-group">
+                            <div class="input-group mb-2 rounded-pill rounded-pill2">
+                              <div class="input-group-prepend  width100 ">
+                                <div class="input-group-text bg-info bg-info22 text-dark"> Street Name</div>
+                              </div>
+                              <input type="text" class="form-control" name="street_no" placeholder="Street Name"
+                                formControlName="street_no" [ngClass]="displayFieldCss(addressForm,'street_no')" required>
+                              <div class="invalid-feedback text-left" *ngIf="isFieldValid(addressForm,'street_no')">
+                                Please enter Street Name
+                              </div>
+                            </div>
+                          </div>
+
+                          <div class="form-group">
+                            <div class="input-group mb-2 rounded-pill rounded-pill2">
+                              <div class="input-group-prepend  width100 ">
+                                <div class="input-group-text bg-info bg-info22 text-dark">Land Mark</div>
+                              </div>
+                              <input type="text" class="form-control" name="landmark" placeholder="Land Mark"
+                                formControlName="landmark" [ngClass]="displayFieldCss(addressForm,'landmark')" required>
+                              <div class="invalid-feedback text-left" *ngIf="isFieldValid(addressForm,'landmark')">
+                                Please enter Land Mark
+                              </div>
+                            </div>
+                          </div>
+
+                          <div class="form-group">
+                            <div class="input-group mb-2 rounded-pill rounded-pill2">
+                              <div class="input-group-prepend  width100 ">
+                                <div class="input-group-text bg-info bg-info22 text-dark"> Pin Code</div>
+                              </div>
+                              <input type="text" class="form-control" name="pincode" placeholder="Pin Code"
+                                formControlName="pincode" [ngClass]="displayFieldCss(addressForm,'pincode')" required>
+                              <div class="invalid-feedback text-left" *ngIf="isFieldValid(addressForm,'pincode')">
+                                Please enter Pin Code
+                              </div>
+                            </div>
+                          </div>
+
+
+                          <a href="javascript:void(0);" (click)="submitAddress()"
+                            class="btn btn-primary  bg-info text-dark border-radius">Submit
+                            <i class="fa fa-angle-right" aria-hidden="true"></i>
+                          </a>
+                        </form>
+                        <p class="error-msg" *ngIf="isAvailablePin===0">Currently out of stock in this area.</p>
+                        <p class="success-msg" *ngIf="isAvailablePin>0">Currently available in this area.</p>
+                      </mat-list-item>
+                    </mat-card>
+
+                  </div>
+                </div>
+
+              </div>
             </div>
+          </div>
         </div>
+      </div>
     </div>
+  </div>

@@ -1,17 +1,21 @@
 <app-header></app-header>
 <div class="body-banner cat2-body-banner bg-light">
-  <div class="background-images">
+  <!-- <div class="background-images"[style.background]="'url(' + imageBaseUrl+ categoryBannerImage + ')'"> -->
+      <div class="background-images">
     <!-- <app-search-bar></app-search-bar> -->
-    <div class="inner-search inner-search22 search-custom">
+    <div class="inner-search inner-search22 search-custom" [style.background]="'url(' + imageBaseUrl+ categoryBannerImage + ')'">
         <div class="row">
-        <div class="col-md-3"><div class="topsear">
-          <div class="topsear-img"><img class="img-fluid" style="cursor:pointer;" src="http://166.62.54.122/mamamo/mach_mangso_more/uploads/product_images/image_small/large1559721028download_thumb.jpg"></div> 
-          <h2>Vegetables</h2></div> </div>
+        <div class="col-md-4"><div class="topsear">
+          <div class="topsear-img">
+            <!-- <img class="img-fluid" style="cursor:pointer;" src="http://166.62.54.122/mamamo/mach_mangso_more/uploads/product_images/image_small/large1559721028download_thumb.jpg"> -->
+            <img  class="img-fluid" [src]="category_image != ''? imageBaseUrl+ category_image : 'assets/imgs/no-image.png'">
+          </div> 
+          <h2>{{catName}}</h2></div> </div>
         <div class="col-md-6 offset-md-0">
             <div class="form-group">
                 <div class="input-group mb-2 rounded-pill search-input">
                     <div class="input-group-prepend  width100 ">
-                        <div class="input-group-text bg-info text-dark pro-search" >Search</div>
+                        <div class="input-group-text bg-info text-dark pro-search" style="cursor: default;">Search</div>
                     </div>
                     <input type="text" [(ngModel)]="searchText" class="form-control" id="nombre" name="nombre" placeholder="Type Keyword" required>
                 </div>
@@ -73,14 +77,14 @@
                     <img style="cursor:pointer;" (click)="gotoProductDetails(product.id);" class="img-fluid"
                       [src]="product.image_small != ''? imageBaseUrl+ product.image_small : 'assets/imgs/no-image.png'">
                     <a class="price" href="javascript:void(0);"><span>{{product.market_price}} /
-                        {{product.quantity_count}} {{product.unit}}</span><span> Price</span></a>
+                        {{product.quantity_count}} {{product.unit}}</span><span>Mkt Price</span></a>
                     <a class="language" href="javascript:void(0);"><span>{{product.price}} /
                         {{product.quantity_count}} {{product.unit}}</span><span> Our Price</span></a>
                   </div>
                 </div>
               </div>
             </div>
-            <div class="col-md-4" class="error-msg" *ngIf="allProductList.length==0"><span>No recors found</span></div>
+            <div class="col-md-4" class="error-msg" *ngIf="allProductList.length==0"><span>No records found</span></div>
 
           </div>
           <div class="card-body pull-right" *ngIf="productListCount > itemPerPage && isPagination ==1">

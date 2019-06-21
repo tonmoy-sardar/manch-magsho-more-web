@@ -13,12 +13,14 @@ export class AddressComponent implements OnInit {
   addressForm: FormGroup;
   addressData:any;
   addressId:any;
+  type:any;
   constructor(
     private formBuilder: FormBuilder,
     private userService: UserService,
     private dialogRef: MatDialogRef<AddressComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any
   ) {
+    this.type='Home';
     console.log("Address Edit Data==>",data);
     this.userId = +localStorage.getItem('userId');
     this.addressData = data.data;
@@ -27,14 +29,18 @@ export class AddressComponent implements OnInit {
     
     this.addressForm = this.formBuilder.group({
       type: ["", Validators.required],
+      customer_name: ["", Validators.required],
       address: ["", Validators.required],
+      street_no: ["", Validators.required],
       landmark: ["", Validators.required],
       pincode: ["", Validators.required],
     });
     if(this.addressData) {
       this.addressForm.patchValue({
         type: this.addressData.type,
+        customer_name: this.addressData.customer_name,
         address: this.addressData.address,
+        street_no: this.addressData.street_no,
         landmark: this.addressData.landmark,
         pincode: this.addressData.pincode,
     })

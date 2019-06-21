@@ -122,8 +122,8 @@ export class ProductService {
     return this.http.get(environment.apiEndpoint + 'productspendallmonth/'+id)
   }
 
-  getFilterRecipeList(language,habbit,time): Observable<any> {
-    return this.http.get(environment.apiEndpoint + 'recipelistfilterwithrecipeval/recipe?recipe_language='+language+'&recipe_type='+habbit+'&cooking_time='+time)
+  getFilterRecipeList(language,habbit,time,food): Observable<any> {
+    return this.http.get(environment.apiEndpoint + 'recipelistfilterwithrecipeval/recipe?recipe_language='+language+'&recipe_type='+habbit+'&cooking_time='+time+'&food_val='+food,)
   }
 
   myFavOrderList(id,params): Observable<any> {
@@ -146,6 +146,33 @@ export class ProductService {
     return this.http.get(environment.apiEndpoint + 'cookingtimelist')
   }
 
+  getBlogListNew(): Observable<any> {
+    return this.http.get(environment.apiEndpoint + 'bloglistbypopularblog?popular_blog='+1)
+  }
+
+  getThemeList(): Observable<any> {
+    return this.http.get(environment.apiEndpoint + 'themeofmonthlist')
+  }
+  getlatestBlog(params): Observable<any> {
+    return this.http.get(environment.apiEndpoint + 'bloglist/latest?'+params)
+  }
+
+  getfoodBlog(params): Observable<any> {
+    return this.http.get(environment.apiEndpoint + 'bloglist/food?'+params)
+  }
+
+  getnutritionList(params): Observable<any> {
+    return this.http.get(environment.apiEndpoint + 'bloglist/nutrition?'+params)
+  }
+
+  getThemeDetails(id): Observable<any> {
+    //return this.http.get(environment.apiEndpoint + 'bloglist/nutrition?'+id)
+    //bloglistbythemeofmonth?theme_of_month=2
+    return this.http.get(environment.apiEndpoint + 'bloglistbythemeofmonth?theme_of_month='+id)
+  }
+  savingsList(id): Observable<any> {
+    return this.http.get(environment.apiEndpoint + 'productsavingpricebyuserid/'+id)
+  }
 
 
 }

@@ -1,76 +1,98 @@
 <app-header></app-header>
 <div class="body-banner body-banner-combo bg-light">
-        <div class="inner-search">
-                <div class="col-md-6 offset-md-3">
-                    <div class="form-group">
-                        <div class="input-group mb-2 rounded-pill search-input">
-                            <div class="input-group-prepend  width100 ">
-                                <div class="input-group-text bg-info text-dark pro-search" (click)="getSearchList(searchText)">Search </div>
-                            </div>
-                            <input type="text" [(ngModel)]="searchText" class="form-control" id="nombre" name="nombre" placeholder="Search Product" required>
-                        </div>
-                        <a class="resend-btn subscribe text-dark" href="javascript:void(0);">Subscribe</a>
-                    </div>
-                </div>
-                <a href="#">
-                <img alt="" class="img-fluid logo-small" src="assets/img/logo.png">
-                </a>
-            </div>
-    <div class="col-md-12">
+  <div class="inner-search">
+    <div class="col-md-6 offset-md-3">
+      <div class="form-group">
+        <div class="input-group mb-2 rounded-pill search-input">
+          <div class="input-group-prepend  width100 ">
+            <div class="input-group-text bg-info text-dark pro-search" style="cursor: default;">Search </div>
+          </div>
+          <input type="text" [(ngModel)]="searchText" class="form-control" id="nombre" name="nombre"
+            placeholder="Search Product" required>
+        </div>
+        <a class="resend-btn subscribe text-dark" href="javascript:void(0);" (click)="getSearchList(searchText)">Subscribe</a>
+      </div>
+    </div>
+    <a href="#">
+      <img alt="" class="img-fluid logo-small" src="assets/img/logo.png">
+    </a>
+  </div>
+  <div class="col-md-12">
+    <div class="row">
+
+      <div class="col-md-12 ">
+
         <div class="row">
 
-            <div class="col-md-12 ">
-                
-                <div class="row">
-                    
-                    <div class="col-md-12 pading-top-sec2">
-                        <div class="row">
-                            <!-- <div class="col-md-3">
+          <div class="col-md-12 pading-top-sec2">
+            <div class="row">
+              <!-- <div class="col-md-3">
                 <app-sidebar-userdetails></app-sidebar-userdetails>
               </div> -->
-                            <div class="col-md-9 offset-md-2">
-                                <div class="shopping-veg">
-                                    <h2>Search</h2>
-                                    <div class="row" *ngIf="visibleKey">
+              <div class="col-md-9 offset-md-2">
+                <div class="shopping-veg">
+                  <h2>Search</h2>
+                  <div class="row" *ngIf="visibleKey">
 
-                                        <div class="col-md-4 pro-box" *ngFor="let product of allProductList">
-                                            <div class="card-box">
-                                                <div class="row">
-                                                    <div class="col-md-5">
-                                                        <span>{{product.name}}</span>
-                                                        <a class="veg" *ngIf="product.product_stock > 5" href="javascript:void(0);">Available</a>
-                                                        <a class="limited" *ngIf="product.product_stock > 0 && product.product_stock < 6" href="javascript:void(0);">Limited</a>
-                                                        <a class="sold" *ngIf="product.product_stock < 1" href="javascript:void(0);">Sold Out</a>
-                                                    </div>
-                                                    <div class="col-md-7 img-btm">
-                                                        <div class="heart-wishlist">
+                    <div class="col-md-4 pro-box" *ngFor="let product of allProductList">
+                      <div class="card-box">
+                        <div class="row">
+                          <div class="col-md-5">
+                            <span>{{product.name}}</span>
+                            <a class="veg" *ngIf="product.product_stock > 5" href="javascript:void(0);">Available</a>
+                            <a class="limited" *ngIf="product.product_stock > 0 && product.product_stock < 6"
+                              href="javascript:void(0);">Limited</a>
+                            <a class="sold" *ngIf="product.product_stock < 1" href="javascript:void(0);">Sold Out</a>
+                          </div>
+                          <div class="col-md-7 img-btm">
+                            <div class="stock-price-change">
 
-                                                            <i class="fa fa-heart not-favrate" *ngIf="product.whishlist == null && this.userId>0" aria-hidden="true" (click)="addWishList(product.id)"></i>
-                                                            <i class="fa fa-heart not-favrate" *ngIf="product.whishlist == null && !this.userId" aria-hidden="true" (click)="gotoPage()"></i>
-                                                            <i class="fa fa-heart not-favrate favrate" *ngIf="product.whishlist != null" aria-hidden="true"></i>
-                                                        </div>
-                                                        <img style="cursor:pointer;" (click)="gotoProductDetails(product.id);" class="img-fluid" [src]="product.image_small != ''? imageBaseUrl+ product.image_small : 'assets/imgs/no-image.png'">
-                                                        <a class="price" href="javascript:void(0);"><span>{{product.market_price}} /
-                                {{product.quantity_count}} {{product.unit}}</span><span> Price</span></a>
-                                                        <a class="language" href="javascript:void(0);"><span>{{product.price}} /
-                                {{product.quantity_count}} {{product.unit}}</span><span> Our Price</span></a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-4" class="error-msg" *ngIf="allProductList.length==0"><span>No recors found</span></div>
-
-                                    </div>
-
-                                </div>
+                              <button (click)="gotoPriceTrend(product.id)" class="price-trend-up"
+                                *ngIf="product.price_status==1">
+                                <i class="fa fa-arrow-up" aria-hidden="true"></i>
+                              </button>
+                              <button (click)="gotoPriceTrend(product.id)" class="price-trend-down"
+                                *ngIf="product.price_status==2">
+                                <i class="fa fa-arrow-down" aria-hidden="true"></i>
+                              </button>
+                              <button (click)="gotoPriceTrend(product.id)" class="price-trend-same"
+                                *ngIf="product.price_status==3">
+                                <i class="fa fa-arrows-h" aria-hidden="true"></i>
+                              </button>
                             </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <app-sidebar-button></app-sidebar-button>
+                            <div class="heart-wishlist">
 
-    <app-sidebar-menu></app-sidebar-menu>
+                              <i class="fa fa-heart not-favrate" *ngIf="product.whishlist == null && this.userId>0"
+                                aria-hidden="true" (click)="addWishList(product.id)"></i>
+                              <i class="fa fa-heart not-favrate" *ngIf="product.whishlist == null && !this.userId"
+                                aria-hidden="true" (click)="gotoPage()"></i>
+                              <i class="fa fa-heart not-favrate favrate" *ngIf="product.whishlist != null"
+                                aria-hidden="true"></i>
+                            </div>
+                            <img style="cursor:pointer;" (click)="gotoProductDetails(product.id);" class="img-fluid"
+                              [src]="product.image_small != ''? imageBaseUrl+ product.image_small : 'assets/imgs/no-image.png'">
+                            <a class="price" href="javascript:void(0);"><span>{{product.market_price}} /
+                                {{product.quantity_count}} {{product.unit}}</span><span> Price</span></a>
+                            <a class="language" href="javascript:void(0);"><span>{{product.price}} /
+                                {{product.quantity_count}} {{product.unit}}</span><span> Our Price</span></a>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-md-4" class="error-msg" *ngIf="allProductList.length==0"><span>No records
+                        found</span></div>
+
+                  </div>
+
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <app-sidebar-button></app-sidebar-button>
+
+  <app-sidebar-menu></app-sidebar-menu>
 </div>

@@ -31,14 +31,14 @@ export class RecipeComponent implements OnInit {
   visible: boolean;
   searchText:any;
   isPagination:number;
-  selectedLanguage:string='Bengali';
-  selectedHabbit:string='veg';
-  selectedTime:string='0';
+  selectedLanguage:string='';
+  selectedHabbit:string='';
+  selectedTime:string='';
+  selectedFood:string='';
   ethencityList:any =[];
   habbitList:any =[];
   foodList:any=[];
   timeList:any=[];
-
   constructor(
     private router: Router,
     private route: ActivatedRoute,
@@ -117,6 +117,7 @@ export class RecipeComponent implements OnInit {
   }
 
   recipeSearch(searchtxt) {
+  
     this.searchText = searchtxt;
     this.proRecipeList = [];
     this.productService.getSearchRecipeList(this.searchText).subscribe(
@@ -131,8 +132,10 @@ export class RecipeComponent implements OnInit {
     )
   }
 
-  filterRecipe() {
-    this.productService.getFilterRecipeList(this.selectedLanguage,this.selectedHabbit,this.selectedTime).subscribe(
+  filterRecipe(language,habbit,food,time) {
+   // alert(language);
+    
+    this.productService.getFilterRecipeList(language,habbit,time,food).subscribe(
       res => {
         console.log("Filter Recipe List==>",res);
         this.proRecipeList = res['result'];
@@ -190,6 +193,21 @@ export class RecipeComponent implements OnInit {
         this.proRecipeList=[];
       }
     )
+  }
+
+  clearFilterRecipe() {
+
+    this.selectedLanguage='';
+    this.selectedHabbit='';
+    this.selectedTime='';
+    this.selectedFood='';
+    this.proId = this.route.snapshot.params['id'];
+    if (!this.proId) {
+      this.allrecipeList();
+    }
+    else {
+      this.recipeById(this.proId);
+    }
   }
 
 }

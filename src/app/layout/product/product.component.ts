@@ -27,6 +27,7 @@ export class ProductComponent implements OnInit {
   searchText:any;
   isPagination:number;
   visible: boolean;
+  category_image:any;
   constructor(
     private router: Router,
     private route: ActivatedRoute,
@@ -53,6 +54,7 @@ export class ProductComponent implements OnInit {
       res => {
         console.log("Product List==>",res);
         this.categoryBannerImage = res['category_banner_image'];
+        this.category_image = res['category_image'];
         this.catName = res['category_name'];
         ;
         this.productResultNext = res['result']['next'];

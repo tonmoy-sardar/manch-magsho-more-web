@@ -30,6 +30,7 @@ export class WelcomeHomeComponent implements OnInit {
   totalQuaterSaving:any;
   isQuaterShow:any;
   catSpendPrice:any;
+  totalSaving:any;
   constructor(
     public productService:ProductService,
     private router: Router,
@@ -43,8 +44,9 @@ export class WelcomeHomeComponent implements OnInit {
        //alert(new Date().getMonth())
        this.lastMonth =  new Date().getMonth() -1;
       // alert(this.lastMonth);
-       this.getLastMonthSpending(this.lastMonth);
+      // this.getLastMonthSpending(this.lastMonth);
        this.getTotalSpending(12);
+       this.getLastMonthSpending();
 
   }
   getProList() {
@@ -114,54 +116,70 @@ export class WelcomeHomeComponent implements OnInit {
    
   }
 
-  getLastMonthSpending(monthid) {
-    this.productService.getSpendingPatternMonthWise(this.userId,monthid).subscribe(
+  // getLastMonthSpending(monthid) {
+  //   this.productService.getSpendingPatternMonthWise(this.userId,monthid).subscribe(
+  //     res => {
+  //       console.log("Spending Parretn==>", res);
+  //       this.spendingPattern = res['result'];
+  //       this.visibleKey = true;
+  //       var categoryNames: any = [];
+  //       var categorySpending: any = [];
+  //       var categorySavingMonthly :any =[];
+  //       this.spendingPattern.forEach(x => {
+  //         categoryNames.push(x.product_category_name);
+  //         // categorySpending.push(x.order_details.total_price_val != null ? x.order_details.total_price_val : 0)
+  //         this.catSpendPriceMonthly = parseFloat(x.order_details.total_price_val);
+  //         if(isNaN(this.catSpendPriceMonthly)) {
+  //           this.catSpendPriceMonthly =0;
+  //         }
+  //         categorySpending.push(this.catSpendPriceMonthly);
+
+  //         // Saving monthly
+  //         this.catSavingPriceMonthly = parseFloat(x.order_details.saving_price_cost_val);
+  //         if(isNaN(this.catSavingPriceMonthly)) {
+  //           this.catSavingPriceMonthly =0;
+  //         }
+  //         categorySavingMonthly.push(this.catSavingPriceMonthly);
+  //       })
+  //       console.log(categoryNames);
+  //       console.log(categorySpending);
+  //       console.log("Spending month wise ==>",categorySpending);
+  //       // For Monthly Spending 
+  //       console.log("Quater Spending ==>",categorySpending);
+  //       const monthlySum = categorySpending.reduce((partial_sum, a) => partial_sum + a); 
+  //       this.totalMonthlySum  = monthlySum;
+  //       //alert( this.totalMonthlySum );
+  //       //For Monthly Savings 
+  //      const monthlysavings = categorySavingMonthly.reduce((partial_sum, a) => partial_sum + a); 
+  //      this.totalMonthlySaving  = monthlysavings;
+  //      console.log("Yearly Savings==>",this.totalMonthlySaving); 
+  //       // this.doughnutChartLabelsMonthly = categoryNames;
+  //       // this.doughnutChartDataMonthly = categorySpending;
+  //       // this.data = {
+  //       //   labels: this.doughnutChartLabels,
+  //       //   datasets: [
+  //       //     {
+  //       //       data: this.doughnutChartData
+  //       //     }]
+
+  //       // };
+  //       console.log(this.spendingPattern);
+  //     },
+  //     error => {
+  //     }
+  //   )
+  // }
+
+  getLastMonthSpending() {
+    this.productService.savingsList(this.userId).subscribe(
       res => {
-        console.log("Spending Parretn==>", res);
-        this.spendingPattern = res['result'];
-        this.visibleKey = true;
-        var categoryNames: any = [];
-        var categorySpending: any = [];
-        var categorySavingMonthly :any =[];
-        this.spendingPattern.forEach(x => {
-          categoryNames.push(x.product_category_name);
-          // categorySpending.push(x.order_details.total_price_val != null ? x.order_details.total_price_val : 0)
-          this.catSpendPriceMonthly = parseFloat(x.order_details.total_price_val);
-          if(isNaN(this.catSpendPriceMonthly)) {
-            this.catSpendPriceMonthly =0;
-          }
-          categorySpending.push(this.catSpendPriceMonthly);
-
-          // Saving monthly
-          this.catSavingPriceMonthly = parseFloat(x.order_details.saving_price_cost_val);
-          if(isNaN(this.catSavingPriceMonthly)) {
-            this.catSavingPriceMonthly =0;
-          }
-          categorySavingMonthly.push(this.catSavingPriceMonthly);
-        })
-        console.log(categoryNames);
-        console.log(categorySpending);
-        console.log("Spending month wise ==>",categorySpending);
-        // For Monthly Spending 
-        console.log("Quater Spending ==>",categorySpending);
-        const monthlySum = categorySpending.reduce((partial_sum, a) => partial_sum + a); 
-        this.totalMonthlySum  = monthlySum;
-        //alert( this.totalMonthlySum );
-        //For Monthly Savings 
-       const monthlysavings = categorySavingMonthly.reduce((partial_sum, a) => partial_sum + a); 
-       this.totalMonthlySaving  = monthlysavings;
-       console.log("Yearly Savings==>",this.totalMonthlySaving); 
-        // this.doughnutChartLabelsMonthly = categoryNames;
-        // this.doughnutChartDataMonthly = categorySpending;
-        // this.data = {
-        //   labels: this.doughnutChartLabels,
-        //   datasets: [
-        //     {
-        //       data: this.doughnutChartData
-        //     }]
-
-        // };
-        console.log(this.spendingPattern);
+        console.log(res);
+        this.totalMonthlySum = res['result']['last_month_saving'];
+        this.totalSaving = res['result']['total_saving'];
+        // this.start = 0;
+        // this.end=1;
+        // this.allProductList = res['result'];
+        // console.log(this.allProductList);
       },
       error => {
       }
