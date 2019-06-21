@@ -1137,8 +1137,11 @@ figure img {
 }
 
 .bg-light {
-  background: #fff;
+  background: #ffffff  !important;
   width: 100%;
+}
+.bg-light {
+  background-color: #ffffff !important;
 }
 
 .text-primary p {
@@ -1612,7 +1615,7 @@ ul.list-style {
   color: #000;
   line-height: 15px;
   text-align: center;
-  margin: 1px 0px 37px 0px;
+  margin: -5px 0px 37px 0px;
   padding: 19px 0px;
   background: #ffffff;
   position: fixed;
