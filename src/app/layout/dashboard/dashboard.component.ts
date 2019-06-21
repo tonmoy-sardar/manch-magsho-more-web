@@ -9,12 +9,15 @@ import { Router } from '@angular/router';
 })
 export class DashboardComponent implements OnInit {
   searchText:any;
+  userId:any;
   constructor(
     public router:Router
   ) { }
 
   ngOnInit() {
     this.searchText ='';
+    this.userId = +localStorage.getItem('userId');
+  //  alert(this.userId);
   }
 
   gotoPage(page) {

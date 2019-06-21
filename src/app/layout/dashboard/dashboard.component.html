@@ -19,9 +19,14 @@
                                     <div (click)="gotoPage('category');" class="shop-box">
                                         <h3>Ala Carte</h3>
                                     </div>
-                                    <div (click)="gotoPage('order');" class="shop-box">
+                                    <div *ngIf="userId !=0" (click)="gotoPage('order');" class="shop-box">
                                         <h3>Repeat Order</h3>
                                     </div>
+                                    <div *ngIf="userId ==0" (click)="gotoPage('home');" class="shop-box">
+                                            <h3>Repeat Order</h3>
+                                        </div>
+
+                                    
                                     <div (click)="gotoPage('combooffer');" class="shop-box">
                                         <h3>Combo Offers</h3>
                                     </div>
