@@ -47,6 +47,7 @@ const routes: Routes = [
       { path: 'ourservice', loadChildren: './ourservice/ourservice.module#OurserviceModule' },
       { path: 'whyus', loadChildren: './whyus/whyus.module#WhyusModule' },
       { path: 'mobilescreen', loadChildren: './mobilescreen/mobilescreen.module#MobilescreenModule' },
+      { path: 'mobilescreen2', loadChildren: './mobilescreen2/mobilescreen2.module#Mobilescreen2Module' },
     ]
   }
 ];
