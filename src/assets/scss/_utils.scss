@@ -3078,6 +3078,63 @@ span.total-cart {
     padding-bottom: 48px;
     margin-top: 19px;
 }
+.img-mobile{
+  margin: 0px 0px;
+  padding: 0px 0px;
+  float: left;
+  width: 90%;
+}
+.img-mobile img{
+  width: 100%;
+}
+.welcome-sec_new{
+  margin: 0px 0px;
+  padding: 0px 0px;
+  float: left;
+  width: auto;
+}
+.welcome-sec_new h2{
+  text-align: center;
+  display: block;
+  color: #707070;
+  line-height: 13px;
+  font-size: 48px;
+  font-weight: 600;
+  margin: 0px 0px 0px -146px;
+  padding: 0px 0px;
+  float: left;
+  width: 100%;
+}
+.img-mobile_logo{
+  margin:35px 0px 0px -123px;
+  padding: 0px 0px;
+  float: left;
+  width: 90%;
+}
+.img-mobile_logo img{
+  width: 100%;
+}
+
+.img-mobile_logo2{
+  margin:-16px 0px 0px 0px;
+  padding: 0px 0px;
+  float: left;
+  width: 100%;
+}
+.img-mobile_logo2 img{
+  width: 100%;
+}
+.mobilescreen3{}
+.mobilescreen3 h2{
+  text-align: center;
+  margin: 0px 0px;
+  padding: 0px 0px;
+  float: left;
+  width: 100%;
+}
+.shopping-user {
+  margin-top: 8%;
+}
 
 
 // .product-todays-special {
@@ -3092,6 +3149,21 @@ span.total-cart {
 
 // / Medium Devices, Desktops /
 @media only screen and (max-width: 992px) {
+  .img-mobile_logo {
+    margin: 37px 0px 0px -76px;
+    width: 100%;
+    }
+  .welcome-sec_new h2 {
+      line-height: 13px;
+      font-size: 44px;
+      margin: 0px 0px 0px -89px;
+      width: 17%;
+  }
+  .welcome-sec_new {
+    margin: 0px 0px 0px 26px;
+    width: 100%; 
+}
+
   .lady-banner {
     background-size: cover;
   }
@@ -3156,12 +3228,57 @@ span.total-cart {
     bottom: 0;
     height: 37px;
   }
+
+
 }
 
 @media only screen and (max-width: 767px) {}
 
 // / Extra Small Devices, Phones / 
 @media only screen and (max-width: 480px) {
+  .img-mobile {
+    margin: 0% 0px 0px -100px;
+    width: 100%;
+  }
+  .img-mobile_logo {
+    margin: 28px 0px 0px -61px;
+    width: 80%;
+  }
+  .welcome-sec_new {
+    margin: -999px 0px 111px 140px;
+    border: #cccc 0px solid;
+    width: 213px;  
+  }
+  .welcome-sec_new h2 {
+    font-size: 26px;
+    margin: 0px 0px 0px 42px;
+   }
+
+.img-mobile_logo2 {
+    margin: -33px auto 40px auto;
+    padding: 0px 0px;
+    float: none !important; 
+    width: 160px;
+}
+.mobilescreen3 h2 {
+  margin: 0px 0px 12px 0px;
+}
+.mobilescreen3 .guestimg {
+  width: 90px;
+  height: 90px;
+  margin-top: 15px;
+}
+.mobilescreen3 .guestimg img {
+  width: 60px;
+  height: 60px;
+}
+.mobilescreen3 .shopping-user {
+  margin-top: 0%;
+  padding-bottom: 10% !important;
+}
+
+
+
   .item-box-blog {
     width: 50%;
     margin: 9px auto;
